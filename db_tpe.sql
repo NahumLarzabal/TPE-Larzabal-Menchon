@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-09-2021 a las 03:16:18
+-- Tiempo de generación: 23-09-2021 a las 00:14:06
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -28,21 +28,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `autores` (
-  `id` int(11) NOT NULL,
-  `autor` varchar(100) NOT NULL,
-  `libro` varchar(255) NOT NULL,
-  `descripcion` varchar(255) DEFAULT NULL,
-  `precio` double DEFAULT NULL,
-  `id_libro` int(11) NOT NULL
+  `id_autor` int(11) NOT NULL,
+  `nombre_autor` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Volcado de datos para la tabla `autores`
+-- Estructura de tabla para la tabla `categorias`
 --
 
-INSERT INTO `autores` (`id`, `autor`, `libro`, `descripcion`, `precio`, `id_libro`) VALUES
-(2, 'pepe la flor', 'tirar un pepe', 'se cuenta de la forma de rajar los lompas', 27890, 5),
-(3, 'pepe la flor 2', 'tirar un pepe con olor', 'se cuenta de la forma de rajar los lompas parte 2', 47890, 2);
+CREATE TABLE `categorias` (
+  `id_categorias` int(11) NOT NULL,
+  `nombre_categoria` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -51,23 +50,13 @@ INSERT INTO `autores` (`id`, `autor`, `libro`, `descripcion`, `precio`, `id_libr
 --
 
 CREATE TABLE `libros` (
-  `id_libro` int(11) NOT NULL,
-  `genero` varchar(100) NOT NULL
+  `id` int(11) NOT NULL,
+  `titulo` varchar(100) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `precio` double DEFAULT NULL,
+  `id_categoria` int(11) NOT NULL,
+  `id_autor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `libros`
---
-
-INSERT INTO `libros` (`id_libro`, `genero`) VALUES
-(1, 'Fantasia'),
-(2, 'Novela'),
-(3, 'Cuento'),
-(4, 'Ciencia Ficcion'),
-(5, 'Terror'),
-(6, 'Aventura'),
-(7, 'Leyenda'),
-(8, 'Magia');
 
 --
 -- Índices para tablas volcadas
@@ -77,14 +66,21 @@ INSERT INTO `libros` (`id_libro`, `genero`) VALUES
 -- Indices de la tabla `autores`
 --
 ALTER TABLE `autores`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_id_libro` (`id_libro`);
+  ADD PRIMARY KEY (`id_autor`);
+
+--
+-- Indices de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id_categorias`);
 
 --
 -- Indices de la tabla `libros`
 --
 ALTER TABLE `libros`
-  ADD PRIMARY KEY (`id_libro`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_id_categoria` (`id_categoria`),
+  ADD KEY `FK_id_autor` (`id_autor`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -94,23 +90,30 @@ ALTER TABLE `libros`
 -- AUTO_INCREMENT de la tabla `autores`
 --
 ALTER TABLE `autores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_autor` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id_categorias` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `autores`
+-- Filtros para la tabla `libros`
 --
-ALTER TABLE `autores`
-  ADD CONSTRAINT `autores_ibfk_1` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id_libro`);
+ALTER TABLE `libros`
+  ADD CONSTRAINT `libros_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categorias`),
+  ADD CONSTRAINT `libros_ibfk_2` FOREIGN KEY (`id_autor`) REFERENCES `autores` (`id_autor`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

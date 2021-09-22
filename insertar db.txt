@@ -1,0 +1,18 @@
+CATEGORIAS // insertar
+
+INSERT INTO `categorias` (`id_categoria`, `categoria`) VALUES (NULL, 'Novela')
+
+LIBROS // insertar
+
+INSERT INTO `libros` (`id`, `autor`, `nombre_libro`, `descripcion`, `precio`, `id_categoria`) VALUES (NULL, 'José Mauro de Vasconcelos', , '1178', '1');
+
+
+
+LIBROS // MODIFICAR
+
+UPDATE `libros` SET `descripcion` = 'Las Crónicas de Narnia: El príncipe Caspian (título original en inglés: The Chronicles of Narnia: Prince Caspian).' WHERE `libros`.`id` = 2;
+
+
+LIBROS // ELIMINAR
+"DELETE FROM `libros` WHERE `libros`.`id` = 3"?
+

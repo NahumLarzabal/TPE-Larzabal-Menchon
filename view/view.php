@@ -11,6 +11,5 @@ class View{
         $this->smarty->assign('titulo','Titulo de Tarea');
         $this->smarty->assign('tasks',$tasks);
         $this->smarty->display('templates/taskList.tpl');
-       
     }
 }

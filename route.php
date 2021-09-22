@@ -12,6 +12,7 @@ if (!empty($_GET['action'])) {
     $action = 'home'; // acción por defecto si no envían
 }
 
+
 $params = explode('/', $action);
 
 //$taskController = new TaskController();

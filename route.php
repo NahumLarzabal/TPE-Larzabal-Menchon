@@ -15,13 +15,13 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 
-//$taskController = new TaskController();
+$controller = new controller();
 
 
 // determina que camino seguir según la acción
  switch ($params[0]) {
      case 'home': 
-         $taskController->showHome(); 
+         $controller->showHome(); 
         break;
 //     case 'createTask': 
 //         $taskController->createTask(); 

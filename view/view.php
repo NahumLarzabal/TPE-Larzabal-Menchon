@@ -7,9 +7,12 @@ class View{
        $this->$smarty = new Smarty();
     }
 
-    function showTasks($tasks){
+    function showTasks($libros){
         $this->smarty->assign('titulo','Titulo de Tarea');
-        $this->smarty->assign('tasks',$tasks);
-        $this->smarty->display('templates/taskList.tpl');
+        //$this->smarty->assign('autor',$libros);
+       //$this->smarty->display('templetes\lista.tpl');
+    }
+    function showHomeLocation(){
+        header("Location: ".BASE_URL."home");
     }
 }

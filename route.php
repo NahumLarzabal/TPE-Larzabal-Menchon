@@ -1,5 +1,5 @@
 <?php
-require_once "Controller/TaskController.php";
+require_once "controller/controller.php";
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -19,10 +19,10 @@ $params = explode('/', $action);
 
 
 // determina que camino seguir según la acción
-// switch ($params[0]) {
-//     case 'home': 
-//         $taskController->showHome(); 
-//         break;
+ switch ($params[0]) {
+     case 'home': 
+         $taskController->showHome(); 
+        break;
 //     case 'createTask': 
 //         $taskController->createTask(); 
 //         break;
@@ -35,10 +35,10 @@ $params = explode('/', $action);
 //     case 'viewTask': 
 //         $taskController->viewTask($params[1]); 
 //         break;
-//     default: 
-//         echo('404 Page not found'); 
-//         break;
-// }
+    default: 
+         echo('404 Page not found'); 
+         break;
+ }
 
 
 ?>

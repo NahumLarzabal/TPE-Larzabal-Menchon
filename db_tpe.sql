@@ -43,7 +43,7 @@ INSERT INTO `categorias` (`id_categoria`, `categoria`) VALUES
 (4, 'Aventura'),
 (5, 'Policia'),
 (6, 'Suspenso'),
-(7, 'Fantancia'),
+(7, 'Fantansia'),
 (8, 'Magia'),
 (9, 'Cuento'),
 (10, 'Leyenda'),

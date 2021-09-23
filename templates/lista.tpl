@@ -17,7 +17,7 @@
             <ul class="list-group">
                 {foreach from=$libros item=$libro}
                     <li class="list-group-item">
-                            <a href="viewTask/{$libro->id}">{$libro->autor}</a> | {$libro->descripcion|truncate:500}
+                            <a href="viewTask/{$libro->id}">{$libro->nombre_libro}</a> | {$libro->descripcion|truncate:500} | {$libro->autor} | {$libro->precio}
                             <a class="btn btn-danger" href="deleteTask/{$libro->id}">Borrar</a>
                             
                                 <a class="btn btn-success" href="updateTask/{$libro->id}">Done</a>

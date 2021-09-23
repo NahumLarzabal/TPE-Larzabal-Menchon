@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-09-23 03:18:07
+/* Smarty version 3.1.39, created on 2021-09-23 03:26:17
   from 'C:\xampp\htdocs\web2\TPE\templates\detalle.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_614bd5cf9cf572_47761722',
+  'unifunc' => 'content_614bd7b9bf2807_86699208',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c3047e007d380a85e42ef529dbb101b94cf263ff' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\TPE\\templates\\detalle.tpl',
-      1 => 1632359837,
+      1 => 1632360375,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_614bd5cf9cf572_47761722 (Smarty_Internal_Template $_smarty_tpl) {
+function content_614bd7b9bf2807_86699208 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="container">
     <h1 class="mb-4"><?php echo $_smarty_tpl->tpl_vars['libro']->value->nombre_libro;?>

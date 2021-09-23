@@ -10,7 +10,7 @@ class TaskView{
     function showTasks($libros){
         $this->smarty->assign('titulo','Titulo de Tarea');
         $this->smarty->assign('libros', $libros);
-        $this->smarty->display('templates/lista.tpl');
+        $this->smarty->display('templates/form_table.tpl');
     }
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");

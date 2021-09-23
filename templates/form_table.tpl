@@ -1,3 +1,4 @@
+{include file='templates/header.tpl'}
 <div class="container">
 
     <div class="row mt-4">
@@ -31,3 +32,4 @@
     </div>
 
 </div>
+{include file='templates/footer.tpl'}

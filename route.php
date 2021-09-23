@@ -1,5 +1,5 @@
 <?php
-require_once "./controller/controller.php";
+require_once "./LibroController/LibroController.php";
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -15,27 +15,28 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 
-$taskController = new TaskController();
+$libroController = new LibroController();
 
 
 // determina que camino seguir según la acción
  switch ($params[0]) {
      case 'home': 
-        $taskController->viewGenero(); 
-        $taskController->showHome();
-        
+        $libroController->showHome();
         break;
-//     case 'createTask': 
-//         $taskController->createTask(); 
-//         break;
-//     case 'deleteTask': 
-//         $taskController->deleteTask($params[1]); 
-//         break;
-//     case 'updateTask': 
-//         $taskController->updateTask($params[1]); 
-//         break;
-       case 'viewTask': 
-           $taskController->viewTask($params[1]); 
+     case 'createLibro': 
+         $libroController->createLibro(); 
+         break;
+     case 'deleteLibro': 
+         $libroController->deleteLibro($params[1]); 
+         break;
+     case 'editLibro': 
+         $libroController->editLibro($params[1]); 
+         break;
+         case 'agregarlibro':
+            $libroController->agregarlibro();
+            break;
+       case 'viewLibro': 
+           $libroController->viewLibro($params[1]); 
            break;
     default: 
          echo('404 Page not found'); 

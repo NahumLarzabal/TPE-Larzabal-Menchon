@@ -15,13 +15,13 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 
-$controller = new controller();
+$taskController = new TaskController();
 
 
 // determina que camino seguir según la acción
  switch ($params[0]) {
      case 'home': 
-         $controller->showHome(); 
+         $taskController->showHome(); 
         break;
 //     case 'createTask': 
 //         $taskController->createTask(); 
@@ -32,9 +32,9 @@ $controller = new controller();
 //     case 'updateTask': 
 //         $taskController->updateTask($params[1]); 
 //         break;
-//     case 'viewTask': 
-//         $taskController->viewTask($params[1]); 
-//         break;
+       case 'viewTask': 
+           $taskController->viewTask($params[1]); 
+           break;
     default: 
          echo('404 Page not found'); 
          break;

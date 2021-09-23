@@ -2,18 +2,22 @@
 require_once "./model/model.php";
 require_once "./view/view.php";
 
-class Controller{
+class TaskController{
 
     private $model;
     private $view;
 
     function __construct(){
-        $this->model = new Model();
-        $this->view = new View();
+        $this->model = new TaskModel();
+        $this->view = new TaskView();
     }
 
     function showHome(){
-        $libros = $this->model->getLibros();
+        $libros = $this->model->getTasks();
         $this->view->showTasks($libros);
+    }
+    function viewTask($id){
+        $libro = $this->model->getTask($id);
+        $this->view->showTask($libro);
     }
 }

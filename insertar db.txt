@@ -10,7 +10,7 @@ INSERT INTO `libros` (`id`, `autor`, `nombre_libro`, `descripcion`, `precio`, `i
 
 LIBROS // MODIFICAR
 
-UPDATE `libros` SET `descripcion` = 'Las Crónicas de Narnia: El príncipe Caspian (título original en inglés: The Chronicles of Narnia: Prince Caspian).' WHERE `libros`.`id` = 2;
+UPDATE `libros` SET `autor` = 'kakaka', `nombre_libro` = 'pepito', `descripcion` = 'ssadasasdasda', `precio` = '1444', `id_categoria` = '5' WHERE `libros`.`id` = 5;
 
 
 LIBROS // ELIMINAR

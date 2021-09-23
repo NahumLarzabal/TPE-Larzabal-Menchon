@@ -21,7 +21,9 @@ $taskController = new TaskController();
 // determina que camino seguir según la acción
  switch ($params[0]) {
      case 'home': 
-         $taskController->showHome(); 
+        $taskController->viewGenero(); 
+        $taskController->showHome();
+        
         break;
 //     case 'createTask': 
 //         $taskController->createTask(); 

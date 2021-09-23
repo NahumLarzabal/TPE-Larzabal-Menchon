@@ -8,7 +8,7 @@ class TaskModel{
     }
 
     function getTasks(){
-        $sentencia = $this->db->prepare( "select * from libros");
+        $sentencia = $this->db->prepare( "select libros.autor, libros.nombre_libro, libros.precio, categorias.categoria from libros join categorias on libros.id_categoria = categorias.id_categoria");
         $sentencia->execute();
         $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $tareas;
@@ -18,5 +18,11 @@ class TaskModel{
         $sentencia->execute(array($id));
         $tarea = $sentencia->fetch(PDO::FETCH_OBJ);
         return $tarea;
+    }
+    function getGenero(){
+        $sentencia = $this->db->prepare( "select categorias.categoria from categorias");
+        $sentencia->execute();
+        $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $tareas;
     }
 }

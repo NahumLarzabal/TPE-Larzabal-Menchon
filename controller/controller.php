@@ -20,4 +20,8 @@ class TaskController{
         $libro = $this->model->getTask($id);
         $this->view->showTask($libro);
     }
+    function viewGenero(){
+        $categorias = $this->model->getGenero();
+        $this->view->showGenero($categorias);
+    }
 }

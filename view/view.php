@@ -19,4 +19,9 @@ class TaskView{
         $this->smarty->assign('libro', $libro);
         $this->smarty->display('templates/detalle.tpl');
      }
+
+     function showGenero($categorias){
+         $this->smarty->assign('categorias', $categorias);
+         $this->smarty->display('templates/form_genero.tpl');
+     }
 }

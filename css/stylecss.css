@@ -147,7 +147,7 @@ div.title-table{
     margin-bottom: 20px;
 }
 div.main-table, div.title-table{
-    padding: 0px 50px 0px 50px;
+    margin: 0px 50px 0px 50px;
 }
 
 div.main-table ul li.list-group-item, div.title-table ul li.list-group-item{

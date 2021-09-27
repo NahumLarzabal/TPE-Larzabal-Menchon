@@ -13,24 +13,6 @@
             </div>    
         </div>    
         <div class="form-create-libro">
-            <!-- <form class="form-alta" action="createLibro" method="post">
-                <div class="form-top">
-                    <input placeholder="nombre del libro" type="text" name="nombre_libro" id="nombre_libro" required>
-                    <input placeholder="autor" type="text" name="autor" id="autor">
-                    <input placeholder="precio" type="number" name="precio" id="precio">
-                </div>
-                <div>
-
-                    <select name="id_categoria" id="id_categoria">
-                        {foreach from=$categorias  item=$genero}
-                        <option value={$genero->id_categoria}>{$genero->categoria}</option>
-                        {/foreach}
-                    </select>
-                </div>
-                    <textarea placeholder="descripcion" type="text" name="description" id="description"> </textarea>
-                <input type="submit" class="btn btn-primary" value="Guardar">
-            </form> -->
-
             <form class="form-alta" action="createLibro" method="post">
                 <div class="mb-3">
                   <label class="form-label">Titulo del libro</label>

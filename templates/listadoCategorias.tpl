@@ -4,7 +4,7 @@
         <div class="new-libro">
             <h1>Listado de categorias</h1>
             <div class="btn-libro">
-                <a  href="agregarCategoria">
+                <a  href="formCategoria">
                 <button class="btn btn-primary" id="btn-list-libro">Nueva Categoria</button> 
                 </a>
                 <a  href="editcategoria" >

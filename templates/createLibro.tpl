@@ -16,26 +16,32 @@
             <form class="form-alta" action="createLibro" method="post">
                 <div class="mb-3">
                   <label class="form-label">Titulo del libro</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" name="nombre_libro" id="nombre_libro">
                   <div id="emailHelp" class="form-text">Maximo 180 caracteres.</div>
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Autor del libro</label>
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control"name="autor" id="autor">
                   <div id="emailHelp" class="form-text">Nombre - Apellido.</div>
                 </div>
                 <div class="form-genero">
                     <label class="form-label">Genero del libro</label>
-                    <select class="form-select">
+                    <select class="form-select" name="id_categoria" id="id_categoria">
                         {foreach from=$categorias  item=$genero}
-                        <option value={$genero->id_categoria}>{$genero->categoria}</option>
+                        <option value={$genero->id_categoria} >{$genero->categoria}</option>
                         {/foreach}
                     </select>
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Descripcion</label>
-                  <textarea type="text" class="form-control" id="exampleInputPassword1"></textarea>
+                  <textarea type="text" class="form-control" id="descripcion" name="descripcion"></textarea>
+                  {* exampleInputPassword1  *}
                   <div id="emailHelp" class="form-text">Maximo 500 caracteres.</div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Precio</label>
+                  <input type="number" class="form-control" id="precio" name="precio">
+                  <div id="emailHelp" class="form-text">Precio en $.</div>
                 </div>
                 <div class="form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">

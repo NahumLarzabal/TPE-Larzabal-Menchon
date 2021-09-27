@@ -49,14 +49,14 @@ class LibroModel{
         $sentencia = $this->db->prepare("INSERT INTO libros (id,precio ) VALUES (?,?)");
         $sentencia->execute(array($id, $precio ));
     }
-    function getCategorias(){
-        $sentencia = $this->db->prepare( "select * from categorias");
-        $sentencia->execute();
-        $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $tareas;
+   
+    function insertCategoria($id_categoria,$categoria){
+        $sentencia = $this->db->prepare("INSERT INTO categorias (id_categoria,categoria) VALUES (?,?)");
+        $sentencia->execute(array($id_categoria,$categoria));
     }
-    function insetCategoria(){
-        // $sentencia = $this->db->prepare("INSERT INTO categorias() VALUES (?)");
-        // $sentencia->execute(array($id,$autor,$nombre_libro, $descripcion, $precio, $genero ));
+    function deleteCategoriaFromDB($id){
+        $sentencia = $this->db->prepare("DELETE FROM categorias WHERE categorias.id_categoria = ?");
+        $sentencia->execute(array($id));
     }
+
 }

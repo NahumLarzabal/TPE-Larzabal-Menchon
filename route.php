@@ -38,6 +38,12 @@ $libroController = new LibroController();
     case 'agregarlibro':
         $libroController->agregarlibro();
         break;
+    case 'deleteCategoria': 
+        $libroController->deleteCategoria($params[1]); 
+        break;
+    case 'formCategoria':
+        $libroController->formCategoria();
+        break;
     case 'agregarCategoria':
         $libroController->agregarCategoria();
         break;

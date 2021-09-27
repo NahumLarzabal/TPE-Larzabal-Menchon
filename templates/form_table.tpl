@@ -50,7 +50,7 @@
                 <ul class="list-group">
                     {foreach from=$libros item=$libro}
                         <li class="list-group-item">
-                                <span>{$libro</span>
+                                <span>{$libro->id}</span>
                                 <a href="viewLibro/{$libro->id}" id="titulo-libro">{$libro->nombre_libro}</a>
                                 <a id="genero-libro">{$libro->categoria|truncate:500}</a> 
                                 <a id="autor-libro">{$libro->autor}</a> 

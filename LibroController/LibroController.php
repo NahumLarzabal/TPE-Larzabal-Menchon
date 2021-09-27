@@ -23,10 +23,10 @@ class LibroController{
     }
  
     function createLibro(){
-        $this->model->insertLibro($_POST[NULL],$_POST['autor'],$_POST['nombre_libro'], $_POST['description'], $_POST['precio'],$_POST['id_categoria']);
+        $this->model->insertLibro($_POST[NULL],$_POST['autor'],$_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'],$_POST['id_categoria']);
         $categorias=$this->model->getGeneros();
         $this->view->agregar($categorias);
-        $this->view->showHomeLocation();
+        $this->view->showLibroLocation();
     }
     function agregarlibro(){
         $categorias=$this->model->getGeneros();
@@ -49,12 +49,19 @@ class LibroController{
     }
     
     function viewCategorias(){
-        $categorias = $this->model->getCategorias();
+        $categorias = $this->model->getGeneros();
         $this->view->showCategorias($categorias);
     }
     
+    function formCategoria(){
+        $this->view->showCategoria();
+    }
     function agregarCategoria(){
-        $categorias=$this->model->getGeneros();
-        $this->view->agregar($categorias);
+        $this->model->insertCategoria($_POST[NULL],$_POST['categoria']);
+        $this->view->showFormCategoriaLocation();
+    }
+    function deleteCategoria($id){
+        $this->model->deleteCategoriaFromDB($id);
+        $this->view->showCategoriasLocation();
     }
 }

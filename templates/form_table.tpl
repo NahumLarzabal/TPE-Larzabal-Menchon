@@ -4,13 +4,22 @@
         <div class="new-libro">
             <h1>{$titulo}</h1>
             <div class="btn-libro">
-                <select type="text" name="filtrado-libros" class="form-select" aria-label="Default select example" placeholder="Indique el genero">
-                    {foreach from=$categorias item=$libro}
-                        <option>
-                            {$libro->categoria|truncate:500}
-                        </option>
-                    {/foreach}
-                </select>
+            <div>
+            <select type="text" name="filtrado-libros" id="filter-table" class="form-select" aria-label="Default select example" >
+                <option selected disabled>Elemento a filtrar</option>
+                <option value="titulo">Titulo</option>
+                <option value="genero">Genero</option>
+                <option value="autor">Autor</option>
+            </select>
+               <input type="titulo" class="invisible" id="select-titulo" placeholder="Filtre por titulo">
+               <input type="autor" class="invisible" id="select-autor" placeholder="Filtre por Autor">
+            <select class="invisible" id="select-genero">
+                {foreach from=$categorias item=$libro}
+                <option>{$libro->categoria|truncate:500}</option>
+                {/foreach}
+            </select>
+            </div>
+                
                 <a>
                 <button href="filtroLibro" class="btn btn-secondary" id="btn-list-libro">Filtrar</button> 
                 </a>

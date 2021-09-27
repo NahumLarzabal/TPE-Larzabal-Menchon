@@ -118,6 +118,10 @@ div.new-libro h1{
     padding-left: 50px;
 }
 
+.select-filtro{
+    display: flex;
+}
+
 div.new-libro button{
     margin: 0px 5px 0px 5px;
 }
@@ -150,9 +154,9 @@ div.main-table, div.title-table{
 
 div.main-table ul li.list-group-item, div.title-table ul li.list-group-item{
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 0.2fr 2fr 1fr 1fr 1fr;
     grid-template-areas:
-    "titulo genero autor precio delete edit";
+    "id titulo genero autor precio delete edit";
 }
 
 #titulo-libro{

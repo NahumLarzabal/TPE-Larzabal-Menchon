@@ -24,23 +24,23 @@ $libroController = new LibroController();
         $libroController->showHome();
         break;
      case 'createLibro': 
-         $libroController->createLibro(); 
-         break;
+        $libroController->createLibro(); 
+        break;
      case 'deleteLibro': 
-         $libroController->deleteLibro($params[1]); 
-         break;
+        $libroController->deleteLibro($params[1]); 
+        break;
      case 'editLibro': 
-         $libroController->editLibro($params[1]); 
-         break;
-         case 'agregarlibro':
-            $libroController->agregarlibro();
-            break;
-       case 'viewLibro': 
-           $libroController->viewLibro($params[1]); 
-           break;
+        $libroController->editLibro($params[1]); 
+        break;
+    case 'agregarlibro':
+        $libroController->agregarlibro();
+        break;
+    case 'viewLibro': 
+        $libroController->viewLibro($params[1]); 
+        break;
     default: 
-         echo('404 Page not found'); 
-         break;
+        echo('404 Page not found'); 
+        break;
  }
 
 

@@ -4,13 +4,16 @@
         <div class="new-libro">
             <h1>{$titulo}</h1>
             <div class="btn-libro">
-                <select type="text" name="filtrado-libros" class="form-select" aria-label="Default select example" placeholder="Indique el genero">
-                    {foreach from=$libros item=$libro}
-                        <option>
-                            {$libro->categoria|truncate:500}
-                        </option>
-                    {/foreach}
+            <div>
+            <select type="text" name="filtrado-libros" id="tableGenero" class="form-select" aria-label="Default select example" placeholder="Indique el genero">
+               
+                <option value="titulo">Titulo</option>
+                <option value="genero"><button id="btnGenero">Genero</button></option>
+                <option value="autor">Autor</option>
                 </select>
+               <input type="text">
+            </div>
+                
                 <a>
                 <button href="filtroLibro" class="btn btn-secondary" id="btn-list-libro">Filtrar</button> 
                 </a>

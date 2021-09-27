@@ -43,7 +43,8 @@ class LibroController{
     }
 
     function edit($id){
+        $this->model->insertEditLibro($_POST[$id],$_POST['precio']);
         $this->model->updateLibroFromDB($id);
-        $this->view->showHomeLocation();
+       // $this->view->showHomeLocation();
     }
 }

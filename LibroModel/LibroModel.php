@@ -42,7 +42,11 @@ class LibroModel{
     }
     function updateLibroFromDB($id){
         var_dump(array($id) );
-        $sentencia = $this->db->prepare("UPDATE  libros SET descripcion=?,precio=? WHERE libros.id = ?");
+        $sentencia = $this->db->prepare("UPDATE  libros SET precio=? WHERE libros.id = ?");
         $sentencia->execute(array($id));
+    }
+    function insertEditLibro($id,$precio){
+        $sentencia = $this->db->prepare("INSERT INTO libros (id,precio ) VALUES (?,?)");
+        $sentencia->execute(array($id, $precio ));
     }
 }

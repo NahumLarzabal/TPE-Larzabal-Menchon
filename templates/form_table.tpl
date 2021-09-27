@@ -5,7 +5,7 @@
             <h1>{$titulo}</h1>
             <div class="btn-libro">
                 <select type="text" name="filtrado-libros" class="form-select" aria-label="Default select example" placeholder="Indique el genero">
-                    {foreach from=$libros item=$libro}
+                    {foreach from=$categorias item=$libro}
                         <option>
                             {$libro->categoria|truncate:500}
                         </option>

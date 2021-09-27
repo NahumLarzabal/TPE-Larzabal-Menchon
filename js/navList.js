@@ -5,7 +5,7 @@ let navList = document.querySelector("#nav-menu");
 let btnMenu = document.getElementById("btn-menu");
 btnMenu.addEventListener("click", changeGrid);
 
-function changeGrid(e){
+function changeGrid(){
     pagina.classList.toggle(".nav-collapse");
     pagina.classList.toggle("pagina");
     navList.classList.toggle("invisible");

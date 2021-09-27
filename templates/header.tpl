@@ -27,14 +27,10 @@
                     <a class="nav-link" href="#">Lista de libros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Lista de generos</a>
+                    <a class="nav-link" href="categorias">Lista de generos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="agregarlibro">Cargar libro</a>
-                </li>
-                <li class="nav-item"> <!-- Corregir editar libro. Crear un input para buscar el libro y 
-                                        una ves seleccionado el libro, que aparezca el formulario para poder editarlo-->
-                    <a class="nav-link" href="editLibro/1">Editar libro</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">Cerrar sesion</a>

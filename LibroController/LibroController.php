@@ -47,4 +47,14 @@ class LibroController{
         $this->model->updateLibroFromDB($id);
        // $this->view->showHomeLocation();
     }
+    
+    function viewCategorias(){
+        $categorias = $this->model->getCategorias();
+        $this->view->showCategorias($categorias);
+    }
+    
+    function agregarCategoria(){
+        $categorias=$this->model->getGeneros();
+        $this->view->agregar($categorias);
+    }
 }

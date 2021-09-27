@@ -4,7 +4,7 @@
         <div class="new-libro">
             <h1>{$titulo}</h1>
             <div class="btn-libro">
-            <div>
+            <div class="select-filtro">
             <select type="text" name="filtrado-libros" id="filter-table" class="form-select" aria-label="Default select example" >
                 <option selected disabled>Elemento a filtrar</option>
                 <option value="titulo">Titulo</option>
@@ -34,6 +34,7 @@
             <div class="title-table">
                 <ul class="list-group">
                     <li class="list-group-item">
+                        <span id="id-libro">ID</span>
                         <span id="titulo-libro">Titulo</span>
                         <span id="genero-libro" class="edit-margin">Genero</span>
                         <span id="autor-libro">Autor</span>
@@ -49,6 +50,7 @@
                 <ul class="list-group">
                     {foreach from=$libros item=$libro}
                         <li class="list-group-item">
+                                <span>{$libro</span>
                                 <a href="viewLibro/{$libro->id}" id="titulo-libro">{$libro->nombre_libro}</a>
                                 <a id="genero-libro">{$libro->categoria|truncate:500}</a> 
                                 <a id="autor-libro">{$libro->autor}</a> 

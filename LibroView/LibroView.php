@@ -37,6 +37,9 @@ class LibroView{
         $this->smarty->assign('categorias', $categorias);
         $this->smarty->display('templates/createLibro.tpl');
      } 
-   
 
+     function showCategorias($categorias){
+        $this->smarty->assign('categorias', $categorias);
+        $this->smarty->display('templates/listadoCategorias.tpl');
+    }
 }

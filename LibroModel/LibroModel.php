@@ -49,4 +49,14 @@ class LibroModel{
         $sentencia = $this->db->prepare("INSERT INTO libros (id,precio ) VALUES (?,?)");
         $sentencia->execute(array($id, $precio ));
     }
+    function getCategorias(){
+        $sentencia = $this->db->prepare( "select * from categorias");
+        $sentencia->execute();
+        $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $tareas;
+    }
+    function insetCategoria(){
+        // $sentencia = $this->db->prepare("INSERT INTO categorias() VALUES (?)");
+        // $sentencia->execute(array($id,$autor,$nombre_libro, $descripcion, $precio, $genero ));
+    }
 }

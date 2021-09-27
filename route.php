@@ -32,9 +32,12 @@ $libroController = new LibroController();
      case 'editLibro': 
          $libroController->editLibro($params[1]); 
          break;
-         case 'agregarlibro':
-            $libroController->agregarlibro();
-            break;
+    case 'edit': 
+        $libroController->edit($params[1]); 
+        break;
+    case 'agregarlibro':
+        $libroController->agregarlibro();
+        break;
        case 'viewLibro': 
            $libroController->viewLibro($params[1]); 
            break;

@@ -14,7 +14,7 @@ class LibroModel{
         return $tareas;
     }  
     function getLibro($id){
-        $sentencia = $this->db->prepare( "SELECT libros.autor, libros.nombre_libro, libros.descripcion, libros.precio, categorias.categoria FROM libros JOIN categorias ON libros.id_categoria = categorias.id_categoria WHERE id=?;");
+        $sentencia = $this->db->prepare( "SELECT libros.id, libros.autor, libros.nombre_libro, libros.descripcion, libros.precio, categorias.categoria FROM libros JOIN categorias ON libros.id_categoria = categorias.id_categoria WHERE id=?;");
         $sentencia->execute(array($id));
         $tarea = $sentencia->fetch(PDO::FETCH_OBJ);
         return $tarea;
@@ -32,16 +32,17 @@ class LibroModel{
         return $tareas;
     }
 
-    function insertLibro($autor,$nombre_libro, $descripcion, $precio, $genero){
-        $sentencia = $this->db->prepare("INSERT INTO libros (autor, nombre_libro, descripcion, precio, id_categoria) VALUES (?, ?, ?, ?, ?)");
-        $sentencia->execute(array($autor,$nombre_libro, $descripcion, $precio, $genero ));
+    function insertLibro($id,$autor,$nombre_libro, $descripcion, $precio, $genero){
+        $sentencia = $this->db->prepare("INSERT INTO libros (id,autor, nombre_libro, descripcion, precio, id_categoria) VALUES (?,?, ?, ?, ?, ?)");
+        $sentencia->execute(array($id,$autor,$nombre_libro, $descripcion, $precio, $genero ));
     }
     function deleteLibroFromDB($id){
         $sentencia = $this->db->prepare("DELETE FROM libros WHERE libros.id = ?");
         $sentencia->execute(array($id));
     }
     function updateLibroFromDB($id){
-        $sentencia = $this->db->prepare("UPDATE  libros SET autor=?,nombre_libro=?,descripcion=?,precio=?,id_categoria=? WHERE libros.id=?");
+        var_dump(array($id) );
+        $sentencia = $this->db->prepare("UPDATE  libros SET descripcion=?,precio=? WHERE libros.id = ?");
         $sentencia->execute(array($id));
     }
 }

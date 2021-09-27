@@ -1,4 +1,4 @@
-<h2>Crear Tarea</h2>
+<h2>Crear Libro</h2>
             <form class="form-alta" action="createLibro" method="post">
                 <input placeholder="nombre del libro" type="text" name="nombre_libro" id="nombre_libro" required>
                  
@@ -10,7 +10,7 @@
                    
                 <input placeholder="autor" type="text" name="autor" id="autor">
                 <input placeholder="precio" type="number" name="precio" id="precio">
-                <textarea placeholder="descripcion" type="text" name="description" id="description"> </textarea>
+                <textarea placeholder="descripcion" type="text" name="descripcion" id="descripcion"> </textarea>
                 <input type="submit" class="btn btn-primary" value="Guardar">
             </form>
         </div>

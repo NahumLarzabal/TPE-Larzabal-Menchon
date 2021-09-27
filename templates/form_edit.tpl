@@ -10,9 +10,9 @@
         
                 
         <input placeholder="autor" type="text" name="autor" id="autor" value="{$libro->autor}">
-        <input placeholder="precio" type="number" name="precio" id="precio" value="{$libro->precio}"">
+        <input placeholder="precio" type="number" name="precio" id="precio" value="{$libro->precio}">
         <textarea placeholder="descripcion" type="text" name="descripcion" id="descripcion">{$libro->descripcion} </textarea>
-        <input type="submit" class="btn btn-primary" value="Editar">
+        <input type="submit" class="btn btn-primary" value="Editar"> 
     </form>
 </div>
 {include file='templates/footer.tpl'}

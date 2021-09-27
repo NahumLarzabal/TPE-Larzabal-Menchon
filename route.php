@@ -30,7 +30,10 @@ $libroController = new LibroController();
         $libroController->deleteLibro($params[1]); 
         break;
      case 'editLibro': 
-        $libroController->editLibro($params[1]); 
+         $libroController->editLibro($params[1]); 
+         break;
+    case 'edit': 
+        $libroController->edit($params[1]); 
         break;
     case 'agregarlibro':
         $libroController->agregarlibro();

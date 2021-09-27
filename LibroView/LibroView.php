@@ -32,9 +32,11 @@ class LibroView{
         $this->smarty->assign('categorias', $categorias);
         $this->smarty->display('templates/form_edit.tpl');
      }
+
      function agregar($categorias){
         $this->smarty->assign('categorias', $categorias);
         $this->smarty->display('templates/createLibro.tpl');
+     } 
+   
 
-     }
 }

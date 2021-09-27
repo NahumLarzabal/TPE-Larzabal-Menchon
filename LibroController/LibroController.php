@@ -23,7 +23,9 @@ class LibroController{
     }
  
     function createLibro(){
-        $this->model->insertLibro($_POST['autor'],$_POST['nombre_libro'], $_POST['description'], $_POST['precio'],$_POST['id_categoria']);
+        $this->model->insertLibro($_POST[NULL],$_POST['autor'],$_POST['nombre_libro'], $_POST['description'], $_POST['precio'],$_POST['id_categoria']);
+        $categorias=$this->model->getGeneros();
+        $this->view->agregar($categorias);
         $this->view->showHomeLocation();
     }
     function agregarlibro(){
@@ -36,9 +38,12 @@ class LibroController{
     }
     function editLibro($id){
         $libro = $this->model->getLibro($id);
-        $categorias = $this->model->getGenero($id);
-
-        //$edit = $this->model->updateLibroFromDB($id);
+        $categorias = $this->model->getGenero($id);   
         $this->view->showEdit($libro,$categorias);
+    }
+
+    function edit($id){
+        $this->model->updateLibroFromDB($id);
+        $this->view->showHomeLocation();
     }
 }

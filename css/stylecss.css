@@ -4,14 +4,27 @@ div.pagina {
     grid-template-areas:
     'nav header header header header header header'
     'nav main main main main main main'
-    'footer footer footer footer footer footer footer'
+    'footer footer footer footer footer footer footer'; 
+}
+
+.nav-collapse{
+    display: grid;
+    grid-template-areas:
+    'header header header header header header header'
+    'main main main main main main main'
+    'footer footer footer footer footer footer footer';
+}
+
+.invisible{
+    display: none;
 }
 
 /*                               NAV LIST                        */
+
 nav.nav-list {
     grid-area: nav;
     background: #1a1a1a;
-    box-shadow: 0 0 15px 0 rgb(0 0 0 / 60%);
+    box-shadow: 0 0 15px 0 rgb(0 0 0 / 60%) !important;
 }
 
 nav.nav-list ul li a{
@@ -169,7 +182,51 @@ div.main-table ul li.list-group-item, div.title-table ul li.list-group-item{
     grid-area: edit;
 }
 
-/*                        FOOTER                   */
+/*           --------------------------------         FORM CREAR LIBRO        ---------------------------------                          */
+
+.form-control{
+    width: 50%;
+}
+
+.mb-3{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.form-genero{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+div.form-genero label {
+    margin-right: 15px;
+}
+
+.form-label {
+    margin-bottom: 0px;
+}
+
+div.form-check {
+    display: flex;
+    justify-content: center;   
+    margin-bottom: 20px;
+}
+
+div.form-check input{
+    margin-right: 15px;
+}
+
+.submit-create{
+    display: flex;
+    justify-content: center;
+}
+
+/*           --------------------------------         FOOTER        ---------------------------------                          */
 footer{
     display: flex;
     grid-area: footer;
@@ -181,3 +238,4 @@ footer{
 footer div h5{
     color: #c7c7c7;
 }
+

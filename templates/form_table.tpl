@@ -11,9 +11,15 @@
                         </option>
                     {/foreach}
                 </select>
-                <button href="agregarlibro" class="btn btn-secondary" id="btn-list-libro">Filtrar</button> 
-                <button href="agregarlibro" class="btn btn-primary" id="btn-list-libro">Nuevo Libro</button> 
-                <button href="agregarlibro" class="btn btn-success" id="btn-list-libro">Editar Libros</button> 
+                <a>
+                <button href="filtroLibro" class="btn btn-secondary" id="btn-list-libro">Filtrar</button> 
+                </a>
+                <a  href="agregarlibro">
+                <button class="btn btn-primary" id="btn-list-libro">Nuevo Libro</button> 
+                </a>
+                <a  href="editlibro" >
+                <button class="btn btn-success" id="btn-list-libro">Editar Libros</button> 
+                </a>
             </div>        
         </div>
             <div class="title-table">

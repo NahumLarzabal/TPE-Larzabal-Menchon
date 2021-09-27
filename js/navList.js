@@ -1,5 +1,15 @@
 "use strict";
 
-let pagina = document.querySelectorAll(".pagina");
-let navList = document.querySelectorAll(".nav-menu");
-let btnMenu = document.querySelector("#btn-menu").addEventListener('click', changeGrid);
+let pagina = document.querySelector(".pagina");
+let navList = document.querySelector("#nav-menu");
+let btnMenu = document.getElementById("btn-menu");
+btnMenu.addEventListener("click", changeGrid);
+
+function changeGrid(e){
+    pagina.classList.toggle(".nav-collapse");
+    pagina.classList.toggle("pagina");
+    navList.classList.toggle("invisible");
+    navList.classList.toggle("nav-list");
+    // console.log(pagina);
+};
+

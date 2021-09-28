@@ -40,11 +40,15 @@ class LibroModel{
         $sentencia = $this->db->prepare("DELETE FROM libros WHERE libros.id = ?");
         $sentencia->execute(array($id));
     }
-    function updateLibroFromDB($id){
-        var_dump(array($id) );
-        $sentencia = $this->db->prepare("UPDATE  libros SET precio=? WHERE libros.id = ?");
-        $sentencia->execute(array($id));
+    function updateLibroFromDB($id,$autor,$nombre_libro, $descripcion, $precio, $genero){
+        $sentencia = $this->db->prepare("UPDATE  libros SET autor=?,nombre_libro=?,descripcion=?,precio=?,id_categoria=? WHERE libros.id = ?");
+        $sentencia->execute(array($id,$autor,$nombre_libro, $descripcion, $precio, $genero));
     }
+    function updateCategoriaFromDB($id,$categoria){
+        $sentencia = $this->db->prepare("UPDATE  categorias SET categoria=? WHERE categorias.id_categoria =?");
+        $sentencia->execute(array($id,$categoria));
+    }
+
     function insertEditLibro($id,$precio){
         $sentencia = $this->db->prepare("INSERT INTO libros (id,precio ) VALUES (?,?)");
         $sentencia->execute(array($id, $precio ));

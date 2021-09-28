@@ -4,11 +4,8 @@
         <div class="new-libro">
             <h1>Listado de categorias</h1>
             <div class="btn-libro">
-                <a  href="formCategoria">
+                <a  href="showCategoria">
                 <button class="btn btn-primary" id="btn-list-libro">Nueva Categoria</button> 
-                </a>
-                <a  href="editcategoria" >
-                <button class="btn btn-success" id="btn-list-libro">Editar Libros</button> 
                 </a>
             </div>        
         </div>
@@ -31,7 +28,7 @@
                                 <span>{$categoria->id_categoria}</span>
                                 <span>{$categoria->categoria}</span>
                                 <a class="btn btn-danger" href="deleteCategoria/{$categoria->id_categoria}" id="btn-categoria-delete">Borrar</a>
-                                <a class="btn btn-success" href="editCategoria/{$categoria->id_categoria}" id="btn-categoria-edit">Edit</a>                           
+                                <a class="btn btn-success" href="showCategoriaEdit/{$categoria->id_categoria}" id="btn-categoria-edit">Edit</a>                           
                         </li>
                     {/foreach}
                 </ul>

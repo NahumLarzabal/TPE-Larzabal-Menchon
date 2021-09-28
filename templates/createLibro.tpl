@@ -35,7 +35,6 @@
                 <div class="mb-3">
                   <label class="form-label">Descripcion</label>
                   <textarea type="text" class="form-control" id="descripcion" name="descripcion"></textarea>
-                  {* exampleInputPassword1  *}
                   <div id="emailHelp" class="form-text">Maximo 500 caracteres.</div>
                 </div>
                 <div class="mb-3">

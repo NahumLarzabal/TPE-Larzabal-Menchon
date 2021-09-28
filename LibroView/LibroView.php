@@ -16,9 +16,7 @@ class LibroView{
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");
     }
-    function showFormCategoriaLocation(){
-        header("Location: ".BASE_URL."formCategoria");
-    }
+    
     function showCategoriasLocation(){
         header("Location: ".BASE_URL."categorias");
     }
@@ -52,6 +50,13 @@ class LibroView{
         $this->smarty->display('templates/listadoCategorias.tpl');
     }
     function showCategoria(){
+        $this->smarty->assign('titulo','Crear Categoria');
         $this->smarty->display('templates/formCategoria.tpl');
+    }
+    function viewCategoriaEdit($categoria){
+        $this->smarty->assign('titulo','Editar Categoria');
+        $this->smarty->assign('categorias', $categoria);
+        $this->smarty->display('templates/form_editCategoria.tpl');
+  
     }
 }

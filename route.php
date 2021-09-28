@@ -32,28 +32,34 @@ $libroController = new LibroController();
      case 'editLibro': 
          $libroController->editLibro($params[1]); 
          break;
-    case 'edit': 
-        $libroController->edit($params[1]); 
+     case 'edit': 
+        $libroController->edit(); 
+        break; 
+    case 'editCategoria': 
+        $libroController->editCategoria(); 
         break;
-    case 'agregarlibro':
+    case 'showCategoriaEdit':
+        $libroController->showCategoriaEdit($params[1]); 
+            break;
+     case 'agregarlibro':
         $libroController->agregarlibro();
         break;
-    case 'deleteCategoria': 
+     case 'deleteCategoria': 
         $libroController->deleteCategoria($params[1]); 
         break;
-    case 'formCategoria':
-        $libroController->formCategoria();
+     case 'showCategoria':
+        $libroController->showCategoria();
         break;
-    case 'agregarCategoria':
+     case 'agregarCategoria':
         $libroController->agregarCategoria();
         break;
-    case 'categorias':
+     case 'categorias':
         $libroController->viewCategorias();
         break;
-    case 'viewLibro': 
+     case 'viewLibro': 
         $libroController->viewLibro($params[1]); 
         break;
-    default: 
+     default: 
         echo('404 Page not found'); 
         break;
  }

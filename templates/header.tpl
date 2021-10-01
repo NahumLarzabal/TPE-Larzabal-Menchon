@@ -36,7 +36,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="logout">Cerrar sesion</a>
                 </li>
-                {/if}
+                {else}
+                    <li class="nav-item">
+                    <a class="nav-link" href="login">Login</a>
+                </li>
+            {/if}
+
             </ul>
         </div>
     </nav>
@@ -57,7 +62,6 @@
             <a class="btn btn-outline-secondary btn-sm" href="logout">Logout </a>
         {else}
             <a class="btn btn-outline-primary btn-sm" href="login">Login </a>
-            <a class="btn btn-outline-secondary btn-sm" href="logout">Logout </a>
         {/if}
         </div> 
          

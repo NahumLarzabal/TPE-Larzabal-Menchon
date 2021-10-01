@@ -32,3 +32,6 @@
 </body>
 
 </html>
+{* 
+Falta hacer la base de datos del user ver clase del lunes 27/9
+*}

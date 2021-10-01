@@ -1,7 +1,7 @@
 <?php
 
-require_once "./LibroModel/userModel.php";
-require_once "./LibroView/userView.php";
+require_once "./Model/userModel.php";
+require_once "./View/userView.php";
 
 class UserController{
     private $model;
@@ -14,6 +14,11 @@ class UserController{
 
     function login(){
         $this->view->showLogin();
+    }
+    function getUserHeader(){
+        $emial= $this->model->getUsers();
+        $user=$this->model->getUser($emial);
+        $this->view->showUser($user);
     }
 
     function verifyLogin(){
@@ -41,6 +46,20 @@ class UserController{
         session_start();
         session_destroy();  
         $this->view->showLogin("Te Deslogeaste, gracias por tu trabajo");
+    }
+
+    function createUser(){
+        if(!empty($_POST['email'])&& !empty($_POST['password'])){
+            $userEmail=$_POST['email'];
+            $userPassword=password_hash($_POST['password'],PASSWORD_BCRYPT) ;
+        $this->model->insertUser($userEmail,$userPassword);
+        $this->view->showHomeLogin();
+        }else{
+            $this->view->showUserCreate("El EMAIL ya existe");
+        }
+    }
+    function createLogin(){
+     $this->view->showCreateLogin();  
     }
 }
 ?>

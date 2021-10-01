@@ -3,8 +3,9 @@ require_once './libs/smarty-3.1.39/libs/Smarty.class.php';
 class LibroView{
     private $smarty;
 
-    function __construct() {
+    function __construct($email) {
         $this->smarty = new Smarty();
+        $this->smarty->assign('email',$email);
     }
 
     function showLibros($libros,$categorias){
@@ -17,9 +18,7 @@ class LibroView{
         header("Location: ".BASE_URL."home");
     }
     
-    function showCategoriasLocation(){
-        header("Location: ".BASE_URL."categorias");
-    }
+   
     function showLibroLocation(){
         header("Location: ".BASE_URL."agregarlibro");
     }
@@ -33,11 +32,10 @@ class LibroView{
          $this->smarty->display('templates/form_genero.tpl');
      }
 
-     function showEdit($libro,$categorias,$id_genero){
+     function showEdit($libro,$categorias){
         $this->smarty->assign('titulo','Editar Libro');
         $this->smarty->assign('libro', $libro);
         $this->smarty->assign('categorias', $categorias);
-        $this->smarty->assign('id_genero',$id_genero);
         $this->smarty->display('templates/form_edit.tpl');
      }
 
@@ -46,18 +44,5 @@ class LibroView{
         $this->smarty->display('templates/createLibro.tpl');
      } 
 
-     function showCategorias($categorias){
-        $this->smarty->assign('categorias', $categorias);
-        $this->smarty->display('templates/listadoCategorias.tpl');
-    }
-    function showCategoria(){
-        $this->smarty->assign('titulo','Crear Categoria');
-        $this->smarty->display('templates/formCategoria.tpl');
-    }
-    function viewCategoriaEdit($categoria){
-        $this->smarty->assign('titulo','Editar Categoria');
-        $this->smarty->assign('categorias', $categoria);
-        $this->smarty->display('templates/form_editCategoria.tpl');
-  
-    }
+    
 }

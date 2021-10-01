@@ -1,6 +1,7 @@
 <?php
-require_once "./LibroController/LibroController.php";
-require_once "./LibroController/userController.php";
+require_once "./Controller/LibroController.php";
+require_once "./Controller/userController.php";
+require_once "./Controller/CategoriaController.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -17,6 +18,7 @@ $params = explode('/', $action);
 
 $libroController = new LibroController();
 $userController = new UserController();
+$categoriaController = new CategoriaController();
 
 
 // determina que camino seguir según la acción
@@ -28,10 +30,17 @@ $userController = new UserController();
       $userController->logout();
          break;
     case 'verify': 
-         $userController->login();
+         $userController->verifyLogin();
+         break;
+    case 'createUser':
+      $userController->createUser();
+      break;
+   case 'createLogin':
+         $userController->createLogin();
          break;
      case 'home': 
         $libroController->showHome();
+        //$categoriaController->showHome();
         break;
      case 'createLibro': 
         $libroController->createLibro(); 

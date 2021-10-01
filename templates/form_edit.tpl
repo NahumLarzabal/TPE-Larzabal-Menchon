@@ -18,7 +18,7 @@
                             <select class="form-select" name="id_categoria" id="id_categoria">
                                 {foreach from=$categorias  item=$genero}
                                 <option 
-                                {if {$genero->id_categoria} == {{$id_genero->id_categoria}}}
+                                {if {$genero->id_categoria} == {{$libro->id_categoria}}}
                                     
                                     selected={$genero->id_categoria}
                                     

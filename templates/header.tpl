@@ -47,12 +47,11 @@
 
         </div>
         <div class="title">
-            <h1>Titulo</h1>
+            <h1>Libreria ChoLarz</h1>
         </div>
         <div class="login">
-            <input type="text" placeholder="Usuario">
-            <input type="password" placeholder="Contraseña">
-            <button type="submit" class="btn btn-login">Login</button>
+            <span> {$email}</span> 
             <a class="btn btn-outline-secondary btn-sm" href="logout">Logout </a>
         </div> 
+         
     </header>

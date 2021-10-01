@@ -19,6 +19,12 @@ class LibroModel{
         $tarea = $sentencia->fetch(PDO::FETCH_OBJ);
         return $tarea;
     }
+    function getSelectGenero($id){
+        $sentencia = $this->db->prepare( "SELECT libros.id_categoria FROM libros WHERE id=?;");
+        $sentencia->execute(array($id));
+        $tarea = $sentencia->fetch(PDO::FETCH_OBJ);
+        return $tarea;
+    }
     function getGeneros(){
         $sentencia = $this->db->prepare( "select * from categorias");
         $sentencia->execute();

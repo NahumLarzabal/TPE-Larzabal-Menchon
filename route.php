@@ -1,6 +1,6 @@
 <?php
 require_once "./LibroController/LibroController.php";
-
+require_once "./LibroController/userController.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -16,10 +16,20 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 $libroController = new LibroController();
+$userController = new UserController();
 
 
 // determina que camino seguir según la acción
  switch ($params[0]) {
+    case 'login': 
+      $userController->login();
+         break;
+    case 'logout': 
+      $userController->logout();
+         break;
+    case 'verify': 
+         $userController->login();
+         break;
      case 'home': 
         $libroController->showHome();
         break;

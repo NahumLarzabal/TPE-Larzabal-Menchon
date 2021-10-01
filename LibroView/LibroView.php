@@ -33,10 +33,11 @@ class LibroView{
          $this->smarty->display('templates/form_genero.tpl');
      }
 
-     function showEdit($libro,$categorias){
+     function showEdit($libro,$categorias,$id_genero){
         $this->smarty->assign('titulo','Editar Libro');
         $this->smarty->assign('libro', $libro);
         $this->smarty->assign('categorias', $categorias);
+        $this->smarty->assign('id_genero',$id_genero);
         $this->smarty->display('templates/form_edit.tpl');
      }
 

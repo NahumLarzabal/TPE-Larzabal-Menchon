@@ -33,7 +33,7 @@
                     <a class="nav-link" href="agregarlibro">Cargar libro</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Cerrar sesion</a>
+                    <a class="nav-link" href="logout">Cerrar sesion</a>
                 </li>
             </ul>
         </div>
@@ -53,5 +53,6 @@
             <input type="text" placeholder="Usuario">
             <input type="password" placeholder="Contraseña">
             <button type="submit" class="btn btn-login">Login</button>
-        </div>
+            <a class="btn btn-outline-secondary btn-sm" href="logout">Logout </a>
+        </div> 
     </header>

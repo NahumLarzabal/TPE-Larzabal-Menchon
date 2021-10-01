@@ -69,7 +69,7 @@ class LibroController{
     
     }
     function viewCategorias(){
-        $this->helper->checkLogin();
+        //$this->helper->checkLogin();
         $categorias = $this->modelCategoria->getGeneros();
         $this->viewCategoria->showCategorias($categorias);
     }

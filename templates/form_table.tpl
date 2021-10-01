@@ -23,9 +23,11 @@
                 <a>
                 <button href="filtroLibro" class="btn btn-secondary" id="btn-list-libro">Filtrar</button> 
                 </a>
-                <a  href="agregarlibro">
-                <button class="btn btn-primary" id="btn-list-libro">Nuevo Libro</button> 
-                </a>
+                {if isset($email)}
+                    <a  href="agregarlibro">
+                    <button class="btn btn-primary" id="btn-list-libro">Nuevo Libro</button> 
+                    </a>
+                {/if}
             </div>        
         </div>
             <div class="title-table">

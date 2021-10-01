@@ -32,9 +32,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="agregarlibro">Cargar libro</a>
                 </li>
+                {if isset($email)}
                 <li class="nav-item">
                     <a class="nav-link" href="logout">Cerrar sesion</a>
                 </li>
+                {/if}
             </ul>
         </div>
     </nav>
@@ -50,8 +52,13 @@
             <h1>Libreria ChoLarz</h1>
         </div>
         <div class="login">
-            <span> {$email}</span> 
+        {if isset($email)}
+            <span> {$email}</span>
             <a class="btn btn-outline-secondary btn-sm" href="logout">Logout </a>
+        {else}
+            <a class="btn btn-outline-primary btn-sm" href="login">Login </a>
+            <a class="btn btn-outline-secondary btn-sm" href="logout">Logout </a>
+        {/if}
         </div> 
          
     </header>

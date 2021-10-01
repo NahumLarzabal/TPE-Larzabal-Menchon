@@ -27,6 +27,7 @@
             </form>
         </div>
     </div>
+    <a class="btn btn-secondary btn-sm" href="home" >Invitado</a>
     <h4 class="alert-danger">{$error}</h4>
 
 </div>

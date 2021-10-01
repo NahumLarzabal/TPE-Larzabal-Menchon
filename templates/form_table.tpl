@@ -35,8 +35,10 @@
                         <span id="genero-libro" class="edit-margin">Genero</span>
                         <span id="autor-libro">Autor</span>
                         <span id="precio-libro">Precio</span>
+                        {if isset($email)}
                         <span id="btn-libro-delete">Borrar</span>
                         <span id="btn-libro-edit" class="btn-edit-margin">Editar</span>
+                    {/if}
                     </li>
                 </ul>
             </div>
@@ -50,8 +52,11 @@
                                 <a id="genero-libro">{$libro->categoria|truncate:500}</a> 
                                 <a id="autor-libro">{$libro->autor}</a> 
                                 <a id="precio-libro">{$libro->precio}</a> 
-                                <a class="btn btn-danger" href="deleteLibro/{$libro->id}" id="btn-libro-delete">Borrar</a>
-                                <a class="btn btn-success" href="editLibro/{$libro->id}" id="btn-libro-edit">Edit</a>                           
+                                {if isset($email)}
+                                    
+                                    <a class="btn btn-danger" href="deleteLibro/{$libro->id}" id="btn-libro-delete">Borrar</a>
+                                    <a class="btn btn-success" href="editLibro/{$libro->id}" id="btn-libro-edit">Edit</a>                           
+                                {/if}
                         </li>
                     {/foreach}
                 </ul>

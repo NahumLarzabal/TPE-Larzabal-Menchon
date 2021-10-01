@@ -22,7 +22,7 @@ class LibroController{
     }
 
     function showHome(){
-        $this->helper->checkLogin();
+       //$this->helper->checkLogin();
         $libros = $this->model->getLibros();
         $categorias = $this->modelCategoria->getGeneros();
         $this->view->showLibros($libros,$categorias);

@@ -64,9 +64,8 @@ class LibroController{
     }
 
     function search(){
-        $categorias = $this->model->getLibros();
+        $categorias = $this->modelCategoria->getGeneros();
         $libros = $this->model->searchModel();
-        // var_dump($categorias);
         $this->view->searchView($libros,$categorias);
     }
     // function filtroLibroPorTitulo(){

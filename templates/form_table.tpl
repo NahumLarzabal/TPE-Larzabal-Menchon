@@ -12,8 +12,8 @@
                             <option value="id_categoria">Genero</option>
                             <option name="filtroAutor" value="autor">Autor</option>
                         </select>
-                        <input type="titulo" class="invisible" id="select-titulo" placeholder="Filtre por titulo"> {* input titlo *}
-                        <input type="autor" class="invisible" id="select-autor" placeholder="Filtre por Autor" name="autor"> {* input autor *}
+                        <input type="text" class="invisible" id="select-titulo"  placeholder="Filtre por titulo"> {* input titlo *}
+                        <input type="text" class="invisible" id="select-autor" name="autorIn" placeholder="Filtre por Autor" name="autor"> {* input autor *}
                         <select class="invisible" id="select-genero">
                             {foreach from=$categorias item=$libro}
                             <option  value={$libro->id_categoria}>{$libro->categoria}</option>

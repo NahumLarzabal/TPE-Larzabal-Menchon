@@ -38,9 +38,9 @@ class LibroModel{
         $sentencia->execute(array($id, $precio ));
     }
 
-    function searchModel(){
-        $sentencia = $this->db->prepare("SELECT * FROM libros WHERE autor LIKE '%C.S%'");
-        $sentencia->execute();
+    function searchModel($autor){
+        $sentencia = $this->db->prepare("SELECT * FROM libros WHERE autor LIKE ?");
+        $sentencia->execute(["%${autor}%"]);
         $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $tareas;
     }

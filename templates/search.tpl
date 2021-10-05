@@ -1,10 +1,29 @@
 {include file='templates/header.tpl'}
+<div class="container-table">
+
+<div class="title-table">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span id="titulo-libro">Titulo</span>
+                        <span id="genero-libro" class="edit-margin">Genero</span>
+                        <span id="autor-libro">Autor</span>
+                        <span id="precio-libro">Precio</span>
+                        {if isset($email)}
+                        <span id="btn-libro-delete">Borrar</span>
+                        <span id="btn-libro-edit" class="btn-edit-margin">Editar</span>
+                    {/if}
+                    </li>
+                </ul>
+            </div>
 <div class="main-table">
     <ul class="list-group">
-        {foreach from=$categorias item=$libro}
+        {foreach from=$libros item=$libro}
             <li class="list-group-item">
                     <a href="viewLibro/{$libro->id}" id="titulo-libro">{$libro->nombre_libro}</a>
-                    <a id="genero-libro">{$libro->id_categoria}</a> 
+                    <a id="genero-libro" {foreach from=$categorias  item=$genero}
+                        {if {$genero->id_categoria} == {{$libro->id_categoria}}}
+                        >{$genero->categoria}</a>     
+                    {/if} {/foreach}
                     <a id="autor-libro">{$libro->autor}</a> 
                     <a id="precio-libro">{$libro->precio}</a> 
                     {if isset($email)}
@@ -14,5 +33,6 @@
             </li>
         {/foreach}
     </ul>
+</div>
 </div>
 {include file='templates/footer.tpl'}

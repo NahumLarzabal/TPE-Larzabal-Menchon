@@ -42,7 +42,12 @@ class LibroView{
      function agregar($categorias){
         $this->smarty->assign('categorias', $categorias);
         $this->smarty->display('templates/createLibro.tpl');
-     } 
+     }
+     
+     function showSearch($libros){
+        $this->smarty->assign('libros', $libros);
+        $this->smarty->display('templates/search.tpl');
+     }
 
     
 }

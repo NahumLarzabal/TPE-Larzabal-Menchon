@@ -5,24 +5,26 @@
             <h1>{$titulo}</h1>
             <div class="btn-libro">
             <div class="select-filtro">
+            <form class="form-alta" action="search" method="post">
             <select type="text" name="filtrado-libros" id="filter-table" class="form-select" aria-label="Default select example" >
                 <option selected disabled>Elemento a filtrar</option>
                 <option value="titulo">Titulo</option>
                 <option value="genero">Genero</option>
                 <option value="autor">Autor</option>
             </select>
-               <input type="titulo" class="invisible" id="select-titulo" placeholder="Filtre por titulo">
-               <input type="autor" class="invisible" id="select-autor" placeholder="Filtre por Autor">
+            <input type="titulo" name="nombre_libro" class="invisible" id="select-titulo" placeholder="Filtre por titulo">
+            <input type="autor" class="invisible" id="select-autor" placeholder="Filtre por Autor">
             <select class="invisible" id="select-genero">
-                {foreach from=$categorias item=$libro}
-                <option>{$libro->categoria|truncate:500}</option>
-                {/foreach}
+            {foreach from=$categorias item=$libro}
+                <option>{$libro->categoria}</option>
+            {/foreach}
             </select>
             </div>
-                
-                <a>
-                <button href="filtroLibro" class="btn btn-secondary" id="btn-list-libro">Filtrar</button> 
-                </a>
+            
+            <a>
+            <button type="submit" class="btn btn-secondary" id="btn-list-libro">Filtrar</button> 
+            </a>
+            </form>
                 {if isset($email)}
                     <a  href="agregarlibro">
                     <button class="btn btn-primary" id="btn-list-libro">Nuevo Libro</button> 

@@ -95,5 +95,10 @@ class LibroController{
         $this->modelCategoria->deleteCategoriaFromDB($id);
         $this->viewCategoria->showCategoriasLocation();
     }
+    function searchView(){
+        $libros = $this->model->searchFiltro();
+        var_dump($libros);
+        $this->view->showSearch($libros);
+    }
     
 }

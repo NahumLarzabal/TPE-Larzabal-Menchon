@@ -40,7 +40,6 @@ $categoriaController = new CategoriaController();
          break;
      case 'home': 
         $libroController->showHome();
-        //$categoriaController->showHome();
         break;
      case 'createLibro': 
         $libroController->createLibro(); 
@@ -78,6 +77,9 @@ $categoriaController = new CategoriaController();
      case 'viewLibro': 
         $libroController->viewLibro($params[1]); 
         break;
+        case 'search':
+         $libroController->searchView();
+         break;
      default: 
         echo('404 Page not found'); 
         break;

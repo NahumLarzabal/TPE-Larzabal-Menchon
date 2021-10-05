@@ -26,6 +26,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Lista de libros</a>
                 </li>
+                {if isset($email)}
                 <li class="nav-item">
                     <a class="nav-link" href="categorias">Lista de generos</a>
                 </li>
@@ -35,7 +36,6 @@
                 <li class="nav-item">
                 <a class="nav-link" href="agregarCategoria">Cargar genero</a>
             </li>
-                {if isset($email)}
                 <li class="nav-item">
                     <a class="nav-link" href="logout">Cerrar sesion</a>
                 </li>
@@ -62,6 +62,7 @@
         <div class="login">
         {if isset($email)}
             <span>Hola {$email}</span>
+           
             <a class="btn btn-outline-secondary btn-sm" href="logout">Logout </a>
         {else}
             <a class="btn btn-outline-primary btn-sm" href="login">Login </a>

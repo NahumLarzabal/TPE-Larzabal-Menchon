@@ -17,7 +17,9 @@ class userView{
         header("Location: ".BASE_URL."home");
     }
 
-    function showUserCreate(){
+    function showUserCreate($error=""){
+        $this->smarty->assign('error',$error);
+        $this->smarty->display('templates/createUser.tpl');
 
     }
     function showCreateLogin($error=""){
@@ -28,6 +30,11 @@ class userView{
     function showHomeLogin(){
         header("Location: ".BASE_URL."login");
     }
+    function showHomeCreate(){
+        header("Location: ".BASE_URL."createUser");
+    }
+    
+
     function showUser($users=null){
         $this->smarty->assign('users',$users);
         $this->smarty->display('templates/header.tpl');

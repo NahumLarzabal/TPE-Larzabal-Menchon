@@ -38,12 +38,23 @@ class LibroModel{
         $sentencia->execute(array($id, $precio ));
     }
 
-    function searchModel($autor){
+    function searchModelAutor($autor){
         $sentencia = $this->db->prepare("SELECT * FROM libros WHERE autor LIKE ?");
         $sentencia->execute(["%${autor}%"]);
         $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $tareas;
     }
-   
+    function searchModelTitulo($titulo){
+        $sentencia = $this->db->prepare("SELECT * FROM libros WHERE nombre_libro LIKE ?");
+        $sentencia->execute(["%${titulo}%"]);
+        $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $tareas;
+    }
+    function searchModelGenero($genero){
+        $sentencia = $this->db->prepare("select libros.id, libros.autor, libros.nombre_libro, libros.descripcion, libros.precio, libros.id_categoria,categorias.categoria FROM libros JOIN categorias ON libros.id_categoria = categorias.id_categoria WHERE categorias.categoria LIKE ?");
+        $sentencia->execute(["%${genero}%"]);
+        $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $tareas;
+    }
 
 }

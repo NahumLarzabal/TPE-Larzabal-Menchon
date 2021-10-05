@@ -21,6 +21,7 @@
             <h2>{$titulo}</h2>
             <form class="form-alta" action="createUser" method="post">
                 <input placeholder="email" type="text" name="email" id="email" required>
+                <input placeholder="Nombre y Apellido" type="text" name="nombre_apellido" required>
                 <input placeholder="password" type="password" name="password" id="password" required>
                 <input type="submit" class="btn btn-primary" value="Create Cuenta">
             </form>

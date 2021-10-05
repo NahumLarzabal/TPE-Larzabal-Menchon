@@ -1,6 +1,8 @@
-{include file='templates/header.tpl'}
+{{include file='templates/header.tpl'}}
 <div class="container-table">
-
+<div class="main-page">
+{* en este include traeme la barra del buscador *}
+{{include file='templates/formSearch.tpl'}} 
 <div class="title-table">
                 <ul class="list-group">
                     <li class="list-group-item">
@@ -35,4 +37,5 @@
     </ul>
 </div>
 </div>
-{include file='templates/footer.tpl'}
+</div>
+{{include file='templates/footer.tpl'}}

@@ -53,6 +53,13 @@ class LibroModel{
         $sentencia = $this->db->prepare("INSERT INTO libros (id,precio ) VALUES (?,?)");
         $sentencia->execute(array($id, $precio ));
     }
+
+    function searchModel(){
+        $sentencia = $this->db->prepare("SELECT * FROM libros WHERE autor LIKE '%C.S%'");
+        $sentencia->execute();
+        $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $tareas;
+    }
    
     // function insertCategoria($id_categoria,$categoria){
     //     $sentencia = $this->db->prepare("INSERT INTO categorias (id_categoria,categoria) VALUES (?,?)");

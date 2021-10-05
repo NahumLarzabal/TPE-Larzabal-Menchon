@@ -18,31 +18,35 @@ class LibroView{
         header("Location: ".BASE_URL."home");
     }
     
-   
     function showLibroLocation(){
         header("Location: ".BASE_URL."agregarlibro");
     }
-       function showLibro($libro){
+    
+    function showLibro($libro){
         $this->smarty->assign('libro', $libro);
         $this->smarty->display('templates/detalle.tpl');
-     }
+    }
 
-     function showGenero($categorias){
+    function showGenero($categorias){
          $this->smarty->assign('categorias', $categorias);
          $this->smarty->display('templates/form_genero.tpl');
      }
 
-     function showEdit($libro,$categorias){
+    function showEdit($libro,$categorias){
         $this->smarty->assign('titulo','Editar Libro');
         $this->smarty->assign('libro', $libro);
         $this->smarty->assign('categorias', $categorias);
         $this->smarty->display('templates/form_edit.tpl');
-     }
+    }
 
-     function agregar($categorias){
+    function agregar($categorias){
         $this->smarty->assign('categorias', $categorias);
         $this->smarty->display('templates/createLibro.tpl');
      } 
 
-    
+    function searchView($libros,$categorias){
+        $this->smarty->assign('libros', $libros);
+        $this->smarty->assign('categorias', $categorias);
+        $this->smarty->display('templates/search.tpl');
+    }
 }

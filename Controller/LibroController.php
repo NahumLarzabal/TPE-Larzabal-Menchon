@@ -62,38 +62,56 @@ class LibroController{
         $this->model->updateLibroFromDB($_POST['autor'],$_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'],$_POST['id_categoria'],$_POST['id']);
         $this->view->showHomeLocation();
     }
-    function editCategoria(){
-        $this->helper->checkLogin();
-        $this->modelCategoria->updateCategoriaFromDB($_POST['categoria'],$_POST['id_categoria']);
-        $this->viewCategoria->showCategoriasLocation();
-    
-    }
-    function viewCategorias(){
-        //$this->helper->checkLogin();
-        $categorias = $this->modelCategoria->getGeneros();
-        $this->viewCategoria->showCategorias($categorias);
-    }
-    
-    function showCategoria(){
-        $this->helper->checkLogin();
-        $this->viewCategoria->showCategoria();
-        
-    }
-    function showCategoriaEdit($id){
-        $this->helper->checkLogin();
-        $categoria = $this->modelCategoria->getGenero($id);   
-        $this->viewCategoria->viewCategoriaEdit($categoria);
-    }
 
-    function agregarCategoria(){
-        $this->helper->checkLogin();
-        $this->modelCategoria->insertCategoria($_POST[NULL],$_POST['categoria']);
-        $this->viewCategoria->showCategoriasLocation();
+    function search(){
+        $libros = $this->model->getLibros();
+        $categorias = $this->model->searchModel();
+        // var_dump($categorias);
+        $this->view->searchView($libros,$categorias);
     }
-    function deleteCategoria($id){
-        $this->helper->checkLogin();
-        $this->modelCategoria->deleteCategoriaFromDB($id);
-        $this->viewCategoria->showCategoriasLocation();
-    }
+    // function filtroLibroPorTitulo(){
+    //     if (!isset )
+    // }
+    // function filtroLibroPorGenero(){
+
+    // }
+    // function filtroLibroPorAutor(){
+
+    // }
+
+    // function editCategoria(){
+    //     $this->helper->checkLogin();
+    //     $this->modelCategoria->updateCategoriaFromDB($_POST['categoria'],$_POST['id_categoria']);
+    //     $this->viewCategoria->showCategoriasLocation();
+    // }
+
+    // function viewCategorias(){
+    //     //$this->helper->checkLogin();
+    //     $categorias = $this->modelCategoria->getGeneros();
+    //     $this->viewCategoria->showCategorias($categorias);
+    // }
+    
+    // function showCategoria(){
+    //     $this->helper->checkLogin();
+    //     $this->viewCategoria->showCategoria();
+    // }
+
+    // function showCategoriaEdit($id){
+    //     $this->helper->checkLogin();
+    //     $categoria = $this->modelCategoria->getGenero($id);   
+    //     $this->viewCategoria->viewCategoriaEdit($categoria);
+    // }
+
+    // function agregarCategoria(){
+    //     $this->helper->checkLogin();
+    //     $this->modelCategoria->insertCategoria($_POST[NULL],$_POST['categoria']);
+    //     $this->viewCategoria->showCategoriasLocation();
+    // }
+
+    // function deleteCategoria($id){
+    //     $this->helper->checkLogin();
+    //     $this->modelCategoria->deleteCategoriaFromDB($id);
+    //     $this->viewCategoria->showCategoriasLocation();
+    // }
     
 }

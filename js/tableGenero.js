@@ -9,35 +9,19 @@ console.log(selectFilter);
 
 function filtrarTabla(){
     console.log(selectFilter.value);
-    if (selectFilter.value == "titulo") {
+    if (selectFilter.value == "nombre_libro") {
         selectTitulo.classList.toggle("invisible");
         selectGenero.classList.add("invisible");
         selectAutor.classList.add("invisible");
-    } else if (selectFilter.value == "genero") {
+    } else if (selectFilter.value == "id_categoria") {
         selectTitulo.classList.add("invisible");
         selectGenero.classList.toggle("invisible");
         selectAutor.classList.add("invisible");
-    } else if (selectFilter.value == "autor") {
+    } else if (selectFilter.value == "autor") { 
         selectTitulo.classList.add("invisible");
         selectGenero.classList.add("invisible");
         selectAutor.classList.toggle("invisible");
     }
-    // switch (selectFilter.value) {
-    //     case "titulo":
-    //         toggleClass();
-    //         break;
-    //     case "genero":
-    //         toggleClass();
-    //         break;
-    //     case "autor":
-    //         toggleClass();
-    //         break;
-    //     default:
-    //         break;
-    // }
 }
             
-// function toggleClass(){
-// }
-
 selectFilter.addEventListener("change", filtrarTabla);

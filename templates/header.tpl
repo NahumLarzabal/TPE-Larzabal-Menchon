@@ -58,7 +58,7 @@
         </div>
         <div class="login">
         {if isset($email)}
-            <span> {$email}</span>
+            <span>Hola {$email}</span>
             <a class="btn btn-outline-secondary btn-sm" href="logout">Logout </a>
         {else}
             <a class="btn btn-outline-primary btn-sm" href="login">Login </a>

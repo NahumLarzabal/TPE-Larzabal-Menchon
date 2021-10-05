@@ -16,11 +16,11 @@ class CategoriaController{
         $this->view = new CategoriaView($this->helper->getEmail());
     }
 
-    // function showHome(){
-    //     //$this->helper->checkLogin();
-    //     $categorias = $this->model->getGeneros();
-    //     $this->view->showCategoria($categorias);
-    // }
+    function showHome(){
+        //$this->helper->checkLogin();
+        $categorias = $this->model->getGeneros();
+        $this->view->showCategoria($categorias);
+    }
     // function viewLibro($id){
     //     $this->helper->checkLogin();
     //     $libro = $this->model->getLibro($id);
@@ -57,38 +57,40 @@ class CategoriaController{
     //     $this->model->updateLibroFromDB($_POST['autor'],$_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'],$_POST['id_categoria'],$_POST['id']);
     //     $this->view->showHomeLocation();
     // }
-    // function editCategoria(){
-    //     $this->helper->checkLogin();
-    //     $this->model->updateCategoriaFromDB($_POST['categoria'],$_POST['id_categoria']);
-    //     $this->view->showCategoriasLocation();
-    
-    // }
-    // function viewCategorias(){
-    //     $this->helper->checkLogin();
-    //     $categorias = $this->model->getGeneros();
-    //     $this->view->showCategorias($categorias);
-    // }
-    
-    // function showCategoria(){
-    //     $this->helper->checkLogin();
-    //     $this->view->showCategoria();
-        
-    // }
-    // function showCategoriaEdit($id){
-    //     $this->helper->checkLogin();
-    //     $categoria = $this->model->getGenero($id);   
-    //     $this->view->viewCategoriaEdit($categoria);
-    // }
 
-    // function agregarCategoria(){
-    //     $this->helper->checkLogin();
-    //     $this->model->insertCategoria($_POST[NULL],$_POST['categoria']);
-    //     $this->view->showCategoriasLocation();
-    // }
-    // function deleteCategoria($id){
-    //     $this->helper->checkLogin();
-    //     $this->model->deleteCategoriaFromDB($id);
-    //     $this->view->showCategoriasLocation();
-    // }
+    
+    function editCategoria(){
+        $this->helper->checkLogin();
+        $this->model->updateCategoriaFromDB($_POST['categoria'],$_POST['id_categoria']);
+        $this->view->showCategoriasLocation();
+    
+    }
+    function viewCategorias(){
+        $this->helper->checkLogin();
+        $categorias = $this->model->getGeneros();
+        $this->view->showCategorias($categorias);
+    }
+    
+    function showCategoria(){
+        $this->helper->checkLogin();
+        $this->view->showCategoria();
+        
+    }
+    function showCategoriaEdit($id){
+        $this->helper->checkLogin();
+        $categoria = $this->model->getGenero($id);   
+        $this->view->viewCategoriaEdit($categoria);
+    }
+
+    function agregarCategoria(){
+        $this->helper->checkLogin();
+        $this->model->insertCategoria($_POST[NULL],$_POST['categoria']);
+        $this->view->showCategoriasLocation();
+    }
+    function deleteCategoria($id){
+        $this->helper->checkLogin();
+        $this->model->deleteCategoriaFromDB($id);
+        $this->view->showCategoriasLocation();
+    }
     
 }

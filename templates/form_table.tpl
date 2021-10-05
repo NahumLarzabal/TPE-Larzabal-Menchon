@@ -4,28 +4,27 @@
         <div class="new-libro">
             <h1>{$titulo}</h1>
             <div class="btn-libro">
-            <div class="select-filtro">
-            <select type="text" name="filtrado-libros" id="filter-table" class="form-select" aria-label="Default select example" >
-                <option selected disabled>Elemento a filtrar</option>
-                <option value="titulo">Titulo</option>
-                <option value="genero">Genero</option>
-                <option value="autor">Autor</option>
-            </select>
-               <input type="titulo" class="invisible" id="select-titulo" placeholder="Filtre por titulo">
-               <input type="autor" class="invisible" id="select-autor" placeholder="Filtre por Autor">
-            <select class="invisible" id="select-genero">
-                {foreach from=$categorias item=$libro}
-                <option>{$libro->categoria|truncate:500}</option>
-                {/foreach}
-            </select>
-            </div>
-                
-                <a>
-                <button href="filtroLibro" class="btn btn-secondary" id="btn-list-libro">Filtrar</button> 
-                </a>
+                <div class="select-filtro">
+                    <form action="search" method="POST">
+                        <select type="text" name="filtrado-libros" id="filter-table" class="form-select" aria-label="Default select example" >
+                            <option selected disabled>Elemento a filtrar</option>       {* select genero *}
+                            <option name="filtroTitulo" value="nombre_libro">Titulo</option>
+                            <option value="id_categoria">Genero</option>
+                            <option name="filtroAutor" value="autor">Autor</option>
+                        </select>
+                        <input type="titulo" class="invisible" id="select-titulo" placeholder="Filtre por titulo"> {* input titlo *}
+                        <input type="autor" class="invisible" id="select-autor" placeholder="Filtre por Autor" name="autor"> {* input autor *}
+                        <select class="invisible" id="select-genero">
+                            {foreach from=$categorias item=$libro}
+                            <option  value={$libro->id_categoria}>{$libro->categoria}</option>
+                            {/foreach}
+                        </select>
+                        <input type="submit" class="btn btn-secondary" id="btn-list-libro" name="Filtrar">
+                    </form>
+                </div>
                 {if isset($email)}
                     <a  href="agregarlibro">
-                    <button class="btn btn-primary" id="btn-list-libro">Nuevo Libro</button> 
+                        <button class="btn btn-primary" id="btn-list-libro">Nuevo Libro</button> 
                     </a>
                 {/if}
             </div>        
@@ -44,8 +43,6 @@
                     </li>
                 </ul>
             </div>
-            <!--                        OJO ACA!                       -->
-            <!-- HAY QUE HACER UNA TABLA O SE PUEDE UNA LISTA? REVISAR PAUTAS DEL TPE -->
             <div class="main-table">
                 <ul class="list-group">
                     {foreach from=$libros item=$libro}
@@ -55,7 +52,6 @@
                                 <a id="autor-libro">{$libro->autor}</a> 
                                 <a id="precio-libro">{$libro->precio}</a> 
                                 {if isset($email)}
-                                    
                                     <a class="btn btn-danger" href="deleteLibro/{$libro->id}" id="btn-libro-delete">Borrar</a>
                                     <a class="btn btn-success" href="editLibro/{$libro->id}" id="btn-libro-edit">Edit</a>                           
                                 {/if}

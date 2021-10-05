@@ -18,7 +18,7 @@
                         {if isset($email)}
                         <span id="btn-libro-delete">Borrar</span>
                         <span id="btn-libro-edit" class="btn-edit-margin">Editar</span>
-                    {/if}
+                        {/if}
                     </li>
                 </ul>
             </div>

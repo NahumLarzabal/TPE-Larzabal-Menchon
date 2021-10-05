@@ -32,6 +32,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="agregarlibro">Cargar libro</a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link" href="agregarCategoria">Cargar genero</a>
+            </li>
                 {if isset($email)}
                 <li class="nav-item">
                     <a class="nav-link" href="logout">Cerrar sesion</a>

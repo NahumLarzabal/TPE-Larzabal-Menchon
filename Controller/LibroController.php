@@ -69,49 +69,5 @@ class LibroController{
         var_dump($libros);
         $this->view->searchView($libros,$categorias);
     }
-    // function filtroLibroPorTitulo(){
-    //     if (!isset )
-    // }
-    // function filtroLibroPorGenero(){
-
-    // }
-    // function filtroLibroPorAutor(){
-
-    // }
-
-    // function editCategoria(){
-    //     $this->helper->checkLogin();
-    //     $this->modelCategoria->updateCategoriaFromDB($_POST['categoria'],$_POST['id_categoria']);
-    //     $this->viewCategoria->showCategoriasLocation();
-    // }
-
-    // function viewCategorias(){
-    //     //$this->helper->checkLogin();
-    //     $categorias = $this->modelCategoria->getGeneros();
-    //     $this->viewCategoria->showCategorias($categorias);
-    // }
-    
-    // function showCategoria(){
-    //     $this->helper->checkLogin();
-    //     $this->viewCategoria->showCategoria();
-    // }
-
-    // function showCategoriaEdit($id){
-    //     $this->helper->checkLogin();
-    //     $categoria = $this->modelCategoria->getGenero($id);   
-    //     $this->viewCategoria->viewCategoriaEdit($categoria);
-    // }
-
-    // function agregarCategoria(){
-    //     $this->helper->checkLogin();
-    //     $this->modelCategoria->insertCategoria($_POST[NULL],$_POST['categoria']);
-    //     $this->viewCategoria->showCategoriasLocation();
-    // }
-
-    // function deleteCategoria($id){
-    //     $this->helper->checkLogin();
-    //     $this->modelCategoria->deleteCategoriaFromDB($id);
-    //     $this->viewCategoria->showCategoriasLocation();
-    // }
-    
+  
 }

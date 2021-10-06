@@ -22,6 +22,7 @@ class LibroController{
     }
 
     function showHome(){
+        // no se pasa el checklogin para poder entrar como invitado
        //$this->helper->checkLogin();
         $libros = $this->model->getLibros();
         $categorias = $this->modelCategoria->getGeneros();
@@ -63,11 +64,20 @@ class LibroController{
         $this->view->showHomeLocation();
     }
 
-    function search(){
+    function searchAutor(){
         $categorias = $this->modelCategoria->getGeneros();
-        $libros = $this->model->searchModel($_POST['autorIn']);
-        $libros = $this->model->searchModel($_POST['autorIn']);
-        $libros = $this->model->searchModel($_POST['autorIn']);
+        $libros = $this->model->searchModelAutor($_POST['autorIn']);
+        $this->view->searchView($libros,$categorias);
+    }
+
+    function searchTitulo(){
+        $categorias = $this->modelCategoria->getGeneros();       
+        $libros = $this->model->searchModelTitulo($_POST['tituloIn']);
+        $this->view->searchView($libros,$categorias);
+    }
+    function searchGenero(){
+        $categorias = $this->modelCategoria->getGeneros();
+        $libros = $this->model->searchModelGenero($_POST['generoIn']);
         $this->view->searchView($libros,$categorias);
     }
   

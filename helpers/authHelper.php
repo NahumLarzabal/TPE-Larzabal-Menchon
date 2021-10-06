@@ -14,6 +14,5 @@ class AuthHelpers{
         if (isset($_SESSION['email'])) {
             return $_SESSION['email'] ;
         }
-    }
-   
+    }   
 }

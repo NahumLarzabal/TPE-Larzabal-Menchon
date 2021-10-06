@@ -16,8 +16,8 @@ class UserController{
         $this->view->showLogin();
     }
     function getUserHeader(){
-        $emial= $this->model->getUsers();
-        $user=$this->model->getUser($emial);
+        $email= $this->model->getUsers();
+        $user=$this->model->getUser($email);
         $this->view->showUser($user);
     }
 
@@ -48,13 +48,15 @@ class UserController{
     }
 
     function createUser(){
-        if(!empty($_POST['email'])&& !empty($_POST['password'])){
+        if(!empty($_POST['email'])&& !empty($_POST['password'])&&!empty($_POST['nombre_apellido'])){
             $userEmail=$_POST['email'];
             $userPassword=password_hash($_POST['password'],PASSWORD_BCRYPT) ;
-        $this->model->insertUser($userEmail,$userPassword);
+            $userNombre=$_POST['nombre_apellido'];
+           
+        $this->model->insertUser($userEmail,$userPassword,$userNombre);
         $this->view->showHomeLogin();
         }else{
-            $this->view->showUserCreate("El EMAIL ya existe");
+            $this->view->showCreateLogin("El EMAIL ya existe");
         }
     }
     function createLogin(){

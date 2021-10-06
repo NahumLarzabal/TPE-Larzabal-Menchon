@@ -44,11 +44,6 @@ class LibroView{
         $this->smarty->display('templates/createLibro.tpl');
      }
      
-     function showSearch($libros){
-        $this->smarty->assign('libros', $libros);
-        $this->smarty->display('templates/search.tpl');
-     }
-
     function searchView($libros,$categorias){
         $this->smarty->assign('libros', $libros);
         $this->smarty->assign('categorias', $categorias);

@@ -79,8 +79,15 @@ $categoriaController = new CategoriaController();
       $libroController->viewLibro($params[1]); 
       break;
    case 'search': 
-      $libroController->search(); 
+      if($params[1]=="titulo"){
+      $libroController->searchTitulo(); 
+      } else if($params[1]=="autor"){
+         $libroController->searchAutor();
+      }else if($params[1]=="genero"){
+         $libroController->searchGenero(); 
+      }
       break;
+      
    default: 
       echo('404 Page not found'); 
       break;

@@ -14,7 +14,7 @@ class CategoriaView{
     }
     function showCategoria(){
         $this->smarty->assign('titulo','Crear Categoria');
-        $this->smarty->display('templates/formCategoria.tpl');
+        $this->smarty->display('templates/crearCategoria.tpl');
     }
     function viewCategoriaEdit($categoria){
         $this->smarty->assign('titulo','Editar Categoria');

@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<div class="pagina">
+<div class="pagina"> <!-- NO CERRAR ESTE DIV -->
     <nav class="nav-list" id="nav-menu">
         <div class="top-nav-column">
             <span>ACA VA EL LOGO</span>
@@ -28,13 +28,13 @@
                 </li>
                 {if isset($email)}
                 <li class="nav-item">
-                    <a class="nav-link" href="categorias">Lista de generos</a>
+                    <a class="nav-link" href="categorias">Generos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="agregarlibro">Cargar libro</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="agregarCategoria">Cargar genero</a>
+                <a class="nav-link" href="showCategoria">Cargar genero</a>
             </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout">Cerrar sesion</a>
@@ -48,25 +48,27 @@
             </ul>
         </div>
     </nav>
+
+<div class="content">
     <header>
         <div class="btn-nav">
-
-                <svg id="btn-menu" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">;
-                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>;
-                </svg>
-
+            
+            <svg id="btn-menu" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">;
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>;
+            </svg>
+            
         </div>
         <div class="title">
             <h1>Libreria ChoLarz</h1>
         </div>
         <div class="login">
-        {if isset($email)}
-            <span>Hola {$email}</span>
-           
+            {if isset($email)}
+            <span class="margin-right-10px">Hola {$email}</span>
+            
             <a class="btn btn-outline-secondary btn-sm" href="logout">Logout </a>
-        {else}
+            {else}
             <a class="btn btn-outline-primary btn-sm" href="login">Login </a>
-        {/if}
-        </div> 
-         
+            {/if}
+        </div>   
     </header>
+    

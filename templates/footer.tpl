@@ -1,8 +1,9 @@
-<footer>
-    <div class="footer-container">
-        <h5>Todos Los Derechos Reservados © 2021</h5>
+    <footer>
+        <div class="footer-container">
+            <h5>Todos Los Derechos Reservados © 2021</h5>
+        </div>
+    </footer>
     </div>
-</footer>
 </div>
 <script src="js/navList.js"></script>
 <script src="js/tableGenero.js"></script>

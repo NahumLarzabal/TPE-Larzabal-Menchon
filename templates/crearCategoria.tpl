@@ -1,9 +1,9 @@
 {include file='templates/header.tpl'}
 <div class="container-table">
     <div class="main-page">
-        <div class="new-libro">
+        <div class="new-genero">
             <h1>{$titulo}</h1>
-            <div class="btn-libro">
+            <div class="btn-genero">
                 <a href="home">
                     <button class="btn btn-primary" id="btn-list-libro">Listado de libros</button> 
                 </a>

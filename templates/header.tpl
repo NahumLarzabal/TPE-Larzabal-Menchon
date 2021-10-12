@@ -16,7 +16,7 @@
 <div class="pagina"> <!-- NO CERRAR ESTE DIV -->
     <nav class="nav-list" id="nav-menu">
         <div class="top-nav-column">
-            <span>ACA VA EL LOGO</span>
+            <img src="./img/logo.png" id="img-logo" alt="">
         </div>
         <div class="list-nav-column">
             <ul class="nav flex-column">

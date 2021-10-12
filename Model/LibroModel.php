@@ -20,10 +20,11 @@ class LibroModel{
         return $tarea;
     }
 
-    function insertLibro($id,$autor,$nombre_libro, $descripcion, $precio, $genero){
-        $sentencia = $this->db->prepare("INSERT INTO libros (id,autor, nombre_libro, descripcion, precio, id_categoria) VALUES (?,?, ?, ?, ?, ?)");
-        $sentencia->execute(array($id,$autor,$nombre_libro, $descripcion, $precio, $genero ));
+    function insertLibro($autor,$nombre_libro, $descripcion, $precio, $genero){
+        $sentencia = $this->db->prepare("INSERT INTO libros (autor, nombre_libro, descripcion, precio, id_categoria) VALUES (?, ?, ?, ?, ?)");
+        $sentencia->execute(array($autor,$nombre_libro, $descripcion, $precio, $genero ));
     }
+    
     function deleteLibroFromDB($id){
         $sentencia = $this->db->prepare("DELETE FROM libros WHERE libros.id = ?");
         $sentencia->execute(array($id));

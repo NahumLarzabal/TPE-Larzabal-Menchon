@@ -9,6 +9,11 @@ div.pagina {
 
 /*                               NAV LIST                        */
 
+#img-logo{
+    width: 70%;
+    margin-top: 18px;
+}
+
 nav.nav-list {
     grid-area: nav;
     background: #1a1a1a;

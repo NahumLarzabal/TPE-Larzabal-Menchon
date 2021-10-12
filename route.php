@@ -42,10 +42,13 @@ $categoriaController = new CategoriaController();
       $libroController->inicio();
       break;
    case 'libros': 
-      if($params[0]=="libros"){
+      if( !empty($params[1]) && $params[1]=="agregarlibro"){
+         $libroController->agregarlibro();
+      } else if(empty($params[1])){
          $libroController->showHome();
-      }else if($params[1]=="agregarlibro"){
-         $libroController->agregarlibro();}
+      } else {
+         $libroController->inicio();
+      }
       break;
    case 'createLibro': 
       $libroController->createLibro(); 
@@ -62,23 +65,22 @@ $categoriaController = new CategoriaController();
    case 'editCategoria': 
       $categoriaController->editCategoria(); 
       break;
+   case 'agregarCategoria':
+      $categoriaController->agregarCategoria();
+      break;
    case 'showCategoriaEdit':
       $categoriaController->showCategoriaEdit($params[1]); 
       break;
    case 'deleteCategoria': 
       $categoriaController->deleteCategoria($params[1]); 
       break;
-   // case 'showCategoria':
-   //    $categoriaController->showCategoria();
-   //    break;
-   // case 'agregarCategoria':
-   //    $categoriaController->agregarCategoria();
-   //    break;
    case 'generos':
-      if($params[0]=="generos"){
-         $categoriaController->viewCategorias();
-      }else if($params[1]=="agregarCategoria"){
+      if( !empty($params[1]) && $params[1]=="agregarCategoria"){
          $categoriaController->showCategoria();
+      } else if(empty($params[1])){
+         $categoriaController->viewCategorias();
+      } else {
+         $libroController->inicio();
       }
       break;
    case 'viewLibro': 
@@ -93,7 +95,6 @@ $categoriaController = new CategoriaController();
          $libroController->searchGenero(); 
       }
       break;
-      
    default: 
       echo('404 Page not found'); 
       break;

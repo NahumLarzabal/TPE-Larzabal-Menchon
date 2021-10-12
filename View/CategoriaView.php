@@ -14,7 +14,7 @@ class CategoriaView{
     }
     function showCategoria(){
         $this->smarty->assign('titulo','Crear Categoria');
-        $this->smarty->display('templates/crearCategoria.tpl');
+        $this->smarty->display('./templates/crearCategoria.tpl');
     }
     function viewCategoriaEdit($categoria){
         $this->smarty->assign('titulo','Editar Categoria');
@@ -23,6 +23,6 @@ class CategoriaView{
   
     }
     function showCategoriasLocation(){
-        header("Location: ".BASE_URL."categorias");
+        header("Location: ".BASE_URL."generos");
     }
 }

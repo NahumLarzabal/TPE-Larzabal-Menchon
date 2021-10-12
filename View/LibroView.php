@@ -15,7 +15,7 @@ class LibroView{
         $this->smarty->display('templates/form_table.tpl');
     }
     function showHomeLocation(){
-        header("Location: ".BASE_URL."biblioteca");
+        header("Location: ".BASE_URL."libros");
     }
 
     function home(){
@@ -23,7 +23,7 @@ class LibroView{
     }
 
     function showLibroLocation(){
-        header("Location: ".BASE_URL."agregarlibro");
+        header("Location: ".BASE_URL."libros");
     }
     
     function showLibro($libro){

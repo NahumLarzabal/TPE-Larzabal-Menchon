@@ -47,7 +47,7 @@
                   <label class="form-check-label" for="exampleCheck1">Confirmo agregar el libro</label>
                 </div>
                 <div class="submit-create">
-                    <button type="submit" class="btn btn-primary" value="Guardar" id="submit-create-libro">Submit</button>
+                    <button type="submit" class="btn btn-primary"  id="submit-create-libro">Submit</button>
                 </div>
               </form>
         </div>

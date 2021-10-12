@@ -12,7 +12,7 @@ class CategoriaView{
         $this->smarty->assign('categorias', $categorias);
         $this->smarty->display('templates/listadoCategorias.tpl');
     }
-    function showCategoria(){
+    function agregarCategoria(){
         $this->smarty->assign('titulo','Crear Categoria');
         $this->smarty->display('./templates/crearCategoria.tpl');
     }

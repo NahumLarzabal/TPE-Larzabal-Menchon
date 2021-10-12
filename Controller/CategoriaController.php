@@ -73,7 +73,7 @@ class CategoriaController{
     
     function showCategoria(){
         $this->helper->checkLogin();
-        $this->view->showCategoria();
+        $this->view->agregarCategoria();
         
     }
     function showCategoriaEdit($id){

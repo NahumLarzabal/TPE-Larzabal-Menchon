@@ -24,7 +24,7 @@
                     <a class="nav-link active" aria-current="page" href="home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Lista de libros</a>
+                    <a class="nav-link" href="biblioteca">Lista de libros</a>
                 </li>
                 {if isset($email)}
                 <li class="nav-item">

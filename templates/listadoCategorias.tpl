@@ -4,7 +4,7 @@
         <div class="new-libro">
             <h1>Listado de categorias</h1>
             <div class="btn-libro">
-                <a  href="showCategoria">
+                <a  href="categorias/showCategoria">
                 {if isset($email)}
                     <button class="btn btn-primary" id="btn-list-libro">Nueva Categoria</button> 
                 {/if}

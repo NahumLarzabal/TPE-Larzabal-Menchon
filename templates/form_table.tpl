@@ -4,15 +4,8 @@
         <div class="content-title">
             <h1>{$titulo}</h1>
         </div>
-        <div class="new-libro">
-            {include file='templates/formSearch.tpl'}
-            {if isset($email)}
-                <a  href="agregarlibro">
-                    <button class="btn btn-primary" id="btn-list-libro">Nuevo Libro</button> 
-                </a>
-            {/if}
-        </div>
-    </div>        
+        {include file='templates/formSearch.tpl'}
+ 
     <div class="title-table">
         <ul class="list-group">
             <li class="list-group-item">
@@ -35,9 +28,9 @@
                     <a id="genero-libro">{$libro->categoria|truncate:500}</a> 
                     <a id="autor-libro">{$libro->autor}</a> 
                     {if isset($email)}
-                        <a id="precio-libro">{$libro->precio}</a> 
-                        <a class="btn btn-danger" href="deleteLibro/{$libro->id}" id="btn-libro-delete">Borrar</a>
-                        <a class="btn btn-success" href="editLibro/{$libro->id}" id="btn-libro-edit">Edit</a>                           
+                        <a id="precio-libro">${$libro->precio}</a> 
+                        <a class="btn btn-danger" href="deleteLibro/{$libro->id}" id="btn-libro-delete"><i class="fas fa-trash-alt"></i></a>
+                        <a class="btn btn-success" href="editLibro/{$libro->id}" id="btn-libro-edit"><i class="far fa-edit"></i></a>                           
                     {/if}
                 </li>
             {/foreach}
@@ -45,4 +38,4 @@
     </div>
 </div>
 
-{{include file='templates/footer.tpl'}}
+{include file='templates/footer.tpl'}

@@ -15,9 +15,13 @@ class LibroView{
         $this->smarty->display('templates/form_table.tpl');
     }
     function showHomeLocation(){
-        header("Location: ".BASE_URL."home");
+        header("Location: ".BASE_URL."biblioteca");
     }
-    
+
+    function home(){
+        $this->smarty->display('templates/home.tpl');
+    }
+
     function showLibroLocation(){
         header("Location: ".BASE_URL."agregarlibro");
     }
@@ -45,6 +49,7 @@ class LibroView{
      }
      
     function searchView($libros,$categorias){
+        $this->smarty->assign('titulo','Filtro');
         $this->smarty->assign('libros', $libros);
         $this->smarty->assign('categorias', $categorias);
         $this->smarty->display('templates/search.tpl');

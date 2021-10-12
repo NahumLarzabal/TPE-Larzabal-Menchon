@@ -27,7 +27,7 @@ $categoriaController = new CategoriaController();
       $userController->login();
       break;
    case 'logout': 
-   $userController->logout();
+      $userController->logout();
       break;
    case 'verify': 
       $userController->verifyLogin();
@@ -39,8 +39,13 @@ $categoriaController = new CategoriaController();
       $userController->createLogin();
       break;
    case 'home': 
-      $libroController->showHome();
-      //$categoriaController->showHome();
+      $libroController->inicio();
+      break;
+   case 'libros': 
+      if($params[0]=="libros"){
+         $libroController->showHome();
+      }else if($params[1]=="agregarlibro"){
+         $libroController->agregarlibro();}
       break;
    case 'createLibro': 
       $libroController->createLibro(); 
@@ -60,20 +65,21 @@ $categoriaController = new CategoriaController();
    case 'showCategoriaEdit':
       $categoriaController->showCategoriaEdit($params[1]); 
       break;
-   case 'agregarlibro':
-      $libroController->agregarlibro();
-      break;
    case 'deleteCategoria': 
       $categoriaController->deleteCategoria($params[1]); 
       break;
-   case 'showCategoria':
-      $categoriaController->showCategoria();
-      break;
-   case 'agregarCategoria':
-      $categoriaController->agregarCategoria();
-      break;
-   case 'categorias':
-      $categoriaController->viewCategorias();
+   // case 'showCategoria':
+   //    $categoriaController->showCategoria();
+   //    break;
+   // case 'agregarCategoria':
+   //    $categoriaController->agregarCategoria();
+   //    break;
+   case 'generos':
+      if($params[0]=="generos"){
+         $categoriaController->viewCategorias();
+      }else if($params[1]=="agregarCategoria"){
+         $categoriaController->showCategoria();
+      }
       break;
    case 'viewLibro': 
       $libroController->viewLibro($params[1]); 

@@ -24,17 +24,17 @@
                     <a class="nav-link active" aria-current="page" href="home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Lista de libros</a>
+                    <a class="nav-link" href="libros">Listado de Libros</a>
                 </li>
                 {if isset($email)}
                 <li class="nav-item">
-                    <a class="nav-link" href="categorias">Generos</a>
+                    <a class="nav-link" href="generos">Generos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="agregarlibro">Cargar libro</a>
+                    <a class="nav-link" href="libros/agregarlibro">Cargar libro</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="showCategoria">Cargar genero</a>
+                <a class="nav-link" href="generos/agregarCategoria">Cargar genero</a>
             </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout">Cerrar sesion</a>

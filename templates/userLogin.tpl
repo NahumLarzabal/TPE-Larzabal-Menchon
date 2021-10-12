@@ -15,7 +15,6 @@
 <body>
 
 <div class="container">
-
     <div class="row mt-4">
         <div class="col-md-4">
             <h2>{$titulo}</h2>
@@ -31,6 +30,8 @@
     <h4 class="alert-danger">{$error}</h4>
 
 </div>
+
+{include file='templates/footer.tpl'}
 </body>
 
 </html>

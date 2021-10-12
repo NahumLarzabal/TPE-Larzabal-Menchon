@@ -42,7 +42,7 @@ header{
     box-shadow: 0 2px 0 0 rgb(26 26 26 / 10%) !important;
 }
 
-/* titulo */
+/*                      titulo                                  */
 header div.title {
     display: flex;
     justify-content: flex-start;
@@ -54,7 +54,7 @@ div.title h1{
     font-size: 1.5rem;
     margin: 5px 0px 5px 50px;
 }
-/* btn menu hamburguesa */
+/*                          btn menu hamburguesa                        */
 div.btn-nav{
     margin: 10px 10px 10px 10px;
 }
@@ -81,18 +81,15 @@ header div.login input{
     margin-right: 11px;
 }
 
-/*                       CONTAINER MAIN HOME              */
-div.container-table{
-    grid-area: main;
-    padding: 0px;
-}
+/*                   CONTAINER MAIN HOME              */
 
 div.main-page{
     display: flex;
     padding: 30px 0px 30px 0px;
+    justify-content: space-around;
 }
 
-/*                  title and buttons main-page                             */
+/*                  title and buttons main-page                          */
 div.new-libro {
     display: flex;
 }

@@ -21,43 +21,6 @@ class CategoriaController{
         $categorias = $this->model->getGeneros();
         $this->view->showCategoria($categorias);
     }
-    // function viewLibro($id){
-    //     $this->helper->checkLogin();
-    //     $libro = $this->model->getLibro($id);
-    //     $this->view->showLibro($libro);
-    // }
- 
-    // function createLibro(){
-    //     $this->helper->checkLogin();
-    //     $this->model->insertLibro($_POST[NULL], $_POST['autor'], $_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'], $_POST['id_categoria']);
-    //     $categorias=$this->model->getGeneros();
-    //     $this->view->agregar($categorias);
-    //     $this->view->showLibroLocation();
-    // }
-    // function agregarlibro(){
-    //     $this->helper->checkLogin();
-    //     $categorias=$this->model->getGeneros();
-    //     $this->view->agregar($categorias);
-    // }
-    // function deleteLibro($id){
-    //     $this->helper->checkLogin();
-    //     $this->model->deleteLibroFromDB($id);
-    //     $this->view->showHomeLocation();
-    // }
-    // function editLibro($id){
-    //     $this->helper->checkLogin();
-    //     $libro = $this->model->getLibro($id);
-    //     $categorias = $this->model->getGeneros();
-    //     $id_genero=$this->model->getSelectGenero($id);
-    //     $this->view->showEdit($libro,$categorias,$id_genero);
-    // }
-
-    // function edit(){
-    //     $this->helper->checkLogin();
-    //     $this->model->updateLibroFromDB($_POST['autor'],$_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'],$_POST['id_categoria'],$_POST['id']);
-    //     $this->view->showHomeLocation();
-    // }
-
     
     function editCategoria(){
         $this->helper->checkLogin();

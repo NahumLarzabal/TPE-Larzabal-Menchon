@@ -23,7 +23,7 @@ class LibroController{
 
     function showHome(){
         // no se pasa el checklogin para poder entrar como invitado
-       //$this->helper->checkLogin();
+        //$this->helper->checkLogin();
         $libros = $this->model->getLibros();
         $categorias = $this->modelCategoria->getGeneros();
         $this->view->showLibros($libros,$categorias);
@@ -79,6 +79,10 @@ class LibroController{
         $categorias = $this->modelCategoria->getGeneros();
         $libros = $this->model->searchModelGenero($_POST['generoIn']);
         $this->view->searchView($libros,$categorias);
+    }
+
+    function inicio(){
+        $this->view->home();
     }
   
 }

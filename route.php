@@ -27,7 +27,7 @@ $categoriaController = new CategoriaController();
       $userController->login();
       break;
    case 'logout': 
-   $userController->logout();
+      $userController->logout();
       break;
    case 'verify': 
       $userController->verifyLogin();
@@ -38,20 +38,15 @@ $categoriaController = new CategoriaController();
    case 'createLogin':
       $userController->createLogin();
       break;
-   case 'biblioteca': 
-      if($params[0]=="biblioteca"){
-         $libroController->showHome();
-      }else
-      if($params[1]=="agregarlibro"){
-         $libroController->agregarlibro(); 
-         }
-     
+   case 'home': 
+      $libroController->inicio();
       break;
-      case 'home': 
+   case 'libros': 
+      if($params[0]=="libros"){
          $libroController->showHome();
-         //$categoriaController->showHome();
-         break;
-   
+      }else if($params[1]=="agregarlibro"){
+         $libroController->agregarlibro();}
+      break;
    case 'createLibro': 
       $libroController->createLibro(); 
       break;
@@ -70,26 +65,21 @@ $categoriaController = new CategoriaController();
    case 'showCategoriaEdit':
       $categoriaController->showCategoriaEdit($params[1]); 
       break;
-   case 'agregarlibro':
-         $libroController->agregarlibro();
-      // $libroController->agregarlibro();
-      break;
    case 'deleteCategoria': 
       $categoriaController->deleteCategoria($params[1]); 
       break;
-   case 'showCategoria':
-      $categoriaController->showCategoria();
-      break;
-   case 'agregarCategoria':
-      $categoriaController->agregarCategoria();
-      break;
-   case 'categorias':
-       if($params[0]=="categorias"){
-          $categoriaController->viewCategorias();
-      }else
-      if($params[1]=="agregarCategoria"){
-         $categoriaController->showCategoria(); 
-         }
+   // case 'showCategoria':
+   //    $categoriaController->showCategoria();
+   //    break;
+   // case 'agregarCategoria':
+   //    $categoriaController->agregarCategoria();
+   //    break;
+   case 'generos':
+      if($params[0]=="generos"){
+         $categoriaController->viewCategorias();
+      }else if($params[1]=="agregarCategoria"){
+         $categoriaController->showCategoria();
+      }
       break;
    case 'viewLibro': 
       $libroController->viewLibro($params[1]); 

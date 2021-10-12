@@ -4,15 +4,8 @@
         <div class="content-title">
             <h1>{$titulo}</h1>
         </div>
-        <div class="new-libro">
-            {include file='templates/formSearch.tpl'}
-            {if isset($email)}
-                <a  href="biblioteca/agregarlibro">
-                    <button class="btn btn-primary" id="btn-list-libro">Nuevo Libro</button> 
-                </a>
-            {/if}
-        </div>
-    </div>        
+        {include file='templates/formSearch.tpl'}
+ 
     <div class="title-table">
         <ul class="list-group">
             <li class="list-group-item">
@@ -45,4 +38,4 @@
     </div>
 </div>
 
-{{include file='templates/footer.tpl'}}
+{include file='templates/footer.tpl'}

@@ -1,10 +1,10 @@
 {include file='templates/header.tpl'}
 <div class="container-table">
-<div class="main-page">
+<div class="main-page-generos">
         <div class="new-libro">
             <h1>Listado de categorias</h1>
             <div class="btn-libro">
-                <a  href="categorias/showCategoria">
+                <a  href="generos/agregarCategoria">
                 {if isset($email)}
                     <button class="btn btn-primary" id="btn-list-libro">Nueva Categoria</button> 
                 {/if}
@@ -30,8 +30,8 @@
                         <li class="list-group-item">
                                 <span>{$categoria->categoria}</span>
                                 {if isset($email)}
-                                <a class="btn btn-danger" href="deleteCategoria/{$categoria->id_categoria}" id="btn-categoria-delete">Borrar</a>
-                                <a class="btn btn-success" href="showCategoriaEdit/{$categoria->id_categoria}" id="btn-categoria-edit">Edit</a>                           
+                                <a class="btn btn-danger" href="deleteCategoria/{$categoria->id_categoria}" id="btn-categoria-delete"><i class="fas fa-trash-alt"></i></a>
+                                <a class="btn btn-success" href="showCategoriaEdit/{$categoria->id_categoria}" id="btn-categoria-edit"><i class="far fa-edit"></i></a>                           
                                 {/if}
                         </li>
                     {/foreach}

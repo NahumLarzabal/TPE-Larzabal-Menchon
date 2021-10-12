@@ -28,9 +28,9 @@
                     <a id="genero-libro">{$libro->categoria|truncate:500}</a> 
                     <a id="autor-libro">{$libro->autor}</a> 
                     {if isset($email)}
-                        <a id="precio-libro">${$libro->precio}</a> 
+                        <a id="precio-libro">{$libro->precio}</a> 
                         <a class="btn btn-danger" href="deleteLibro/{$libro->id}" id="btn-libro-delete"><i class="fas fa-trash-alt"></i></a>
-                        <a class="btn btn-success" href="editLibro/{$libro->id}" id="btn-libro-edit"><i class="far fa-edit"></i></a>                           
+                        <a class="btn btn-success" href="editLibro/{$libro->id}" id="btn-libro-edit">Edit</a>                           
                     {/if}
                 </li>
             {/foreach}

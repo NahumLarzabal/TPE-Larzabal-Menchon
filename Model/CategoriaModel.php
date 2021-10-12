@@ -8,7 +8,7 @@ class CategoriaModel{
     }
 
     function getGeneros(){
-        $sentencia = $this->db->prepare( "select * from categorias");
+        $sentencia = $this->db->prepare( "select * from categorias limit 0,10");
         $sentencia->execute();
         $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $tareas;

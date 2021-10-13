@@ -1,43 +1,46 @@
 {include file='templates/header.tpl'}
-<div class="container-table">
-<div class="main-page-generos">
-        <div class="new-libro">
-            <h1>Listado de categorias</h1>
-            <div class="btn-libro">
-                <a  href="generos/agregarCategoria">
-                {if isset($email)}
-                    <button class="btn btn-primary" id="btn-list-libro">Nueva Categoria</button> 
-                {/if}
-                </a>
-            </div>        
+<div class="contenedor-general">
+    <div class="content-top-page">
+        <div class="content-title">
+            <h1>Listado de Generos</h1>
         </div>
-            <div class="title-table">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <span id="titulo-libro">Genero</span>
-                        {if isset($email)}
-                        <span id="btn-libro-delete">Borrar</span>
-                        <span id="btn-libro-edit" class="btn-edit-margin">Editar</span>
-                        {/if}
-                    </li>
-                </ul>
-            </div>
-            <!--                        OJO ACA!                       -->
-            <!-- HAY QUE HACER UNA TABLA O SE PUEDE UNA LISTA? REVISAR PAUTAS DEL TPE -->
-            <div class="main-table">
-                <ul class="list-group">
-                    {foreach from=$categorias item=$categoria}
-                        <li class="list-group-item">
-                                <span>{$categoria->categoria}</span>
-                                {if isset($email)}
-                                <a class="btn btn-danger" href="deleteCategoria/{$categoria->id_categoria}" id="btn-categoria-delete"><i class="fas fa-trash-alt"></i></a>
-                                <a class="btn btn-success" href="showCategoriaEdit/{$categoria->id_categoria}" id="btn-categoria-edit"><i class="far fa-edit"></i></a>                           
-                                {/if}
-                        </li>
-                    {/foreach}
-                </ul>
-            </div>
+        <div class="btn-libro">
+            <a  href="generos/agregarCategoria">
+                {if isset($email)}
+                    <button class="btn btn-primary" id="btn-list-libro">Nuevo Genero</button> 
+                {/if}
+            </a>
+        </div>
     </div>
+
+    <div class="main-table">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Genero</th>
+                <th scope="col">Borrar</th>
+                <th scope="col">Editar</th>
+              </tr>
+            </thead>
+            <tbody>
+                {foreach from=$categorias item=$categoria}
+                    <tr>
+                        <td scope="row">{$categoria->categoria}</td>
+                        <td>
+                            <a class="btn btn-danger" href="deleteCategoria/{$categoria->id_categoria}" id="btn-categoria-delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-success" href="showCategoriaEdit/{$categoria->id_categoria}" id="btn-categoria-edit">
+                                <i class="far fa-edit"></i>
+                            </a>     
+                        </td>
+                    </tr>
+                {/foreach}
+            </tbody>
+        </table>
+    </div>      
 </div>
  
 {include file='templates/footer.tpl'}

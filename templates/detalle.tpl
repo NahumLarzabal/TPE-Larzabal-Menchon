@@ -7,7 +7,7 @@
     <h2>Precio: {$libro->precio}</h2>
     <h2>Descripcion: {$libro->descripcion}</h2>
 
-    <a href="home" > Volver </a>
+    <a href="libros" > Volver </a>
 </div>
 
 {include file='templates/footer.tpl'}

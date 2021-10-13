@@ -1,51 +1,80 @@
 {include file='templates/header.tpl'}
-<div class="container-table">
-    <h1>{$titulo}</h1>  
-    <form class="form-alta" action="edit" method="post">
+
+<div class="contenedor-general"> 
+  {* titulo y parte superior del contenedor *}
+  <div class="content-top-page">
+    <div class="content-title">
+      <h1>Editar libro</h1>
+    </div>
+    <div class="btn-libro">
+      <a href="libros">
+        <button class="btn btn-primary" id="btn-list-libro">Listado de libros</button> 
+      </a>
+    </div>
+  </div>
+
+    {* formulario editor de libro *}
+  <form class="form-alta" action="edit" method="post">  
     <input name="id" type="hidden" value="{$libro->id}">
-        <div class="mb-3">
-                          <label class="form-label">Titulo del libro</label>
-                          <input type="text" class="form-control" name="nombre_libro" value="{$libro->nombre_libro}" id="nombre_libro">
-                          <div id="emailHelp" class="form-text">Maximo 180 caracteres.</div>
-                        </div>
-                        <div class="mb-3">
-                          <label class="form-label">Autor del libro</label>
-                          <input type="text" class="form-control"name="autor" value="{$libro->autor}" id="autor">
-                          <div id="emailHelp" class="form-text">Nombre - Apellido.</div>
-                        </div>
-                        <div class="form-genero">
-                            <label class="form-label">Genero del libro</label>
-                            <select class="form-select" name="id_categoria" id="id_categoria">
-                                {foreach from=$categorias  item=$genero}
-                                <option 
-                                {if {$genero->id_categoria} == {{$libro->id_categoria}}}
-                                    
-                                    selected={$genero->id_categoria}
-                                    
-                                {/if} 
-                                value={$genero->id_categoria} >{$genero->categoria}</option>
-                                {/foreach}
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                          <label class="form-label">Descripcion</label>
-                          <textarea type="text" class="form-control" id="descripcion" name="descripcion"> {$libro->descripcion}</textarea>
-                          <div id="emailHelp" class="form-text">Maximo 500 caracteres.</div>
-                        </div>
-                        <div class="mb-3">
-                          <label class="form-label">Precio</label>
-                          <input type="number" class="form-control" id="precio" value="{$libro->precio}" name="precio">
-                          <div id="emailHelp" class="form-text">Precio en $.</div>
-                        </div>
-                        <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Confirmo agregar el libro</label>
-                        </div>
-                        <div class="submit-create">
-                            <button type="submit" class="btn btn-primary" value="Editar" id="submit-create-libro">Editar</button>
-                        </div>
-        </div>
-    </form> 
+    <div class="form-group row margin-15px">
+      <label for="nombre_libro" class="col-sm-2 col-form-label">Titulo del libro</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="nombre_libro" value="{$libro->nombre_libro}" id="nombre_libro">          <div id="emailHelp" class="form-text">Maximo 180 caracteres.</div>
+      </div>
+    </div>
+
+    <div class="form-group row margin-15px">
+      <label for="autor" class="col-sm-2 col-form-label">Autor:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control"name="autor" value="{$libro->autor}" id="autor">
+      </div>
+    </div>
+
+    <div class="form-group row margin-15px">
+      <label for="id_categoria" class="col-sm-2 col-form-label">Genero:</label>
+      <div class="col-sm-10">
+        <select class="form-select" name="id_categoria" id="id_categoria">
+                {foreach from=$categorias  item=$genero}
+                <option 
+                {if {$genero->id_categoria} == {{$libro->id_categoria}}}
+                    
+                    selected={$genero->id_categoria}
+                    
+                {/if} 
+                value={$genero->id_categoria} >{$genero->categoria}</option>
+                {/foreach}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row margin-15px">
+      <label for="descripcion" class="col-sm-2 col-form-label">Descripcion:</label>
+      <div class="col-sm-10">
+        <textarea type="text" class="form-control" id="descripcion" name="descripcion">
+          {$libro->descripcion}
+        </textarea>
+        <div id="emailHelp" class="form-text">Maximo 500 caracteres.</div>
+      </div>
+    </div>
+
+    <div class="form-group row margin-15px">
+      <label for="precio" class="col-sm-2 col-form-label">Precio:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="precio" value="{$libro->precio}" name="precio">
+        <div id="emailHelp" class="form-text">Precio en $.</div>
+      </div>
+    </div>
+  
+    <div class="form-group row margin-15px">
+      <div class="col-sm-10  btn-sub-center">
+        <button type="submit" class="btn btn-primary"  id="submit-create-libro">Editar libro</button>
+      </div>
+    </div>
+  </form>
+
+</div>
+</div>
+
 </div>
 {include file='templates/footer.tpl'}
 

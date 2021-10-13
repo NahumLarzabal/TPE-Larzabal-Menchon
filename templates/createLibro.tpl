@@ -1,56 +1,72 @@
 {include file='templates/header.tpl'}
-<div class="container-table">
-    <div class="main-page">
-        <div class="new-libro">
-            <h1>Crear libro</h1>
-            <div class="btn-libro">
-                <a href="home">
-                    <button class="btn btn-primary" id="btn-list-libro">Listado de libros</button> 
-                </a>
-                <a href="editLibro/1">
-                    <button class="btn btn-success" id="btn-list-libro">Editar Libros</button> 
-                </a>
-            </div>    
-        </div>    
-        <div class="form-create-libro">
-            <form class="form-alta" action="createLibro" method="post">
-                <div class="mb-3">
-                  <label class="form-label">Titulo del libro</label>
-                  <input type="text" class="form-control" name="nombre_libro" id="nombre_libro">
-                  <div id="emailHelp" class="form-text">Maximo 180 caracteres.</div>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Autor del libro</label>
-                  <input type="text" class="form-control"name="autor" id="autor">
-                  <div id="emailHelp" class="form-text">Nombre - Apellido.</div>
-                </div>
-                <div class="form-genero">
-                    <label class="form-label">Genero del libro</label>
-                    <select class="form-select" name="id_categoria" id="id_categoria">
-                        {foreach from=$categorias  item=$genero}
-                        <option value={$genero->id_categoria} >{$genero->categoria}</option>
-                        {/foreach}
-                    </select>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Descripcion</label>
-                  <textarea type="text" class="form-control" id="descripcion" name="descripcion"></textarea>
-                  <div id="emailHelp" class="form-text">Maximo 500 caracteres.</div>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Precio</label>
-                  <input type="number" class="form-control" id="precio" name="precio">
-                  <div id="emailHelp" class="form-text">Precio en $.</div>
-                </div>
-                <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Confirmo agregar el libro</label>
-                </div>
-                <div class="submit-create">
-                    <button type="submit" class="btn btn-primary"  id="submit-create-libro">Submit</button>
-                </div>
-              </form>
-        </div>
+{* content *}
+  <div class="contenedor-general"> 
+    {* titulo y parte superior del contenedor *}
+    <div class="content-top-page">
+      <div class="content-title">
+        <h1>Crear libro</h1>
+      </div>
+      <div class="btn-libro">
+        <a href="libros">
+          <button class="btn btn-primary" id="btn-list-libro">Listado de libros</button> 
+        </a>
+      </div>
     </div>
-</div>
+
+    {* formulario creacion de libro *}
+    <form action="createLibro" method="post">
+
+      <div class="form-group row margin-15px">
+        <label for="nombre_libro" class="col-sm-2 col-form-label">Titulo del libro</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" placeholder="Titulo del libro" name="nombre_libro" id="nombre_libro" required>
+          <div id="emailHelp" class="form-text">Maximo 180 caracteres.</div>
+        </div>
+      </div>
+
+      <div class="form-group row margin-15px">
+        <label for="autor" class="col-sm-2 col-form-label">Autor:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="form-label" placeholder="Autor" name="autor" id="autor" required>
+        </div>
+      </div>
+
+      <div class="form-group row margin-15px">
+          <label for="id_categoria" class="col-sm-2 col-form-label">Genero:</label>
+        <div class="col-sm-10">
+            <select class="form-select" name="id_categoria" id="id_categoria">
+                <option selected disabled>Elegi un genero</option>  
+              {foreach from=$categorias  item=$genero}
+                <option value={$genero->id_categoria}>{$genero->categoria}</option>
+              {/foreach}
+            </select>
+        </div>
+      </div>
+
+      <div class="form-group row margin-15px">
+        <label for="descripcion" class="col-sm-2 col-form-label">Descripcion:</label>
+        <div class="col-sm-10">
+          <textarea type="text" class="form-control" id="descripcion" name="descripcion">
+          </textarea>
+          <div id="emailHelp" class="form-text">Maximo 500 caracteres.</div>
+        </div>
+      </div>
+
+      <div class="form-group row margin-15px">
+        <label for="precio" class="col-sm-2 col-form-label">Precio:</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="precio" name="precio">
+          <div id="emailHelp" class="form-text">Precio en $.</div>
+        </div>
+      </div>
+  
+      <div class="form-group row margin-15px">
+        <div class="col-sm-10  btn-sub-center">
+          <button type="submit" class="btn btn-primary"  id="submit-create-libro">Crear libro</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
 {include file='templates/footer.tpl'}

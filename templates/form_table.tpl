@@ -1,11 +1,12 @@
 {include file='templates/header.tpl'}
-<div class="contenedor-general"> 
+    <div class="contenedor-general"> 
         <div class="content-top-page">
             <div class="content-title">
                 <h1>{$titulo}</h1>
             </div>
             {include file='templates/formSearch.tpl'}
         </div>
+
         <div class="main-table">
             <table class="table table-hover">
                 <thead>
@@ -37,6 +38,4 @@
             </table>
         </div>
     </div>
-</div>
-
 {include file='templates/footer.tpl'}

@@ -47,6 +47,5 @@
             </table>
             <a href="libros">Volver al inicio</a>
         </div>
-    </div>
 </div>
 {{include file='templates/footer.tpl'}}

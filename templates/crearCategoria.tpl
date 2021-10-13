@@ -1,4 +1,5 @@
 {include file='templates/header.tpl'}
+
     <div class="contenedor-general"> 
         <div class="content-top-page">
             <div class="content-title">
@@ -13,23 +14,6 @@
                 </a>
             </div>
         </div>
-{* 
-        <div class="form-create-libro">
-            <form class="form-alta" action="agregarCategoria" method="post">
-                <div class="mb-3">
-                    <label class="form-label">Nombre de Genero</label>
-                    <input type="text" name="categoria" id="categoria" class="form-control">
-                    <div id="emailHelp" class="form-text">Maximo 50 caracteres.</div>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" required class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Confirmo agregar genero</label>
-                </div>
-                <div class="submit-create">
-                    <button type="submit" class="btn btn-primary" value="Guardar" id="submit-create-libro">Submit</button>
-                </div>
-            </form>
-        </div>   *}
 
         <div class="form-create-libro">
             <form class="form-alta" action="agregarCategoria" method="post">
@@ -50,4 +34,5 @@
         </div>  
 
     </div>
+
 {include file='templates/footer.tpl'}

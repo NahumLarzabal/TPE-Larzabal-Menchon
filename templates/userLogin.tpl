@@ -14,18 +14,18 @@
 
 <body>
 {* {include file='templates/header.tpl'} *}
-    {* <div class="logo-login">
-        <img src="./img/logo1.png" alt="logo">
-    </div> *}
-    <div class="contenedor-general-login">
-        <div class="container-login">
-            <div class="top-title-page">
-                <div class="title-login">
-                    <h2>{$titulo}</h2>
-                </div>
-                <div class="btns-login">
-                    <a class="btn btn-outline-secondary btn-sm btn-create-user" href="createLogin" >Create User</a>
-                    <button class="btn btn-secondary btn-create-user"><a  href="home">Invitado</a></button>
+<div class="contenedor-general-login">
+<div class="container-login colorDiv">
+<div class="logo-login">
+    <img class="w-25" src="./img/logo.png" alt="logo">
+    <div class="btns-login w-25 h-25">
+        <a class="btn btn-outline-secondary btn-sm btn-create-user" href="createLogin" >Create User</a>
+       <a class="btn btn-secondary btn-create-user  href="home">Invitado</a>
+    </div>
+</div>
+<div class="top-title-page">
+<div class="title-login">
+<h2>{$titulo}</h2>
                 </div>
             </div>
             

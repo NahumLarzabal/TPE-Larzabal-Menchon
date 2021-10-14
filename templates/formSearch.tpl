@@ -1,6 +1,6 @@
 <div class="new-libro">
 
-    <select type="text" name="filtrado-libros" id="filter-table" class="form-select" aria-label="Default select example" >
+    <select type="text" name="filtrado-libros" id="filter-table" class="form-select w-30" aria-label="Default select example" >
         <option selected disabled>Elemento a filtrar</option>      
         <option name="filtroTitulo" value="nombre_libro">Titulo</option>
         <option value="id_categoria">Genero</option>

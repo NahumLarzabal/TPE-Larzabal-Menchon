@@ -1,12 +1,12 @@
 {include file='templates/header.tpl'}
 
     <div class="contenedor-general"> 
-        <div class="content-top-page">
+        <div class="title-add-genero">
             <div class="content-title">
                 <h1>Agregar genero literario</h1>
             </div>
             <div class="btn-libro">
-                <a href="libros">
+                <a href="libros" id="btn-izq">
                     <button class="btn btn-primary" id="btn-list-libro">Listado de libros</button> 
                 </a>
                 <a href="generos">
@@ -31,7 +31,13 @@
                     </div>
                 </div>
             </form>
-        </div>  
+        </div> 
+
+        {include file='templates/anuncio.tpl'}
+        <!-- 
+        <aside class="img-anuncio">
+        <img src="./img/anuncio.png">
+        </aside>  -->
 
     </div>
 

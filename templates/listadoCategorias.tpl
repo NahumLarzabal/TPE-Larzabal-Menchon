@@ -40,7 +40,8 @@
                 {/foreach}
             </tbody>
         </table>
-    </div>      
+    </div>
+    {include file='templates/anuncio.tpl'}      
 </div>
  
 {include file='templates/footer.tpl'}

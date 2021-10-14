@@ -1,4 +1,8 @@
 /*  PAGINACION */
+body {
+    min-height: 100%;
+}
+
 div.pagina {
     display: flex;
 }
@@ -7,15 +11,17 @@ div.pagina {
     display: none !important;
 }
 
+/* .contenedor-general{
+    margin-bottom: 10%;
+} */
 /*                               NAV LIST                        */
 
 #img-logo{
-    width: 70%;
+    width: 50%;
     margin-top: 18px;
 }
 
 nav.nav-list {
-    grid-area: nav;
     background: #1a1a1a;
     box-shadow: 0 0 15px 0 rgb(0 0 0 / 60%) !important;
     width: 15%;
@@ -101,9 +107,86 @@ div.content-top-page{
     justify-content: space-around;
 } */
 
+.title-add-genero{
+    display: flex;
+    padding: 30px 0px 30px 0px;
+}
+
+.content-title{
+    padding-left: 50px;
+    width: 40%;
+}
+
+#btn-izq {
+    margin-right: 10px;
+}
+
+
+div.container-login{
+    width: 50%;
+    height: 50%;
+}
+/*                  LOG IN                          */
+
+.top-title-page{
+    display: flex;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    /* justify-content: space-around; */
+}
+
+div.inputs-form, .btn-form-login{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-form-login{
+    margin-bottom: 5%;
+}
+
+.input-email , .input-password{
+    padding: 5% 0% 5% 0%;
+    margin: 0px 10px 0px 10px;
+}
+
+.title-login{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.btns-login{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.alert-danger{
+    display: flex;
+    justify-content: center;
+    font-style: italic;
+}
+
+.contenedor-general-login{
+    display: flex;
+    justify-content: center;
+    margin-top: 8%;
+}
+
+.red-alert{
+    color: #842029;
+    /* background-color: #f8d7da;
+    border-color: #f5c2c7; */
+    display: flex;
+    justify-content: center;
+}
+
 /*                  title and buttons main-page                          */
 div.new-libro {
     display: flex;
+    margin-right: 5%;
+    justify-content: flex-end;
+    width: 60%;
 }
 
 div.new-libro h1{
@@ -129,6 +212,9 @@ div.btn-libro{
     padding-right: 50px;
 }
 
+.w-30{
+    width: 30%;
+}
 select.form-select{
     margin-right: 10px;
 }
@@ -206,6 +292,23 @@ div.content{
 .form-genero{
     display: flex;
     justify-content: space-around;
+
+    
+}
+/*           --------------------------------        DETALLE DEL LIBRO      ---------------------------------                          */
+div>h2>span{
+    font-style: oblique;
+    color: red;
+}
+
+div.btn-volver{
+    display: flex;
+    justify-content: center;
+}
+
+aside.img-anuncio{
+    display: flex;
+    justify-content: center;
 }
 
 /*           --------------------------------         FOOTER        ---------------------------------                          */

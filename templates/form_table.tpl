@@ -28,7 +28,7 @@
                             <td id="genero-libro">{$libro->categoria|truncate:500}</td>
                             <td id="autor-libro">{$libro->autor}</td>
                             {if isset($email)}
-                                <td id="precio-libro">{$libro->precio}</td>
+                                <td id="precio-libro">${$libro->precio}</td>
                                 <td><a class="btn btn-danger" href="deleteLibro/{$libro->id}" id="btn-libro-delete"><i class="fas fa-trash-alt"></i></a></td>
                                 <td><a class="btn btn-success" href="editLibro/{$libro->id}" id="btn-libro-edit"><i class="far fa-edit"></i></a></td>
                             {/if}
@@ -37,5 +37,6 @@
                 </tbody>
             </table>
         </div>
+        {include file='templates/anuncio.tpl'}
     </div>
 {include file='templates/footer.tpl'}

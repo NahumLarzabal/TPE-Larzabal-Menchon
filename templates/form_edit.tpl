@@ -73,8 +73,8 @@
   </form>
 
 </div>
+{include file='templates/anuncio.tpl'}
 </div>
-
 </div>
 {include file='templates/footer.tpl'}
 

@@ -1,13 +1,38 @@
 {include file='templates/header.tpl'}
+    <div class="content-top-page">
+      <div class="content-title">
+        <h1>Detalle del libro</h1>
+      </div>
+      <div class="btn-libro">
+        <a href="libros">
+          <button class="btn btn-primary" id="btn-list-libro">Listado de libros</button> 
+        </a>
+      </div>
+    </div>
 
-<div class="container">
-    <h1 class="mb-4">{$libro->nombre_libro}</h1>
-    <h2>Autor: {$libro->autor}</h2>
-    <h2>Genero: {$libro->categoria}</h2>
-    <h2>Precio: {$libro->precio}</h2>
-    <h2>Descripcion: {$libro->descripcion}</h2>
 
-    <a href="libros" > Volver </a>
-</div>
+    <div class="container">
+        <div class="title">
+            <h2 class="mb-4">Titulo:<span>{$libro->nombre_libro}</span></h2>
+        </div>
+        <div class="autor">
+            <h2>Autor: <span>{$libro->autor}</span></h2>
+        </div>
+
+        <div class="genero">
+            <h2>Genero: <span>{$libro->categoria}</span></h2>
+        </div>
+        <div class="precio">
+            <h2>Precio: <span>${$libro->precio}</span></h2>
+        </div>
+        <div class="descripcion">
+            <h2>Descripcion: {$libro->descripcion}</h2>
+        </div>
+        <div class="btn-volver">
+            <a href="libros">Volver</a>
+        </div>
+    </div>
+
+  {include file='templates/anuncio.tpl'}
 
 {include file='templates/footer.tpl'}

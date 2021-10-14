@@ -6,7 +6,6 @@
     </footer>
 </div> {* div pagina del header. no cerrar*}
 
-
 <script src="js/navList.js"></script>
 <script src="js/tableGenero.js"></script>
 

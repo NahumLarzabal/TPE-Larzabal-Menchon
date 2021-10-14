@@ -181,7 +181,6 @@ div.inputs-form, .btn-form-login{
 .contenedor-general-login{
     display: flex;
     justify-content: center;
-    margin-top: 8%;
 }
 
 .red-alert{
@@ -192,6 +191,21 @@ div.inputs-form, .btn-form-login{
     justify-content: center;
 }
 
+.logo-login{
+    display: flex;
+    justify-content: center;
+    height: 50%;
+}
+
+.btn-create-user{
+    display: flex;
+    align-items: center;
+}
+
+button.btn-create-user>a{
+    text-decoration: none;
+    color: white;
+}
 /*                  title and buttons main-page                          */
 div.new-libro {
     display: flex;

@@ -14,6 +14,9 @@
 
 <body>
 {* {include file='templates/header.tpl'} *}
+    {* <div class="logo-login">
+        <img src="./img/logo1.png" alt="logo">
+    </div> *}
     <div class="contenedor-general-login">
         <div class="container-login">
             <div class="top-title-page">
@@ -21,8 +24,8 @@
                     <h2>{$titulo}</h2>
                 </div>
                 <div class="btns-login">
-                    <a class="btn btn-outline-secondary btn-sm" href="createLogin" >Create User</a>
-                    <button class="btn btn-secondary"><a  href="home">Invitado</a></button>
+                    <a class="btn btn-outline-secondary btn-sm btn-create-user" href="createLogin" >Create User</a>
+                    <button class="btn btn-secondary btn-create-user"><a  href="home">Invitado</a></button>
                 </div>
             </div>
             

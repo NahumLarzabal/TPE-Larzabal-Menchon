@@ -13,15 +13,9 @@ class CategoriaController{
     function __construct(){
         $this->helper = new AuthHelpers();
         $this->model = new CategoriaModel();
-        $this->view = new CategoriaView($this->helper->getEmail());
+        $this->view = new CategoriaView($this->helper->getNombre());
     }
 
-    function showHome(){
-        //$this->helper->checkLogin();
-        $categorias = $this->model->getGeneros();
-        $this->view->showCategoria($categorias);
-    }
-    
     function editCategoria(){
         $this->helper->checkLogin();
         $this->model->updateCategoriaFromDB($_POST['categoria'],$_POST['id_categoria']);

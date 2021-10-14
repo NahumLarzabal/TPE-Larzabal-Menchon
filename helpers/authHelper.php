@@ -10,9 +10,9 @@ class AuthHelpers{
         }
     }
 
-    function getEmail(){
-        if (isset($_SESSION['email'])) {
-            return $_SESSION['email'] ;
+    function getNombre(){
+        if (isset($_SESSION['nombre_apellido'])) {
+            return $_SESSION['nombre_apellido'] ;
         }
     }   
 }

@@ -34,7 +34,7 @@ class UserController{
 
                 session_start();
                 $_SESSION["email"] = $email;
-                
+                $_SESSION["nombre_apellido"]=$user->nombre_apellido;
                 $this->view->showHome();
             } else {
                 $this->view->showLogin("Acceso denegado");

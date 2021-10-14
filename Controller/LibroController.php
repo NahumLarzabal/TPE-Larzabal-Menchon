@@ -16,9 +16,9 @@ class LibroController{
     function __construct(){
         $this->helper = new AuthHelpers();
         $this->model = new LibroModel();
-        $this->view = new LibroView($this->helper->getEmail());
+        $this->view = new LibroView($this->helper->getNombre());
         $this->modelCategoria= new CategoriaModel();
-        $this->viewCategoria=new CategoriaView($this->helper->getEmail());
+        $this->viewCategoria=new CategoriaView($this->helper->getNombre());
     }
 
     function showHome(){

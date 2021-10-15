@@ -6,30 +6,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/stylecss.css">
 
     <title>Login Libreria</title>
 </head>
 
 <body>
+    <div class="contenedor-general-login">
 
-<div class="container">
+        <div class="container-login colorDiv">
 
-    <div class="row mt-4">
-        <div class="col-md-4">
-            <h2>{$titulo}</h2>
-            <form class="form-alta" action="createUser" method="post">
-                <input placeholder="email" type="text" name="email" id="email" required>
-                <input placeholder="Nombre y Apellido" type="text" name="nombre_apellido" required>
-                <input placeholder="password" type="password" name="password" id="password" required>
-                <input type="submit" class="btn btn-primary" value="Create Cuenta">
-            </form>
+            <div class="logo-login">
+                <img class="w-50" src="./img/logo.png" alt="logo">
+            </div>
+            <div class="title-login">
+                <h2 >{$titulo}</h2>
+            </div>
+
+            <div class="form-createLogin">
+                <form class="form-alta" action="createUser" method="post">
+                <div class="input-login">
+                <input class="loginInput" placeholder="email@email.com" type="text" name="email" id="email" required>
+                </div>
+                <div class="input-login">
+                <input class="loginInput" placeholder="Nombre y Apellido" type="text" name="nombre_apellido" required>
+                </div>
+                <div class="input-login">
+                <input class="loginInput" placeholder="password" type="password" name="password" id="password" required>
+                </div>
+                <div class="input-login">
+                <input type="submit" class="ml-15 btn btn-primary" value="Create Cuenta">
+                </div>
+                </form>
+
+            </div>
+
+            <h4 class="alert-danger">{$error}</h4>
+
         </div>
-    </div>
-    <h4 class="alert-danger">{$error}</h4>
 
-</div>
+    </div>
 </body>
 
 </html>

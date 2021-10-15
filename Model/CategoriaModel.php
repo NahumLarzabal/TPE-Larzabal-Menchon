@@ -23,9 +23,9 @@ class CategoriaModel{
         $sentencia = $this->db->prepare("UPDATE  categorias SET categoria=? WHERE categorias.id_categoria =?");
         $sentencia->execute(array($id,$categoria));
     }
-    function insertCategoria($id_categoria,$categoria){
-        $sentencia = $this->db->prepare("INSERT INTO categorias (id_categoria,categoria) VALUES (?,?)");
-        $sentencia->execute(array($id_categoria,$categoria));
+    function insertCategoria($categoria){
+        $sentencia = $this->db->prepare("INSERT INTO categorias (categoria) VALUES (?)");
+        $sentencia->execute(array($categoria));
     }
     function deleteCategoriaFromDB($id){
         $sentencia = $this->db->prepare("DELETE FROM categorias WHERE categorias.id_categoria = ?");

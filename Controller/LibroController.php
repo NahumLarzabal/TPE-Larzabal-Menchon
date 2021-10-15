@@ -37,7 +37,7 @@ class LibroController{
     function createLibro(){
         $this->helper->checkLogin();
         $this->model->insertLibro($_POST['autor'], $_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'], $_POST['id_categoria']);
-        $categorias = $this->modelCategoria->getGeneros();
+        //$categorias = $this->modelCategoria->getGeneros();
         // $this->view->agregar($categorias);
         $this->view->showLibroLocation();
     }

@@ -42,7 +42,7 @@ class CategoriaController{
     function agregarCategoria(){
         $categoria = $_POST['categoria'];
         $this->helper->checkLogin();
-        $this->model->insertCategoria($_POST[NULL],$categoria);
+        $this->model->insertCategoria($categoria);
         $this->view->showCategoriasLocation();
     }
     function deleteCategoria($id){

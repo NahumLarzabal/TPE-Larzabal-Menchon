@@ -36,8 +36,12 @@
                 <div class="input-login">
                 <input class="loginInput" placeholder="password" type="password" name="password" id="password" required>
                 </div>
-                <div class="input-login">
-                <input type="submit" class="ml-15 btn btn-primary" value="Create Cuenta">
+                <div class="btn-form-login">
+                <input type="submit" class=" btn btn-sm btn-primary" value="Create">
+                <div class="ml-5">
+                <a class="btn btn-secondary btn-sm btn-create-user" href="login">Cancel</a>
+                </div>
+
                 </div>
                 </form>
 

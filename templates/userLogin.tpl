@@ -39,10 +39,10 @@
                                 id="password" required>
                         </div>
                     </div>
-                    <div class="btn-form-login">
+                    <div class="btn-form-login mtt-2">
                         <a class="btn btn-secondary btn-sm btn-create-user" href="createLogin">Create </a>
 
-                        <input type="submit" class="btn ml-5 btn-primary" value="Login">
+                        <input type="submit" class="btn mll-3 btn-primary" value="Login">
                     </div>
                     <h4><span class="red-alert">{$error}</span></h4>
                 </form>

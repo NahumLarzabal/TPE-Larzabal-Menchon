@@ -191,6 +191,16 @@ div.inputs-form{
 .ml-5{
     margin-left: 5%;
 }
+.mll-3{
+    margin-left: 3%;
+}
+
+.mtt-5{
+    margin-top: 5%;
+}
+.mtt-2{
+    margin-top: 2%;
+}
 .alert-danger{
     display: flex;
     justify-content: center;

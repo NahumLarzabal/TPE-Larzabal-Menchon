@@ -34,10 +34,18 @@ class userView{
         header("Location: ".BASE_URL."createUser");
     }
     
-
+    function showUsers($users){
+        $this->smarty->assign('users', $users);
+        $this->smarty->display('templates/usuarios.tpl');
+    }
+    
     function showUser($users=null){
         $this->smarty->assign('users',$users);
         $this->smarty->display('templates/header.tpl');
+    }
+
+    function showUsuarios(){
+        header("Location: ".BASE_URL."usuarios");
     }
     
 }

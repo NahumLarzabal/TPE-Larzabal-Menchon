@@ -23,6 +23,7 @@ class LibroModel{
     function insertLibro($autor,$nombre_libro, $descripcion, $precio, $genero){
         $sentencia = $this->db->prepare("INSERT INTO libros (autor, nombre_libro, descripcion, precio, id_categoria) VALUES (?, ?, ?, ?, ?)");
         $sentencia->execute(array($autor,$nombre_libro, $descripcion, $precio, $genero ));
+        return $this->db->lastInsertId();
     }
     
     function deleteLibroFromDB($id){
@@ -31,7 +32,7 @@ class LibroModel{
     }
     function updateLibroFromDB($id,$autor,$nombre_libro, $descripcion, $precio, $genero){
         $sentencia = $this->db->prepare("UPDATE  libros SET autor=?,nombre_libro=?,descripcion=?,precio=?,id_categoria=? WHERE libros.id = ?");
-        $sentencia->execute(array($id,$autor,$nombre_libro, $descripcion, $precio, $genero));
+        $sentencia->execute(array($autor,$nombre_libro, $descripcion, $precio, $genero,$id));
     }
   
     function insertEditLibro($id,$precio){

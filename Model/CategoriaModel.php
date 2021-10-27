@@ -26,7 +26,9 @@ class CategoriaModel{
     function insertCategoria($categoria){
         $sentencia = $this->db->prepare("INSERT INTO categorias (categoria) VALUES (?)");
         $sentencia->execute(array($categoria));
+        return $this->db->lastInsertId();
     }
+    
     function deleteCategoriaFromDB($id){
         $sentencia = $this->db->prepare("DELETE FROM categorias WHERE categorias.id_categoria = ?");
         $sentencia->execute(array($id));

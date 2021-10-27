@@ -1,0 +1,190 @@
+<?php
+require_once "./Model/LibroModel.php";
+require_once "./View/ApiView.php";
+require_once "./Model/CategoriaModel.php";
+require_once "./Model/userModel.php";
+
+
+class ApiController{
+
+    private $model;
+    private $view;
+    private $modelCategoria;
+    private $userModel;
+
+    function __construct(){
+        $this->model = new LibroModel();
+        $this->view = new ApiView();
+        $this->modelCategoria= new CategoriaModel();
+        $this->userModel = new userModel();
+    }
+  /**
+     * Devuelve el body del request
+     */
+    private function getBody() {
+        $bodyString = file_get_contents("php://input");
+        return json_decode($bodyString);
+    }
+/************************            Libros         *************************************/
+
+
+    function getLibros(){
+        $libros = $this->model->getLibros();
+        return $this->view->response($libros,200);
+    }
+
+    function getLibro($params=null){
+        $idLibro = $params[':ID'];
+        $libro = $this->model->getLibro($idLibro);
+        if($libro){
+            return $this->view->response($libro,200);
+        }else{
+            return $this->view->response("el Libro con el id=$libro no existe",404);
+        }
+    }
+
+    function getDeleteLibro($params=null){
+        $idLibro = $params[':ID'];
+        $libro = $this->model->getLibro($idLibro);
+        if($libro){
+            $this->model->deleteLibroFromDB($idLibro);
+            return $this->view->response("El Libro con ID = $idLibro fue borrada",200);
+        }else{
+            return $this->view->response("El Libro con ID = $idLibro no fue borrada",404);
+        }
+    }
+
+    function insertLibro($params = null) {
+        // obtengo el body del request (json)
+        $body = $this->getBody();
+
+        // TODO: VALIDACIONES -> 400 (Bad Request)
+
+        $id = $this->model->insertLibro($body->autor,$body->nombre_libro, $body->descripcion, $body->precio, $body->id_categoria);
+        
+        if ($id != 0) {
+            $this->view->response("El Libro se insertó con el id=$id", 200);
+        } else {
+            $this->view->response("El Libro no se pudo insertar", 500);
+        }
+    }
+
+    function editLibro($params = null) {
+        $idLibro = $params[':ID'];
+        $body = $this->getBody();
+        
+        // TODO: VALIDACIONES -> 400 (Bad Request)
+
+        $libro = $this->model->getLibro($idLibro);
+
+        if ($libro) {
+            $this->model->updateLibroFromDB($idLibro, $body->autor, $body->nombre_libro, $body->descripcion, $body->precio,$body->id_categoria);
+            $this->view->response("El Libro se actualizó correctamente", 200);
+        } else {
+            return $this->view->response("El Libro con el id=$idLibro no existe", 404);
+        }
+    }
+
+/************************            Categorias / Generos         *************************************/
+function getCategorias(){
+    $genero = $this->modelCategoria->getGeneros();
+    return $this->view->response($genero,200);
+}
+function getCategoria($params=null){
+    $idGenero = $params[':ID'];
+    $genero = $this->modelCategoria->getGenero($idGenero);
+    if($genero){
+        return $this->view->response($genero,200);
+    }else{
+        return $this->view->response("El Genero con el id=$genero no existe",404);
+    }
+}
+function getDeleteCategoria($params=null){
+    $idGenero = $params[':ID'];
+    $genero = $this->modelCategoria->getGenero($idGenero);
+    if($genero){
+        $this->modelCategoria->deleteCategoriaFromDB($idGenero);
+        return $this->view->response("El Genero con ID = $idGenero fue borrada",200);
+    }else{
+        return $this->view->response("El Genero con ID = $idGenero no fue borrada",404);
+    }
+}
+
+function insertCategoria($params = null) {
+    // obtengo el body del request (json)
+    $body = $this->getBody();
+
+    // TODO: VALIDACIONES -> 400 (Bad Request)
+
+    $id = $this->modelCategoria->insertCategoria($body->categoria);
+    
+    if ($id != 0) {
+        $this->view->response("El Genero se insertó con el id=$id", 200);
+    } else {
+        $this->view->response("El Genero no se pudo insertar", 500);
+    }
+}
+
+function editCategoria($params = null) {
+    $idGenero = $params[':ID'];
+    $body = $this->getBody();
+    
+    // TODO: VALIDACIONES -> 400 (Bad Request)
+
+    $genero = $this->modelCategoria->getGenero($idGenero);
+
+    if ($genero) {
+        $this->modelCategoria->updateCategoriaFromDB($idGenero, $body->categoria);
+        $this->view->response("El Genero se actualizó correctamente", 200);
+    } else {
+        return $this->view->response("El Genero con el id=$idGenero no existe", 404);
+    }
+}
+
+
+/************************            Usuarios         *************************************/
+function getUsers(){
+    $user = $this->userModel->getUsers();
+    return $this->view->response($user,200);
+}
+function getUser($params=null){
+    $idUser = $params[':ID'];
+    $user = $this->userModel->getUser($idUser);
+    if($user){
+        return $this->view->response($user,200);
+    }else{
+        return $this->view->response("El usuario con el id=$idUser no existe",404);
+    }
+}
+function getDeleteUser($params=null){
+    $idUser = $params[':ID'];
+    $user = $this->userModel->getUser($idUser);
+    if($user){
+        $this->userModel->deleteUser($idUser);
+        return $this->view->response("El usuario con ID = $idUser fue borrada",200);
+    }else{
+        return $this->view->response("El usuario con ID = $idUser no fue borrada",404);
+    }
+}
+
+function insertUser($params = null) {
+    // obtengo el body del request (json)
+    $body = $this->getBody();
+    $user = $this->userModel->getUsers();
+    $password = password_hash($body->password ,PASSWORD_BCRYPT);
+
+    // TODO: VALIDACIONES -> 400 (Bad Request)
+
+   $this->userModel->insertUser($body->email,$password,$body->nombre_apellido);
+    
+    if ($body->email != $user) {
+        $this->view->response("El usuario se insertó con el id=$body->email", 200);
+    } else {
+        $this->view->response("El usuario no se pudo insertar", 500);
+    }
+}
+
+/************************            Comentarios         *************************************/
+
+
+}

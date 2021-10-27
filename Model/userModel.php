@@ -4,7 +4,7 @@ class userModel{
 
     private $db;
     function __construct(){
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_userTP;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_tpe;charset=utf8', 'root', '');
     }
 
     function getUser($email){
@@ -23,6 +23,8 @@ class userModel{
     function insertUser($userEmail,$userPassword,$userNombre){
         $query = $this->db->prepare('INSERT INTO users (email, password,nombre_apellido) VALUES (?,?,?)');
         $query->execute([$userEmail,$userPassword,$userNombre]);
+        return $this->db->lastInsertId(); 
+
     }
 
     function deleteUser($userEmail){
@@ -35,5 +37,10 @@ class userModel{
     function editarTipoUser($tipoUser){
         $sentencia = $this->db->prepare("UPDATE users SET tipoUser=?");
         $sentencia->execute($tipoUser);
+    }
+    function editUser($password,$nombre_apellido,$tipoUser,$email){
+        $sentencia = $this->db->prepare("UPDATE users SET password=?,nombre_apellido=?,tipoUser=? WHERE email = ?");
+        $sentencia->execute(array($password,$nombre_apellido,$tipoUser,$email));
+
     }
 }

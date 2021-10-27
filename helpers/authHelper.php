@@ -4,10 +4,10 @@ class AuthHelpers{
     function __construct() {
     }
     function checkLogin(){
+        
         if (!isset($_SESSION['email'])) {
             header("Location: ".BASE_URL."login");
         }
-        die;
     }
 
     function getNombre(){

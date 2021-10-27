@@ -95,12 +95,6 @@ $categoriaController = new CategoriaController();
          $libroController->searchGenero(); 
       }
       break;
-   case 'usuarios':
-      $userController->showUsers();
-      break;
-   case 'deleteUser':
-      $userController->deleteUser($params[1]);
-      break;
    default: 
       echo('404 Page not found'); 
       break;

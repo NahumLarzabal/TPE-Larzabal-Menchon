@@ -3,6 +3,8 @@ require_once "./Model/LibroModel.php";
 require_once "./View/ApiView.php";
 require_once "./Model/CategoriaModel.php";
 require_once "./Model/userModel.php";
+require_once "./Model/ComentariosModel.php";
+
 
 
 class ApiController{
@@ -11,12 +13,14 @@ class ApiController{
     private $view;
     private $modelCategoria;
     private $userModel;
+    private $CommentModel;
 
     function __construct(){
         $this->model = new LibroModel();
         $this->view = new ApiView();
         $this->modelCategoria= new CategoriaModel();
         $this->userModel = new userModel();
+        $this->CommentModel = new ComentariosModel();
     }
   /**
      * Devuelve el body del request
@@ -185,6 +189,44 @@ function insertUser($params = null) {
 }
 
 /************************            Comentarios         *************************************/
+function getComments(){
+    $comment = $this->CommentModel->getComentarios();
+    return $this->view->response($comment,200);
+}
+function getComment($params=null){
+    $idComment = $params[':ID'];
+    $comment = $this->CommentModel->getComentarioLibro($idComment);
+    if($comment){
+        return $this->view->response($comment,200);
+    }else{
+        return $this->view->response("El comentario con el id=$idComment no existe",404);
+    }
+}
+function deleteComment($params=null){
+    $idComment = $params[':ID'];
+    $idComment2 = $params[':comentarioID'];
+    $comment = $this->CommentModel->getComentarioLibro($idComment);
+    $comment2 = $this->CommentModel->getComentario($idComment2);
 
+    if(!empty($comment) && !empty($comment2)){
+        $this->CommentModel->deleteComment($idComment2);
+        return $this->view->response("El comentario de ID=$idComment2 con LibroId = $idComment fue borrada",200);
+    }else{
+        return $this->view->response("El comentario con ID = $idComment no fue borrada",404);
+    }
+}
+function insertComment($params = null) {
+    // obtengo el body del request (json)
+    $body = $this->getBody();
 
+    // TODO: VALIDACIONES -> 400 (Bad Request)
+
+    $id = $this->CommentModel->insertComment($body->comentarios,$body->puntuacion,$body->id_libro,$body->id_user);
+    
+    if ($id != 0) {
+        $this->view->response("El comentario se insertó con el id=$id", 200);
+    } else {
+        $this->view->response("El comentario no se pudo insertar", 500);
+    }
+}
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-10-2021 a las 04:29:54
+-- Tiempo de generación: 27-10-2021 a las 23:50:18
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -49,7 +49,28 @@ INSERT INTO `categorias` (`id_categoria`, `categoria`) VALUES
 (10, 'Leyenda'),
 (11, 'Fabula'),
 (12, 'Fantasmal'),
-(27, 'Heroico');
+(30, 'Heroico');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id` int(11) NOT NULL,
+  `comentarios` varchar(255) NOT NULL,
+  `puntuacion` int(11) NOT NULL,
+  `id_libro` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id`, `comentarios`, `puntuacion`, `id_libro`, `id_user`) VALUES
+(1, 'me pareció un libro alucinante', 5, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -79,8 +100,28 @@ INSERT INTO `libros` (`id`, `autor`, `nombre_libro`, `descripcion`, `precio`, `i
 (33, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1),
 (34, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1),
 (35, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1),
-(36, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1),
-(37, 'garcia', 'azul mar', 'adasd', 1231, 3);
+(39, '123d1231', 'asdas213sa', 'lal3llala', 34567, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `nombre_apellido` varchar(255) NOT NULL,
+  `password` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `tipoUser` int(11) NOT NULL DEFAULT 3
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `nombre_apellido`, `password`, `tipoUser`) VALUES
+(1, 'admin@gmail.com', 'Admin', '$2y$10$EMtVb9dKQ0E5WT7\\/zfm9huUHTx9ZOUe2JY5dvPZiLAKdXePlw2DYa', 1);
 
 --
 -- Índices para tablas volcadas
@@ -93,11 +134,25 @@ ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id_categoria`);
 
 --
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_libro` (`id_libro`),
+  ADD KEY `id_user` (`id_user`);
+
+--
 -- Indices de la tabla `libros`
 --
 ALTER TABLE `libros`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_id_categoria` (`id_categoria`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -107,17 +162,36 @@ ALTER TABLE `libros`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id`),
+  ADD CONSTRAINT `comentarios_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`);
 
 --
 -- Filtros para la tabla `libros`

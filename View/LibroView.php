@@ -26,8 +26,9 @@ class LibroView{
         header("Location: ".BASE_URL."libros");
     }
     
-    function showLibro($libro){
+    function showLibro($libro,$user){
         $this->smarty->assign('libro', $libro);
+        $this->smarty->assign('user', $user);
         $this->smarty->display('templates/detalle.tpl');
     }
 

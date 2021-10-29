@@ -28,6 +28,7 @@ class UserController{
      
             // Obtengo el usuario de la base de datos
             $user = $this->model->getUser($email);
+            var_dump($user);
      
             // Si el usuario existe y las contraseñas coinciden
             if ($user && password_verify($password, $user->password)) {
@@ -35,6 +36,8 @@ class UserController{
                 session_start();
                 $_SESSION["email"] = $email;
                 $_SESSION["nombre_apellido"]=$user->nombre_apellido;
+                $_SESSION["id"]=$user->id;
+
                 $this->view->showHome();
             } else {
                 $this->view->showLogin("Acceso denegado");

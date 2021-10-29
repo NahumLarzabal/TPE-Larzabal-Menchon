@@ -5,6 +5,7 @@ let selectGenero = document.getElementById("select-genero");
 let selectAutor = document.getElementById("select-autor");
 let selectTitulo = document.getElementById("select-titulo");
 console.log(selectFilter);
+selectFilter.addEventListener("change", filtrarTabla);
 
 
 function filtrarTabla(){
@@ -23,5 +24,4 @@ function filtrarTabla(){
         selectAutor.classList.toggle("invisible");
     }
 }
-            
-selectFilter.addEventListener("change", filtrarTabla);
+       

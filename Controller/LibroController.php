@@ -31,7 +31,8 @@ class LibroController{
     function viewLibro($id){
         $this->helper->checkLogin();
         $libro = $this->model->getLibro($id);
-        $this->view->showLibro($libro);
+        $user=$this->helper->getID();
+        $this->view->showLibro($libro,$user);
     }
  
     function createLibro(){

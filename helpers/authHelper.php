@@ -14,5 +14,11 @@ class AuthHelpers{
         if (isset($_SESSION['nombre_apellido'])) {
             return $_SESSION['nombre_apellido'] ;
         }
-    }   
+    }
+    function getID(){
+        if (isset($_SESSION['id'])) {
+            return $_SESSION['id'] ;
+        }
+
+    } 
 }

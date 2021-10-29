@@ -14,7 +14,7 @@ class ComentariosModel{
     }
 
     function getComentarioLibro($id){
-        $sentencia = $this->db->prepare( "select * from comentarios WHERE id_libro=?");
+        $sentencia = $this->db->prepare( "SELECT comentarios.id,comentarios.puntuacion,comentarios.comentarios,comentarios.id_libro, users.nombre_apellido FROM comentarios JOIN users ON comentarios.id_libro = users.id WHERE id_libro=?;");
         $sentencia->execute(array($id));
         $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $tareas;

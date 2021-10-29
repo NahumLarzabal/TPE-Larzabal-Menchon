@@ -12,7 +12,7 @@
 
 
     <div class="container">
-    <input id="idApi" class="invisible" value="{$libro->id}">
+    <input id="idApi" type="hidden" value="{$libro->id}">
         <div class="title">
             <h2 class="mb-4">Titulo:<span>{$libro->nombre_libro}</span></h2>
         </div>
@@ -34,13 +34,11 @@
         </div>
     </div>
 <h1>Comentarios</h1>
-<div id="apiInsertComment">
-{include file='templates/vue/insertComentario.tpl'}
-</div>
+
 <div id="apiComentarios">
+{include file='templates/vue/insertComentario.tpl'}
 {include file='templates/vue/comentarios.tpl'}
 </div>
     {include file='templates/anuncio.tpl'}
     <script src="./js/comentarios.js"></script>
-    <script src="./js/insertComentario.js"></script>
 {include file='templates/footer.tpl'}

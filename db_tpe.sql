@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2021 a las 23:50:18
+-- Tiempo de generación: 29-10-2021 a las 23:52:29
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -70,7 +70,14 @@ CREATE TABLE `comentarios` (
 --
 
 INSERT INTO `comentarios` (`id`, `comentarios`, `puntuacion`, `id_libro`, `id_user`) VALUES
-(1, 'me pareció un libro alucinante', 5, 1, 1);
+(1, 'me pareció un libro alucinante', 5, 1, 1),
+(2, 'dasdasdasd', 2, 35, 1),
+(4, 'asdas', 5, 31, 2),
+(5, 'me pareció un libro alucinante', 5, 1, 2),
+(6, '231', 1, 1, 1),
+(8, 'agasda', 2, 1, 1),
+(9, 'agasda', 2, 1, 1),
+(10, 'ok 200', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -121,7 +128,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `nombre_apellido`, `password`, `tipoUser`) VALUES
-(1, 'admin@gmail.com', 'Admin', '$2y$10$EMtVb9dKQ0E5WT7\\/zfm9huUHTx9ZOUe2JY5dvPZiLAKdXePlw2DYa', 1);
+(1, 'admin@gmail.com', 'Admin', '$2y$10$ATqPXdv4tFHONS3xg9hQbOSWjExfYE2Q6VDQDUR3x93m7zwqO/DGa', 1),
+(2, 'alberto@gmail.com', 'pepe', '$2y$10$ATqPXdv4tFHONS3xg9hQbOSWjExfYE2Q6VDQDUR3x93m7zwqO/DGa', 3);
 
 --
 -- Índices para tablas volcadas
@@ -168,7 +176,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `libros`
@@ -180,7 +188,7 @@ ALTER TABLE `libros`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas

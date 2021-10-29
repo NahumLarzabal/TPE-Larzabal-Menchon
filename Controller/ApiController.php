@@ -210,7 +210,7 @@ function deleteComment($params=null){
 
     if(!empty($comment) && !empty($comment2)){
         $this->CommentModel->deleteComment($idComment2);
-        return $this->view->response("El comentario de ID=$idComment2 con LibroId = $idComment fue borrada",200);
+        return $this->view->response("El comentario de ID=$idComment2 con LibroId = $idComment fue borrada",204);
     }else{
         return $this->view->response("El comentario con ID = $idComment no fue borrada",404);
     }
@@ -224,7 +224,7 @@ function insertComment($params = null) {
     $id = $this->CommentModel->insertComment($body->comentarios,$body->puntuacion,$body->id_libro,$body->id_user);
     
     if ($id != 0) {
-        $this->view->response("El comentario se insertó con el id=$id", 200);
+        $this->view->response("El comentario se insertó con el id=$id", 201);
     } else {
         $this->view->response("El comentario no se pudo insertar", 500);
     }

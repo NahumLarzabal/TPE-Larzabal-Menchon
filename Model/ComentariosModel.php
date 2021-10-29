@@ -32,8 +32,8 @@ class ComentariosModel{
     }
 
     function insertComment($comentarios,$puntuacion,$id_libro,$id_user){
-        $sentencia = $this->db->prepare("INSERT INTO comentarios (comentarios, puntuacion, id_libro, id_user) VALUES (?, ?, ?, ?)");
-        $sentencia->execute(array($comentarios,$puntuacion,$id_libro,$id_user));
+        $sentencia = $this->db->prepare("INSERT INTO comentarios (comentarios, id_libro, id_user, puntuacion) VALUES (?, ?, ?, ?)");
+        $sentencia->execute(array($comentarios,$id_libro,$id_user,$puntuacion));
         return $this->db->lastInsertId();
     }
 }

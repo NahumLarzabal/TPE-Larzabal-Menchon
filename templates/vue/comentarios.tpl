@@ -15,6 +15,7 @@
       </span>
       <p>id comentario{{comment.id}} id libro{{comment.id_libro}}</p>
       <button type="click" id="btn-delete">
+      
       <a  :href="`api/libros/${comment.id_libro}/comentarios/${comment.id}`">Delete</a>
       </button>
     </div>

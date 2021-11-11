@@ -4,19 +4,46 @@ let api = new Vue({
     data: {
         titulo: "este es el titulo",
         comments: [],
-    }
+    },
+    methods: {
+        commentDelete:async function (id_comment){
+            let id_libro = document.querySelector(".id_libro").value;
+              console.log( "entre"+ id_comment, id_libro);
+            try {
+                let res = await fetch(`api/libros/${id_libro}/comentarios/${id_comment}`,{
+                method: "DELETE",
+            });
+             if( res.status == 204){
+
+                 Comments();
+               console.log("Borrardo");
+             }
+            
+          } catch (error) {
+            console.log(error);
+          }
+        
+          }
+        
+          }
 });
 
+
+    
+       
+
+
 const idApi = document.querySelector("#idApi").value;
-function urlApi(idApi){
-return `api/libros/${idApi}/comentarios`;
-}
+const url = "api/libros";
+//  `api/libros/${idApi}/comentarios`
+
+
 
 Comments();
 
 async function Comments(){
     try {
-        let res = await fetch(urlApi(idApi));
+        let res = await fetch(`${url}/${idApi}/comentarios`);
         let json = await res.json();
         api.comments = json;
         console.log(json);
@@ -29,7 +56,7 @@ async function Comments(){
 function campForm(){
     let comentario = document.querySelector(".comentario");
     let id_libro = document.querySelector(".id_libro");
-    let nombre_apellido = document.querySelector(".nombreUser");
+    let nombre_apellido = document.querySelector(".nombreUserID");
     let puntuacion = document.querySelector(".puntuacion");
     return { comentarios: comentario.value,
        id_libro: id_libro.value,
@@ -37,20 +64,21 @@ function campForm(){
        puntuacion: puntuacion.value}
    }
    let btn = document.querySelector("#btn-insertComment");
-   btn.addEventListener("click",insertComment);
-   
-  
+   if(btn){
 
-   async function insertComment(event){
-           event.preventDefault();
+       btn.addEventListener("click",insertComment);
+   }
+   
+ 
+
+   async function insertComment(){
 
        let comment = campForm();
 
        console.log(comment);
        try {
-           let res = await fetch(urlApi(idApi), {
+        let res = await fetch(`${url}/${idApi}/comentarios`, {
                method: "POST",
-               // mode: "cors",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(comment),
              });
@@ -64,24 +92,4 @@ function campForm(){
    }
   
 
-  async function deleteComment(){
-    let id_comment = document.querySelector(".idcomment").value;
-      console.log( "entre"+ id_comment);
-    try {
-        let res = await fetch(`api/libros/${idApi}/comentarios/${id_comment}`,{
-        method: "DELETE",
-    });
-    if (res.status == 204) {
-      Comments();
-      console.log("Borrardo");
-    }
-  } catch (error) {
-    console.log(error);
-  }
 
-  }
-
-  let btnDelete = document.querySelector("#btn-delete");
-  btnDelete.addEventListener("click", deleteComment);
-
- 

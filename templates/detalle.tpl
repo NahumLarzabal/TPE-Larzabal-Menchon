@@ -41,4 +41,6 @@
 </div>
     {include file='templates/anuncio.tpl'}
     <script src="./js/comentarios.js"></script>
+
 {include file='templates/footer.tpl'}
+

@@ -5,6 +5,7 @@ require_once "./helpers/authHelper.php";
 require_once "./Model/CategoriaModel.php";
 require_once "./View/CategoriaView.php";
 
+
 class LibroController{
 
     private $model;
@@ -23,7 +24,7 @@ class LibroController{
 
     function showHome(){
         // no se pasa el checklogin para poder entrar como invitado
-        //$this->helper->checkLogin();
+        $this->helper->checkLogin();
         $libros = $this->model->getLibros();
         $categorias = $this->modelCategoria->getGeneros();
         $this->view->showLibros($libros,$categorias);
@@ -86,5 +87,5 @@ class LibroController{
     function inicio(){
         $this->view->home();
     }
-  
+      
 }

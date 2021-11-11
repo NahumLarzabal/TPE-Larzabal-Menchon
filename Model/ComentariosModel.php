@@ -33,6 +33,7 @@ class ComentariosModel{
 
     function insertComment($comentarios,$puntuacion,$id_libro,$id_user){
         $sentencia = $this->db->prepare("INSERT INTO comentarios (comentarios, id_libro, id_user, puntuacion) VALUES (?, ?, ?, ?)");
+        //INSERT INTO comentarios (comentarios,id_libro,id_user,puntuacion) select comentarios,id_libro,id_user, puntuacion from users INNER JOIN comentarios c on c.id = users.id
         $sentencia->execute(array($comentarios,$id_libro,$id_user,$puntuacion));
         return $this->db->lastInsertId();
     }

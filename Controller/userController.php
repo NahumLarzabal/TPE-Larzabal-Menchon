@@ -31,13 +31,12 @@ class UserController{
             var_dump($user);
      
             // Si el usuario existe y las contraseñas coinciden
-            if ($user && password_verify($password, $user->password)) {
+            if ($user  && password_verify($password, $user->password)) {
 
                 session_start();
                 $_SESSION["email"] = $email;
                 $_SESSION["nombre_apellido"]=$user->nombre_apellido;
                 $_SESSION["id"]=$user->id;
-
                 $this->view->showHome();
             } else {
                 $this->view->showLogin("Acceso denegado");

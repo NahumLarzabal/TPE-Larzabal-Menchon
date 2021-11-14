@@ -25,3 +25,4 @@
         </a>
     {/if}
 </div> 
+<script src="js/tableGenero.js"></script>

@@ -14,7 +14,7 @@ class ComentariosModel{
     }
 
     function getComentarioLibro($id){
-        $sentencia = $this->db->prepare( "SELECT comentarios.id,comentarios.puntuacion,comentarios.comentarios,comentarios.id_libro, users.nombre_apellido FROM comentarios JOIN users ON comentarios.id_libro = users.id WHERE id_libro=?;");
+        $sentencia = $this->db->prepare( "SELECT comentarios.id,comentarios.puntuacion,comentarios.comentarios,comentarios.id_libro, users.nombre_apellido FROM comentarios JOIN users ON comentarios.id_user = users.id WHERE id_libro=?;");
         $sentencia->execute(array($id));
         $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $tareas;
@@ -32,8 +32,9 @@ class ComentariosModel{
     }
 
     function insertComment($comentarios,$puntuacion,$id_libro,$id_user){
-        $sentencia = $this->db->prepare("INSERT INTO comentarios (comentarios, puntuacion, id_libro, id_user) VALUES (?, ?, ?, ?)");
-        $sentencia->execute(array($comentarios,$puntuacion,$id_libro,$id_user));
+        $sentencia = $this->db->prepare("INSERT INTO comentarios (comentarios, id_libro, id_user, puntuacion) VALUES (?, ?, ?, ?)");
+        //INSERT INTO comentarios (comentarios,id_libro,id_user,puntuacion) select comentarios,id_libro,id_user, puntuacion from users INNER JOIN comentarios c on c.id = users.id
+        $sentencia->execute(array($comentarios,$id_libro,$id_user,$puntuacion));
         return $this->db->lastInsertId();
     }
 }

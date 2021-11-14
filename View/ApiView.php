@@ -11,7 +11,8 @@ class ApiView{
     private function _requestStatus($code){
         $status = array(
             200 => "OK",
-            201=> "Created",
+            201 => "Created",
+            204 => "Delete",
             404 => "Not found",
             500 => "Internal Server Error",
             501 => "Internal Error in Libros web"

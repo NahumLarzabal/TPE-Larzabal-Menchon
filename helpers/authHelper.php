@@ -18,9 +18,12 @@ class AuthHelpers{
         }
     }
 
+    //ver como hacer un objeto para traer dotas de roles
     function getNombre(){
         if (isset($_SESSION['nombre_apellido'])) {
-            return $_SESSION['nombre_apellido'] ;
+            $user = $_SESSION['nombre_apellido'];
+            $rol = $_SESSION['tipoUser'];
+            return  ($user . $rol);
         }
     }
     function getID(){
@@ -29,6 +32,12 @@ class AuthHelpers{
         }
 
     } 
+    function getRol(){
+        if (isset($_SESSION['tipoUser'])) {
+            return $_SESSION['tipoUser'] ;
+        }
+
+    }
 
 //     function getBasic(){
 //     $header = $this->getHeader();

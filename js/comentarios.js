@@ -14,7 +14,6 @@ let api = new Vue({
                 method: "DELETE",
             });
              if( res.status == 204){
-
                  Comments();
                console.log("Borrardo");
              }
@@ -47,7 +46,6 @@ async function Comments(){
         let json = await res.json();
         api.comments = json;
         console.log(json);
-        
     } catch (e) {
         console.log(e);
     }
@@ -68,11 +66,18 @@ function campForm(){
 
        btn.addEventListener("click",insertComment);
    }
-   
+   function limpiarCampos(){
+    let comentario = document.querySelector(".comentario");
+    let puntuacion = document.querySelector(".puntuacion");
+
+    comentario.value = "";
+    puntuacion.value = "";
+
+   }
  
 
-   async function insertComment(){
-
+   async function insertComment(event){
+    event.preventDefault();
        let comment = campForm();
 
        console.log(comment);
@@ -84,11 +89,13 @@ function campForm(){
              });
              if (res.status == 201) {
                  Comments();
+                 limpiarCampos();
                console.log("Subido");
              }
        } catch (e) {
            console.log(e)
        }
+
    }
   
 

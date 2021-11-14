@@ -22,6 +22,8 @@
                 </tr>
                 </thead>
                 <tbody>
+                    {$email}
+
                     {foreach from=$libros item=$libro}
                         <tr>
                             <td scope="row"><a href="viewLibro/{$libro->id}" id="titulo-libro">{$libro->nombre_libro}</a></td>

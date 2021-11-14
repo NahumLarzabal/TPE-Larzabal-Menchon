@@ -37,6 +37,7 @@ class UserController{
                 $_SESSION["email"] = $email;
                 $_SESSION["nombre_apellido"]=$user->nombre_apellido;
                 $_SESSION["id"]=$user->id;
+                $_SESSION["tipoUser"]=$user->tipoUser;
                 $this->view->showHome();
             } else {
                 $this->view->showLogin("Acceso denegado");
@@ -52,13 +53,16 @@ class UserController{
     function createUser(){
         if(!empty($_POST['email'])&& !empty($_POST['password'])&&!empty($_POST['nombre_apellido'])){
             $userEmail=$_POST['email'];
-            $userPassword=password_hash($_POST['password'],PASSWORD_BCRYPT) ;
-            $userNombre=$_POST['nombre_apellido'];
-           
-        $this->model->insertUser($userEmail,$userPassword,$userNombre);
-        $this->view->showHomeLogin();
-        }else{
-            $this->view->showCreateLogin("El EMAIL ya existe");
+            if(isset($userEmail) != $this->model->getUser($userEmail)){
+                $userPassword=password_hash($_POST['password'],PASSWORD_BCRYPT) ;
+                $userNombre=$_POST['nombre_apellido'];
+                $this->model->insertUser($userEmail,$userPassword,$userNombre);
+                $this->view->showHomeLogin();
+                $this->verifyLogin();
+            }else{
+                $this->view->showCreateLogin("El EMAIL ya existe");
+
+            }
         }
     }
     function createLogin(){

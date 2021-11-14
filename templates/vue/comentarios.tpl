@@ -15,10 +15,10 @@
       <p>id comentario{{comment.id}} id libro{{comment.id_libro}}</p>
       
        
-       <a  class="idcomment btn btn-outline-danger btn-sm" :value="comment.id" v-on:click="commentDelete(comment.id)"><i class="fas fa-trash-alt"></i></a>
+       <a class="idcomment btn btn-outline-danger btn-sm" :value="comment.id" v-on:click="commentDelete(comment.id)"><i class="fas fa-trash-alt"></i></a>
       </div>
     {/literal}
   
   </div>
-
+ 
  

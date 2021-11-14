@@ -34,8 +34,9 @@ class userView{
         header("Location: ".BASE_URL."createUser");
     }
     
-    function showUser($users=null){
+    function showUser($users=null,$rolUser){
         $this->smarty->assign('users',$users);
+        $rol=$this->smarty->assign('rolUser',$rolUser);
         $this->smarty->display('templates/header.tpl');
     }
 

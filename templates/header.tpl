@@ -33,6 +33,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="generos">Generos</a>
                 </li>
+                {else if $rolUser == "4"}
                 <li class="nav-item">
                     <a class="nav-link" href="libros/agregarlibro">Cargar libro</a>
                 </li>
@@ -40,7 +41,7 @@
                     <a class="nav-link" href="generos/agregarCategoria">Cargar genero</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="generos/agregarCategoria">Administrar Usuarios</a>
+                    <a class="nav-link" href="usuarios">Administrar Usuarios</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout">Cerrar sesion</a>

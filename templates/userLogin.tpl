@@ -14,7 +14,6 @@
 </head>
 
 <body>
-    {* {include file='templates/header.tpl'} *}
     <div class="contenedor-general-login">
         <div class="container-login colorDiv">
             <div class="logo-login">
@@ -22,20 +21,21 @@
             </div>
             <div class="title-login">
                 <h2 class="tituloLogin">{$titulo}</h2>
-                <div class=" w-25 h-25">
-                    <a class=" btns-login btn btn-secondary  href=" home">Invitado</a>
-                </div>
+               
             </div>
 
             <div class="form-login">
                 <form class="form-alta" action="verify" method="post">
+                    <div class=" w-25 h-25">
+                        <input type="submit" class="invitado btns-login btn btn-secondary" value="Invitado">
+                    </div>
                     <div class="inputs-form">
                         <div class="input-login">
-                            <input class="loginInput" placeholder="email" type="text" name="email" id="email@email.com"
+                            <input class="email loginInput" placeholder="email" type="text" name="email" id="email@email.com"
                                 required>
                         </div>
                         <div class="input-login">
-                            <input class="loginInput" placeholder="password" type="password" name="password"
+                            <input class="password loginInput" placeholder="password" type="password" name="password"
                                 id="password" required>
                         </div>
                     </div>
@@ -49,8 +49,7 @@
             </div>
         </div>
     </div>
-
-    {* {include file='templates/footer.tpl'} *}
 </body>
+<script src="./js/invitado.js"></script>
 
 </html>

@@ -2,14 +2,18 @@
 
 require_once "./Model/userModel.php";
 require_once "./View/userView.php";
+require_once "./helpers/authHelper.php";
+
 
 class UserController{
     private $model;
     private $view;
+    private $helper;
 
     function __construct(){
         $this->model = new userModel();
         $this->view = new userView();
+        $this->helper = new AuthHelpers();
         // $this->controller = new userController();
     }
 
@@ -20,7 +24,8 @@ class UserController{
     function getUserHeader(){
         $email= $this->model->getUsers();
         $user=$this->model->getUser($email);
-        $this->view->showUser($user);
+        $rol=$this->helper->getRol();
+        $this->view->showUser($user,$rol);
     }
 
     function verifyLogin(){

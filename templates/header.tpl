@@ -37,8 +37,11 @@
                     <a class="nav-link" href="libros/agregarlibro">Cargar libro</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="generos/agregarCategoria">Cargar genero</a>
-            </li>
+                    <a class="nav-link" href="generos/agregarCategoria">Cargar genero</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="generos/agregarCategoria">Administrar Usuarios</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout">Cerrar sesion</a>
                 </li>

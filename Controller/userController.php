@@ -69,7 +69,7 @@ class UserController{
     }
 
     function createLogin(){
-     $this->view->showCreateLogin();  
+        $this->view->showCreateLogin();  
     }
 
     function mostrarUsuarios(){

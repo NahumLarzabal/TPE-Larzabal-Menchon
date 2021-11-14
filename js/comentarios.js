@@ -51,10 +51,6 @@ async function Comments(){
     }
 }
 
-<<<<<<< HEAD
-
-addEventListener("click", deleteComment)
-=======
 function campForm(){
     let comentario = document.querySelector(".comentario");
     let id_libro = document.querySelector(".id_libro");
@@ -104,4 +100,3 @@ function campForm(){
   
 
 
->>>>>>> 9304d6be3b5206a7758dbdd486ce8087ed380466

@@ -26,6 +26,4 @@ $router->addRoute('libros/:ID/comentarios/:comentarioID','DELETE','ApiController
 
 
 
-
-
 $router->route($_GET["resource"], $_SERVER['REQUEST_METHOD']);

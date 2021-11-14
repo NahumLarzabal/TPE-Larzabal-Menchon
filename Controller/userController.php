@@ -10,11 +10,13 @@ class UserController{
     function __construct(){
         $this->model = new userModel();
         $this->view = new userView();
+        // $this->controller = new userController();
     }
 
     function login(){
         $this->view->showLogin();
     }
+
     function getUserHeader(){
         $email= $this->model->getUsers();
         $user=$this->model->getUser($email);
@@ -62,8 +64,24 @@ class UserController{
             $this->view->showCreateLogin("El EMAIL ya existe");
         }
     }
+
     function createLogin(){
      $this->view->showCreateLogin();  
+    }
+
+    function mostrarUsuarios(){
+        $listaUsuarios = $this->model->getUsers();
+        $this->view->showUsersList($listaUsuarios);
+    }
+
+    function mostrarUsuario($email){
+        $user = $this->model->getUser($email);
+        $this->view->showUsuario($user);
+    }
+
+    function editarUsuario(){
+        $this->model->editUser($_POST['nombre_apellido'],$_POST['tipoUser'],$_POST['email']);
+        $this->mostrarUsuarios();
     }
 }
 ?>

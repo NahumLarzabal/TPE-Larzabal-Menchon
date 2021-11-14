@@ -33,7 +33,7 @@
             <a href="libros">Volver</a>
         </div>
     </div>
-<h1>Comentarios</h1>
+{* <h1>Comentarios</h1>
 <div id="apiInsertComment">
 {include file='templates/vue/insertComentario.tpl'}
 </div>
@@ -42,5 +42,5 @@
 </div>
     {include file='templates/anuncio.tpl'}
     <script src="./js/comentarios.js"></script>
-    <script src="./js/insertComentario.js"></script>
+    <script src="./js/insertComentario.js"></script> *}
 {include file='templates/footer.tpl'}

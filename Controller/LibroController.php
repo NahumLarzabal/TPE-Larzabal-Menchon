@@ -18,7 +18,7 @@ class LibroController{
         $this->model = new LibroModel();
         $this->view = new LibroView($this->helper->getNombre());
         $this->modelCategoria= new CategoriaModel();
-        $this->viewCategoria=new CategoriaView($this->helper->getNombre());
+        $this->viewCategoria= new CategoriaView($this->helper->getNombre());
     }
 
     function showHome(){
@@ -30,8 +30,8 @@ class LibroController{
     }
     function viewLibro($id){
         $this->helper->checkLogin();
-        $libro = $this->model->getLibro($id);
         $user=$this->helper->getID();
+        $libro = $this->model->getLibro($id);
         $this->view->showLibro($libro,$user);
     }
  
@@ -53,6 +53,7 @@ class LibroController{
         $this->model->deleteLibroFromDB($id);
         $this->view->showHomeLocation();
     }
+
     function editLibro($id){
         $this->helper->checkLogin();
         $libro = $this->model->getLibro($id);

@@ -7,6 +7,7 @@
                 <th scope="col">Nombre de usuario</th>
                 <th scope="col">Email</th>
                 <th scope="col">Tipo de Usuario</th>
+                <th scope="col">Editar</th>
                 <th scope="col">Eliminar</th>
               </tr>
             </thead>
@@ -16,19 +17,38 @@
                         <td scope="row">{$user->nombre_apellido}</td>
                         <td scope="row">{$user->email}</td>
                         <td scope="row">
-                            <select name="" id="">
-                                <option value="">
-                                    {foreach from=$user item=$x}
-                                        {$x}
-                                    {/foreach}
+                            <select name="" id="" disabled>
+
+                                {* invitado *}
+                                <option value="3"
+                                    {if ({$user->tipoUser}=="3")} selected
+                                    {/if}>
+                                    Usuario comun
                                 </option>
+
+                                {* usuario con derechos *}
+                                <option value="2"
+                                    {if ({$user->tipoUser}=="2")} selected
+                                    {/if}>
+                                    Administrador
+                                </option>
+
+                                {* usuario administrador *}
+                                <option value="1"
+                                    {if ({$user->tipoUser}=="1")} selected
+                                    {/if}>
+                                    Super usuario
+                                </option>
+
                             </select>
                         </td>
-
-
-                            <!-- <td><a class="btn btn-success" href="editUser/{$user->email}" id="btn-libro-edit"><i class="far fa-edit"></i></a></td> -->
                         <td>
-                            <a class="btn btn-danger" href="deleteUser/{$user->email}" id="btn-categoria-delete">
+                            <a class="btn btn-success" href="usuario/{$user->email}" id="btn-categoria-edit">
+                                <i class="far fa-edit"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger" href="eliminarUsuario/{$user->email}" id="btn-categoria-delete">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </td>

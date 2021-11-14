@@ -26,3 +26,5 @@ async function Comments(){
     }
 }
 
+
+addEventListener("click", deleteComment)

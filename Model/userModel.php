@@ -38,9 +38,8 @@ class userModel{
         $sentencia = $this->db->prepare("UPDATE users SET tipoUser=?");
         $sentencia->execute($tipoUser);
     }
-    function editUser($password,$nombre_apellido,$tipoUser,$email){
-        $sentencia = $this->db->prepare("UPDATE users SET password=?,nombre_apellido=?,tipoUser=? WHERE email = ?");
-        $sentencia->execute(array($password,$nombre_apellido,$tipoUser,$email));
-
+    function editUser($nombre_apellido,$tipoUser,$email){
+        $sentencia = $this->db->prepare("UPDATE users SET nombre_apellido=?,tipoUser=? WHERE email = ?");
+        $sentencia->execute(array($nombre_apellido,$tipoUser,$email));
     }
 }

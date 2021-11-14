@@ -95,15 +95,15 @@ $categoriaController = new CategoriaController();
          $libroController->searchGenero(); 
       }
       break;
-   case 'usuario':
-      $userController->mostrarUsuario($params[1]);
-      break;
-   case 'usuarios':
-      $userController->mostrarUsuarios();
-      break;
-   case 'editarUsuario':
-      $userController->editarUsuario();
-      break;
+   // case 'usuario':
+   //    $userController->mostrarUsuario($params[1]);
+   //    break;
+   // case 'usuarios':
+   //    $userController->mostrarUsuarios();
+   //    break;
+   // case 'editarUsuario':
+   //    $userController->editarUsuario();
+   //    break;
    default: 
       echo('404 Page not found'); 
       break;

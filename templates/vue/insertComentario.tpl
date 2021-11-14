@@ -2,7 +2,6 @@
 <input class="nombreUserID" value="{$user}" type="hidden">
 <input class="nombreUser" value="{$email}" type="hidden">
 <input class="id_libro" value="{$libro->id}" type="hidden">
-<p>{$user->tipoUser}</p>
 </div>
  {literal} 
     <div>

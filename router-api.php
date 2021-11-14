@@ -24,8 +24,8 @@ $router->addRoute('libros/:ID/comentarios','GET','ApiController','getComment');
 $router->addRoute('libros/:ID/comentarios','POST','ApiController','insertComment');
 $router->addRoute('libros/:ID/comentarios/:comentarioID','DELETE','ApiController','deleteComment');
 
-$router->addRoute('user/token','GET','ApiUserController','getToken');
-$router->addRoute('user/:ID','GET','ApiUserController','obetnerUsuario');
+// $router->addRoute('user/token','GET','ApiUserController','getToken');
+// $router->addRoute('user/:ID','GET','ApiUserController','obetnerUsuario');
 
 
 $router->route($_GET["resource"], $_SERVER['REQUEST_METHOD']);

@@ -33,25 +33,13 @@
             <a href="libros">Volver</a>
         </div>
     </div>
-<<<<<<< HEAD
-{* <h1>Comentarios</h1>
-<div id="apiInsertComment">
-{include file='templates/vue/insertComentario.tpl'}
-</div>
-=======
 <h1>Comentarios</h1>
 
->>>>>>> 9304d6be3b5206a7758dbdd486ce8087ed380466
 <div id="apiComentarios">
 {include file='templates/vue/insertComentario.tpl'}
 {include file='templates/vue/comentarios.tpl'}
-</div>
-    {include file='templates/anuncio.tpl'}
-    <script src="./js/comentarios.js"></script>
-<<<<<<< HEAD
-    <script src="./js/insertComentario.js"></script> *}
-=======
-
->>>>>>> 9304d6be3b5206a7758dbdd486ce8087ed380466
+{include file='templates/anuncio.tpl'}
+<script src="./js/comentarios.js"></script>
 {include file='templates/footer.tpl'}
 
+</div>

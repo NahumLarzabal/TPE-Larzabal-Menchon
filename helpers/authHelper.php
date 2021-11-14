@@ -30,7 +30,6 @@ class AuthHelpers{
         if (isset($_SESSION['id'])) {
             return $_SESSION['id'] ;
         }
-
     } 
     function getRol(){
         if (isset($_SESSION['tipoUser'])) {

@@ -2,12 +2,15 @@
 
 require_once "./Model/userModel.php";
 require_once "./View/userView.php";
+require_once "./helpers/authHelper.php";
 
 class UserController{
     private $model;
     private $view;
+    private $helper;
 
     function __construct(){
+        $this->helper = new AuthHelpers();
         $this->model = new userModel();
         $this->view = new userView();
         // $this->controller = new userController();
@@ -73,16 +76,19 @@ class UserController{
     }
 
     function mostrarUsuarios(){
+        $this->helper->checkLogin();
         $listaUsuarios = $this->model->getUsers();
         $this->view->showUsersList($listaUsuarios);
     }
 
     function mostrarUsuario($email){
+        $this->helper->checkLogin();
         $user = $this->model->getUser($email);
         $this->view->showUsuario($user);
     }
 
     function editarUsuario(){
+        $this->helper->checkLogin();
         $this->model->editUser($_POST['nombre_apellido'],$_POST['tipoUser'],$_POST['email']);
         $this->mostrarUsuarios();
     }

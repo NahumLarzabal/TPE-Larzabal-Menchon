@@ -57,7 +57,6 @@ class LibroController{
             $this->view->showHomeLocation();
         }
         $this->view->showLibroLocation();
-
     }
 
     function editLibro($id){

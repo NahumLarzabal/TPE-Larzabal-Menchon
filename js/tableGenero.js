@@ -4,8 +4,11 @@ let selectFilter = document.getElementById("filter-table");
 let selectGenero = document.getElementById("select-genero");
 let selectAutor = document.getElementById("select-autor");
 let selectTitulo = document.getElementById("select-titulo");
+let mensaje = document.querySelectorAll(".mensaje");
+let alerta = document.querySelectorAll(".alerta");
 console.log(selectFilter);
 selectFilter.addEventListener("change", filtrarTabla);
+alerta.addEventListener("change",advertencia);
 
 
 function filtrarTabla(){
@@ -24,4 +27,9 @@ function filtrarTabla(){
         selectAutor.classList.toggle("invisible");
     }
 }
-       
+
+
+function advertencia(){
+    mensaje.classList.toggle("invisible");
+    console.log(mensaje.value);
+}

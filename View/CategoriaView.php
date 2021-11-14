@@ -8,8 +8,9 @@ class CategoriaView{
         $this->smarty->assign('email',$email);
     }
 
-    function showCategorias($categorias){
+    function showCategorias($categorias,$rol){
         $this->smarty->assign('categorias', $categorias);
+        $this->smarty->assign('rol',$rol);
         $this->smarty->display('templates/listadoCategorias.tpl');
     }
     function agregarCategoria(){

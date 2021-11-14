@@ -22,8 +22,7 @@ class AuthHelpers{
     function getNombre(){
         if (isset($_SESSION['nombre_apellido'])) {
             $user = $_SESSION['nombre_apellido'];
-            $rol = $_SESSION['tipoUser'];
-            return  ($user . $rol);
+            return  $user;
         }
     }
     function getID(){

@@ -8,10 +8,11 @@ class LibroView{
         $this->smarty->assign('email',$email);
     }
 
-    function showLibros($libros,$categorias){
+    function showLibros($libros,$categorias,$rol){
         $this->smarty->assign('titulo','Titulo de Libro');
         $this->smarty->assign('libros', $libros);
         $this->smarty->assign('categorias', $categorias);
+        $this->smarty->assign('rol',$rol);
         $this->smarty->display('templates/form_table.tpl');
     }
     function showHomeLocation(){

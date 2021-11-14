@@ -27,7 +27,8 @@ class LibroController{
         $this->helper->checkLogin();
         $libros = $this->model->getLibros();
         $categorias = $this->modelCategoria->getGeneros();
-        $this->view->showLibros($libros,$categorias);
+        $rol = $this->helper->getRol();
+        $this->view->showLibros($libros,$categorias,$rol);
     }
     function viewLibro($id){
         $this->helper->checkLogin();
@@ -51,20 +52,32 @@ class LibroController{
     }
     function deleteLibro($id){
         $this->helper->checkLogin();
-        $this->model->deleteLibroFromDB($id);
-        $this->view->showHomeLocation();
+        if($this->helper->getRol()!="3"){
+            $this->model->deleteLibroFromDB($id);
+            $this->view->showHomeLocation();
+        }
+        $this->view->showLibroLocation();
+
     }
     function editLibro($id){
         $this->helper->checkLogin();
+        if($this->helper->getRol()!="3"){
         $libro = $this->model->getLibro($id);
         $categorias = $this->modelCategoria->getGeneros();
         $this->view->showEdit($libro,$categorias);
+        }
+        $this->view->showLibroLocation();
+
     }
 
     function edit(){
         $this->helper->checkLogin();
-        $this->model->updateLibroFromDB($_POST['autor'],$_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'],$_POST['id_categoria'],$_POST['id']);
+        if($this->helper->getRol()!="3"){
+            $this->model->updateLibroFromDB($_POST['autor'],$_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'],$_POST['id_categoria'],$_POST['id']);
+            $this->view->showHomeLocation();
+        }
         $this->view->showHomeLocation();
+
     }
 
     function searchAutor(){

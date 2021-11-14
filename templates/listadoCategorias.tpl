@@ -18,24 +18,30 @@
             <thead>
               <tr>
                 <th scope="col">Genero</th>
+                {if $rol != "3"}
                 <th scope="col">Borrar</th>
                 <th scope="col">Editar</th>
+                {/if}
               </tr>
             </thead>
             <tbody>
                 {foreach from=$categorias item=$categoria}
-                    <tr>
-                        <td scope="row">{$categoria->categoria}</td>
+                <tr>
+                    <td scope="row">{$categoria->categoria}</td>
+                    {if $rol != "3"}
                         <td>
                             <a class="btn btn-danger" href="deleteCategoria/{$categoria->id_categoria}" id="btn-categoria-delete">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
+
                         </td>
                         <td>
-                            <a class="btn btn-success" href="showCategoriaEdit/{$categoria->id_categoria}" id="btn-categoria-edit">
+                            <a class="alerta btn btn-success" href="showCategoriaEdit/{$categoria->id_categoria}" id="btn-categoria-edit">
                                 <i class="far fa-edit"></i>
                             </a>     
                         </td>
+                        {/if}
+
                     </tr>
                 {/foreach}
             </tbody>

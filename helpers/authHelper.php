@@ -16,7 +16,6 @@ class AuthHelpers{
         if (!isset($_SESSION['email'])) {
             header("Location: ".BASE_URL."login");
         }
-        die;
     }
 
     //ver como hacer un objeto para traer dotas de roles

@@ -44,7 +44,8 @@ class userView{
         $this->smarty->display('templates/usuario.tpl');
     }
 
-    function showUsersList($listaUsuarios){
+    function showUsersList($listaUsuarios, $rol){
+        $this->smarty->assign('rol',$rol);
         $this->smarty->assign('users', $listaUsuarios);
         $this->smarty->display('templates/usuarios.tpl');
     }

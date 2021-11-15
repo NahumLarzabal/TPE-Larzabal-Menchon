@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-10-2021 a las 23:52:29
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.10
+-- Tiempo de generación: 15-11-2021 a las 06:20:20
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -129,7 +129,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `nombre_apellido`, `password`, `tipoUser`) VALUES
 (1, 'admin@gmail.com', 'Admin', '$2y$10$ATqPXdv4tFHONS3xg9hQbOSWjExfYE2Q6VDQDUR3x93m7zwqO/DGa', 1),
-(2, 'alberto@gmail.com', 'pepe', '$2y$10$ATqPXdv4tFHONS3xg9hQbOSWjExfYE2Q6VDQDUR3x93m7zwqO/DGa', 3);
+(2, 'alberto@gmail.com', 'pepe', '$2y$10$ATqPXdv4tFHONS3xg9hQbOSWjExfYE2Q6VDQDUR3x93m7zwqO/DGa', 3),
+(3, 'invitado@gmail.com', 'INVITADO', '$2y$10$bQcgYsU4ZQVOqC6xNx/3tOJaoaEpAwNxDDdsmmzWJ1zw1ux83Bip2', 4);
 
 --
 -- Índices para tablas volcadas
@@ -188,7 +189,7 @@ ALTER TABLE `libros`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas

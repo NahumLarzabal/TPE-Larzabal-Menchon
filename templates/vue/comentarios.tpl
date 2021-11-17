@@ -19,5 +19,3 @@
 {/literal}
   
   </div>
- 
- 

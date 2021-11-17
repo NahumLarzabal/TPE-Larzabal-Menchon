@@ -4,11 +4,6 @@
   {* titulo y parte superior del contenedor *}
   <div class="content-top-page">
     <div class="content-title">
-     {if isset($email) && ($rol == "4") || ($rol=="3")}
-          <h1>No tienes permisos de administrador</h1>
-          <br>
-          </div>
-              {else}
       <h1>Editar libro</h1>
     </div>
     <div class="btn-libro">
@@ -24,14 +19,15 @@
     <div class="form-group row margin-15px">
       <label for="nombre_libro" class="col-sm-2 col-form-label">Titulo del libro</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="nombre_libro" value="{$libro->nombre_libro}" id="nombre_libro">          <div id="emailHelp" class="form-text">Maximo 180 caracteres.</div>
+        <input type="text" class="form-control" name="nombre_libro" value="{$libro->nombre_libro}" id="nombre_libro">          
+        <div id="emailHelp" class="form-text">Maximo 180 caracteres.</div>
       </div>
     </div>
 
     <div class="form-group row margin-15px">
       <label for="autor" class="col-sm-2 col-form-label">Autor:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control"name="autor" value="{$libro->autor}" id="autor">
+        <input type="text" class="form-control" name="autor" value="{$libro->autor}" id="autor">
       </div>
     </div>
 
@@ -80,7 +76,6 @@
 </div>
 {include file='templates/anuncio.tpl'}
 </div>
-{/if}
 </div>
 {include file='templates/footer.tpl'}
 

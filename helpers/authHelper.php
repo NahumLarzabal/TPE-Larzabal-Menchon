@@ -1,9 +1,9 @@
 <?php
     session_start();
 class AuthHelpers{
-    private $key;
+    // private $key;
     function __construct() {
-        $this->key = "NAHUMyAGUSTIN";
+        // $this->key = "NAHUMyAGUSTIN";
     }
 
 //    public function baser64url_encode($E){

@@ -22,13 +22,14 @@
             <div class="title-login">
                 <h2 class="tituloLogin">{$titulo}</h2>
                
+             <div class=" w-25 h-25">
+                        <input type="submit" class="invitado btns-login btn btn-secondary" value="Invitado">
+                    </div>
             </div>
 
             <div class="form-login">
                 <form class="form-alta" action="verify" method="post">
-                    <div class=" w-25 h-25">
-                        <input type="submit" class="invitado btns-login btn btn-secondary" value="Invitado">
-                    </div>
+                   
                     <div class="inputs-form">
                         <div class="input-login">
                             <input class="email loginInput" placeholder="email" type="text" name="email" id="email@email.com"

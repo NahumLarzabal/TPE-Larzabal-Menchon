@@ -78,11 +78,12 @@ class LibroController{
 
     function edit(){
         $this->helper->checkLogin();
-        if($this->helper->getRol()!="3"){
-            $this->model->updateLibroFromDB($_POST['autor'],$_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'],$_POST['id_categoria'],$_POST['id']);
+        // if($this->helper->getRol()!="3"){
+          $this->model->updateLibroFromDB($_POST['autor'],$_POST['nombre_libro'],$_POST['descripcion'],$_POST['precio'],$_POST['id_categoria'],$_POST['id']);
+
             $this->view->showLibroLocation();
-        }
-        $this->view->showLibroLocation();
+        // }
+        // $this->view->showLibroLocation();
 
     }
 

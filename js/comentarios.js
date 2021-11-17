@@ -8,8 +8,13 @@ let api = new Vue({
     methods: {
         commentDelete:async function (id_comment){
             let id_libro = document.querySelector(".id_libro").value;
+            let rol = document.querySelector('.rol').value;
               console.log( "entre"+ id_comment, id_libro);
-            try {
+              if(rol != 4 || rol !=3){
+                console.log("No sos Administrador");
+              }else{
+
+              try {
                 let res = await fetch(`api/libros/${id_libro}/comentarios/${id_comment}`,{
                 method: "DELETE",
             });
@@ -21,21 +26,17 @@ let api = new Vue({
           } catch (error) {
             console.log(error);
           }
-        
+        }
+
           }
         
           }
 });
 
 
-    
-       
-
-
 const idApi = document.querySelector("#idApi").value;
 const url = "api/libros";
 //  `api/libros/${idApi}/comentarios`
-
 
 
 Comments();

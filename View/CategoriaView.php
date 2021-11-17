@@ -3,14 +3,14 @@ require_once './libs/smarty-3.1.39/libs/Smarty.class.php';
 class CategoriaView{
     private $smarty;
 
-    function __construct($email) {
+    function __construct($email,$rol) {
         $this->smarty = new Smarty();
         $this->smarty->assign('email',$email);
+        $this->smarty->assign('rol',$rol);
     }
 
-    function showCategorias($categorias,$rol){
+    function showCategorias($categorias){
         $this->smarty->assign('categorias', $categorias);
-        $this->smarty->assign('rol',$rol);
         $this->smarty->display('templates/listadoCategorias.tpl');
     }
     function agregarCategoria(){

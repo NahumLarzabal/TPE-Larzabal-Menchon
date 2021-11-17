@@ -48,22 +48,22 @@ class LibroModel{
 
     function updateLibroFromDB($id,$autor,$nombre_libro, $descripcion, $precio, $genero, $imagen=null){
         $pathImg = null;
-        var_dump($id,$autor,$nombre_libro, $descripcion, $precio, $genero, $imagen);
-        try{
+        // var_dump($id,$autor,$nombre_libro, $descripcion, $precio, $genero, $imagen);
+        // try{
             // if ($imagen){
                 $pathImg = $this->uploadImage($imagen);
-                var_dump($pathImg);
+                // var_dump($pathImg);
                 $sentencia = $this->db->prepare("UPDATE libros SET autor=?,nombre_libro=?,descripcion=?,precio=?,id_categoria=?,imagen=? WHERE libros.id =?");
-                $sentencia->execute(array($autor,$nombre_libro, $descripcion, $precio, $genero, $pathImg, $id));
-                die();
+                // die();
+                $sentencia->execute(array($autor,$nombre_libro,$descripcion,$precio,$genero,$pathImg,$id));
                 // var_dump($sentencia);
             // }
-        } catch (Exception $e){
-            var_dump($e);
-            die();
-        }
+        // } catch (Exception $e){
+        //     var_dump($e);
+        //     die();
+        // }
     }
-`
+
     function insertEditLibro($id,$precio){
         $sentencia = $this->db->prepare("INSERT INTO libros (id,precio ) VALUES (?,?)");
         $sentencia->execute(array($id, $precio ));

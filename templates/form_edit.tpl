@@ -27,7 +27,7 @@
     <div class="form-group row margin-15px">
       <label for="autor" class="col-sm-2 col-form-label">Autor:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control"name="autor" value="{$libro->autor}" id="autor">
+        <input type="text" class="form-control" name="autor" value="{$libro->autor}" id="autor">
       </div>
     </div>
 

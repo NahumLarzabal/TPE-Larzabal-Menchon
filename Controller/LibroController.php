@@ -56,7 +56,6 @@ class LibroController{
             $categorias=$this->modelCategoria->getGeneros();
             $this->view->agregar($categorias);
         }
-        
     }
 
     function deleteLibro($id){
@@ -86,10 +85,10 @@ class LibroController{
         $this->helper->checkLogin();
         if($this->helper->getRol()!="3"){
             if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png"){
-                $this->model->updateLibroFromDB($_POST['autor'],$_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'],$_POST['id_categoria'],$_POST['id'],$_FILES['input_name']['tmp_name']);
+                $this->model->updateLibroFromDB($_POST['autor'],$_POST['nombre_libro'],$_POST['descripcion'],$_POST['precio'],$_POST['id_categoria'],$_POST['id'],$_FILES['input_name']['tmp_name']);
                 $this->view->showLibroLocation();
             }else{
-                $this->model->updateLibroFromDB($_POST['autor'],$_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'],$_POST['id_categoria'],$_POST['id']);
+                $this->model->updateLibroFromDB($_POST['autor'],$_POST['nombre_libro'],$_POST['descripcion'],$_POST['precio'],$_POST['id_categoria'],$_POST['id']);
             }
         }
         $this->view->showLibroLocation();

@@ -14,10 +14,8 @@
                     <th scope="col">Titulo</th>
                     <th scope="col">Genero</th>
                     <th scope="col">Autor</th>
-                    {if isset($email) && ($rol == "4") || ($rol=="3")}
                     <th scope="col">Precio</th>
-                    {else}
-                    <th scope="col">Precio</th>
+                    {if isset($email) && ($rol == "1") || ($rol=="2")}
                     <th scope="col">Borrar</th>
                     <th scope="col">Editar</th>
                     {/if}
@@ -29,12 +27,10 @@
                             <td scope="row"><a href="viewLibro/{$libro->id}" id="titulo-libro">{$libro->nombre_libro}</a></td>
                             <td id="genero-libro">{$libro->categoria|truncate:500}</td>
                             <td id="autor-libro">{$libro->autor}</td>
-                            {if isset($email) && ($rol == "4") || ($rol=="3")}
-                                <td id="precio-libro">${$libro->precio}</td>
-                                {else}
-                                <td id="precio-libro">${$libro->precio}</td>
+                            <td id="precio-libro">${$libro->precio}</td>
+                            {if isset($email) && ($rol == "1") || ($rol=="2")}
                                 <td><a class="btn btn-danger" href="deleteLibro/{$libro->id}" id="btn-libro-delete"><i class="fas fa-trash-alt"></i></a></td>
-                                <td><a class="btn btn-success" href="editLibro/{$libro->id}" id="btn-libro-edit"><i class="far fa-edit"></i></a></td>
+                                <td><a class="btn btn-success" href="editarLibro/{$libro->id}" id="btn-libro-edit"><i class="far fa-edit"></i></a></td>
                             {/if}
                         </tr>
                     {/foreach}

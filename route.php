@@ -42,38 +42,47 @@ $categoriaController = new CategoriaController();
       $libroController->inicio();
       break;
    case 'libros': 
+      //si params 1 no esta vacio y params 1 es igual a agregarlibro ->agregarLibro()
       if( !empty($params[1]) && $params[1]=="agregarlibro"){
          $libroController->agregarlibro();
-      } else if(empty($params[1])){
-         $libroController->showHome();
-      } else {
+      } else if(empty($params[1])){ //si params 1 esta vacio, ir al listado de libros
+         $libroController->listadoLibros();
+      } else { //si no esta vacio, pero es distinto de agregar libro, ir al inicio.
          $libroController->inicio();
       }
       break;
-   case 'createLibro': 
+   case 'createLibro':
+      // action del form para crear el libro 
       $libroController->createLibro(); 
       break;
    case 'deleteLibro': 
+      // elimina el libro del ID que va en params1 (ej localhost/tpe/deletelibro/3)
       $libroController->deleteLibro($params[1]); 
       break;
-   case 'editLibro': 
-      $libroController->editLibro($params[1]); 
+   case 'editarLibro': 
+      // editarlibro lleva al tpl para modificar el item en la bbdd
+      $libroController->editarLibro($params[1]); 
       break;
    case 'edit': 
-      $libroController->edit(); 
+         // action del form que edita el libro de la bbdd
+      $libroController->editLibroAction(); 
       break; 
    case 'editCategoria': 
+      // action del form que edita las categorias de la bbdd
       $categoriaController->editCategoria(); 
       break;
    case 'agregarCategoria':
+      // insertado de la categoria en la bbdd (llama al modelo)
       $categoriaController->agregarCategoria();
       break;
    case 'showCategoriaEdit':
-      $categoriaController->showCategoriaEdit($params[1]); 
+      // formulario para editar la categoria
+      $categoriaController->editarCategoria($params[1]); 
       break;
-   case 'deleteCategoria': 
+   case 'deleteCategoria':
+      // eliminar categoria con el id pasado por params1 
       $categoriaController->deleteCategoria($params[1]); 
-      break;
+      break; 
    case 'generos':
       if( !empty($params[1]) && $params[1]=="agregarCategoria"){
          $categoriaController->showCategoria();

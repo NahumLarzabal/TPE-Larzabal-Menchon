@@ -20,14 +20,19 @@ class CategoriaController{
         $this->helper->checkLogin();
         if($this->helper->getRol()!="3"){
             $this->model->updateCategoriaFromDB($_POST['categoria'],$_POST['id_categoria']);
-            $this->view->showCategoriasLocation();
+            // $this->view->showCategoriasLocation();
         }
         $this->view->showCategoriasLocation();
     }
     function viewCategorias(){
         $this->helper->checkLogin();
-        $categorias = $this->model->getGeneros();
-        $this->view->showCategorias($categorias);
+        $rol=$this->helper->getRol();
+        if ($rol !="4") {
+            $categorias = $this->model->getGeneros();
+            $this->view->showCategorias($categorias);
+        }else{
+        $this->view->showHome();
+        }
     }
     
     function showCategoria(){
@@ -39,9 +44,11 @@ class CategoriaController{
         $this->view->agregarCategoria();
         }
     }
-    function showCategoriaEdit($id){
+
+    function editarCategoria($id){
         $this->helper->checkLogin();
-        if($this->helper->getRol()!="3"){
+        $rol=$this->helper->getRol();
+        if ($rol != "3" || $rol !="4") {
             $categoria = $this->model->getGenero($id);   
             $this->view->viewCategoriaEdit($categoria);
         }
@@ -53,7 +60,6 @@ class CategoriaController{
         $categoria = $_POST['categoria'];
         $this->model->insertCategoria($categoria);
         $this->view->showCategoriasLocation();
-        
     }
 
     function deleteCategoria($id){

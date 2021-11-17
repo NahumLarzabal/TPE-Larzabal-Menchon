@@ -17,7 +17,7 @@ class UserController{
     function __construct(){
         $this->helper = new AuthHelpers();
         $this->model = new userModel();
-        $this->view = new userView($this->helper->getRol());
+        $this->view = new userView($this->helper->getNombre(), $this->helper->getRol());
         // $this->controller = new userController();
     }
 
@@ -80,15 +80,23 @@ class UserController{
         $this->view->showCreateLogin();  
     }
 
+
+    // mostrar lista de todos los usuarios
     function mostrarUsuarios(){
         $this->helper->checkLogin();
-        $listaUsuarios = $this->model->getUsers();
-        $rol = $this->helper->getRol();
-        $this->view->showUsersList($listaUsuarios, $rol);
+        $rol=$this->helper->getRol();
+        if ($rol == "1" || $rol == "2") {
+            $listaUsuarios = $this->model->getUsers();
+            $this->view->showUsersList($listaUsuarios, $rol);
+        } else {
+            $this->view->showHome();
+        }
     }
 
+    // modificar usuario
     function mostrarUsuario($email){
         $this->helper->checkLogin();
+        
         $user = $this->model->getUser($email);
         $this->view->showUsuario($user);
     }

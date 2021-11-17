@@ -54,4 +54,9 @@ class LibroView{
         $this->smarty->assign('categorias', $categorias);
         $this->smarty->display('templates/search.tpl');
     }
+
+    function error(){
+        $this->smarty->assign('Error','error');
+        $this->smarty->display('templates/errorLibro.tpl');
+    }
 }

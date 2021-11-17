@@ -22,7 +22,7 @@ class LibroController{
         $this->viewCategoria= new CategoriaView($this->helper->getNombre(),$this->helper->getRol());
     }
 
-    function showHome(){
+    function listadoLibros(){
         // no se pasa el checklogin para poder entrar como invitado
         $this->helper->checkLogin();
         $libros = $this->model->getLibros();
@@ -68,25 +68,31 @@ class LibroController{
         $this->view->showLibroLocation();
     }
 
-    function editLibro($id){
+    function editarLibro($id){
         $this->helper->checkLogin();
-        if($this->helper->getRol()!="3"){
         $libro = $this->model->getLibro($id);
-        $categorias = $this->modelCategoria->getGeneros();
-        $this->view->showEdit($libro,$categorias);
+        if ($libro == true){
+            if($this->helper->getRol()!="3"){
+                $categorias = $this->modelCategoria->getGeneros();
+                $this->view->showEdit($libro,$categorias);
+            }
+            $this->view->showLibroLocation();
+        } else {
+            $this->view->error();
         }
-        $this->view->showLibroLocation();
-
     }
 
-    function edit(){
+    function editLibroAction(){
         $this->helper->checkLogin();
         if($this->helper->getRol()!="3"){
-            $this->model->updateLibroFromDB($_POST['autor'],$_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'],$_POST['id_categoria'],$_POST['id']);
-            $this->view->showLibroLocation();
+            if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png"){
+                $this->model->updateLibroFromDB($_POST['autor'],$_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'],$_POST['id_categoria'],$_POST['id'],$_FILES['input_name']['tmp_name']);
+                $this->view->showLibroLocation();
+            }else{
+                $this->model->updateLibroFromDB($_POST['autor'],$_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'],$_POST['id_categoria'],$_POST['id']);
+            }
         }
         $this->view->showLibroLocation();
-
     }
 
     function searchAutor(){

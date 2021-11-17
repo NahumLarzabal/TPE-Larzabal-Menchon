@@ -37,6 +37,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="generos">Generos</a>
                     </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout">Cerrar sesion</a>
+                    </li>
                 {else}
                     <li class="nav-item">
                         <a class="nav-link" href="generos">Generos</a>

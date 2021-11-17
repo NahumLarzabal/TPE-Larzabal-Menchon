@@ -17,9 +17,9 @@ class LibroController{
     function __construct(){
         $this->helper = new AuthHelpers();
         $this->model = new LibroModel();
-        $this->view = new LibroView($this->helper->getNombre());
+        $this->view = new LibroView($this->helper->getNombre(),$this->helper->getRol());
         $this->modelCategoria= new CategoriaModel();
-        $this->viewCategoria= new CategoriaView($this->helper->getNombre());
+        $this->viewCategoria= new CategoriaView($this->helper->getNombre(),$this->helper->getRol());
     }
 
     function showHome(){
@@ -27,8 +27,7 @@ class LibroController{
         $this->helper->checkLogin();
         $libros = $this->model->getLibros();
         $categorias = $this->modelCategoria->getGeneros();
-        $rol = $this->helper->getRol();
-        $this->view->showLibros($libros,$categorias,$rol);
+        $this->view->showLibros($libros,$categorias);
     }
     function viewLibro($id){
         $this->helper->checkLogin();
@@ -47,14 +46,21 @@ class LibroController{
 
     function agregarlibro(){
         $this->helper->checkLogin();
-        $categorias=$this->modelCategoria->getGeneros();
-        $this->view->agregar($categorias);
+        $rol=$this->helper->getRol();
+        if ($rol == "3" || $rol == "4") {
+            $this->view->showLibroLocation();
+        } else {
+            $categorias=$this->modelCategoria->getGeneros();
+            $this->view->agregar($categorias);
+        }
+        
     }
+
     function deleteLibro($id){
         $this->helper->checkLogin();
         if($this->helper->getRol()!="3"){
             $this->model->deleteLibroFromDB($id);
-            $this->view->showHomeLocation();
+            $this->view->showLibroLocation();
         }
         $this->view->showLibroLocation();
     }
@@ -74,9 +80,9 @@ class LibroController{
         $this->helper->checkLogin();
         if($this->helper->getRol()!="3"){
             $this->model->updateLibroFromDB($_POST['autor'],$_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'],$_POST['id_categoria'],$_POST['id']);
-            $this->view->showHomeLocation();
+            $this->view->showLibroLocation();
         }
-        $this->view->showHomeLocation();
+        $this->view->showLibroLocation();
 
     }
 

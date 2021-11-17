@@ -6,7 +6,8 @@
         </div>
         <div class="btn-libro">
             <a  href="generos/agregarCategoria">
-                {if isset($email)}
+               {if isset($email) && ($rol == "4") || ($rol =="3")}
+               {else}
                     <button class="btn btn-primary" id="btn-list-libro">Nuevo Genero</button> 
                 {/if}
             </a>
@@ -18,7 +19,10 @@
             <thead>
               <tr>
                 <th scope="col">Genero</th>
-                {if $rol != "3"}
+                {if isset($email) && ($rol == "4") || ($rol=="3")}
+                {elseif $rol ==  "2"}
+                <th scope="col">Editar</th>
+                {else}
                 <th scope="col">Borrar</th>
                 <th scope="col">Editar</th>
                 {/if}
@@ -28,8 +32,15 @@
                 {foreach from=$categorias item=$categoria}
                 <tr>
                     <td scope="row">{$categoria->categoria}</td>
-                    {if $rol != "3"}
+                    {if isset($email) && ($rol == "4") || ($rol=="3")}
+                    {elseif $rol ==  "2"}                       
                         <td>
+                            <a class="alerta btn btn-success" href="showCategoriaEdit/{$categoria->id_categoria}" id="btn-categoria-edit">
+                                <i class="far fa-edit"></i>
+                            </a>     
+                        </td>
+                        {else}
+                         <td>
                             <a class="btn btn-danger" href="deleteCategoria/{$categoria->id_categoria}" id="btn-categoria-delete">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
@@ -40,6 +51,7 @@
                                 <i class="far fa-edit"></i>
                             </a>     
                         </td>
+
                         {/if}
 
                     </tr>

@@ -1,0 +1,9 @@
+{
+    "emmet.syntaxProfiles": {
+        "tpl": "html"
+    },
+    "emmet.includeLanguages": {
+        "smarty": "html"
+    }
+
+}

@@ -32,12 +32,8 @@
                 </div>
             </form>
         </div> 
-
         {include file='templates/anuncio.tpl'}
-        <!-- 
-        <aside class="img-anuncio">
-        <img src="./img/anuncio.png">
-        </aside>  -->
+      
 
     </div>
 

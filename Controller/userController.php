@@ -12,8 +12,7 @@ class UserController{
     function __construct(){
         $this->helper = new AuthHelpers();
         $this->model = new userModel();
-        $this->view = new userView();
-        $this->helper = new AuthHelpers();
+        $this->view = new userView($this->helper->getRol());
         // $this->controller = new userController();
     }
 
@@ -24,8 +23,7 @@ class UserController{
     function getUserHeader(){
         $email= $this->model->getUsers();
         $user=$this->model->getUser($email);
-        $rol=$this->helper->getRol();
-        $this->view->showUser($user,$rol);
+        $this->view->showUser($user);
     }
 
     function verifyLogin(){

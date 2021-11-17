@@ -15,7 +15,12 @@
                     <th scope="col">Titulo</th>
                     <th scope="col">Genero</th>
                     <th scope="col">Autor</th>
-                    {if isset($email)}
+                    {if isset($email) && ($rol == "4") || ($rol=="3")}
+                    <th scope="col">Precio</th>
+                    {elseif $rol == "2"}
+                    <th scope="col">Precio</th>
+                    <th scope="col">Editar</th>
+                    {else}
                     <th scope="col">Precio</th>
                     <th scope="col">Borrar</th>
                     <th scope="col">Editar</th>
@@ -36,7 +41,12 @@
                                     {/foreach}
                             </td>
                             <td id="autor-libro">{$libro->autor}</td>
-                            {if isset($email)}
+                            {if isset($email) && ($rol == "4") || ($rol=="3")}
+                            <td id="precio-libro">{$libro->precio}</td>
+                            {elseif $rol == "2"}
+                            <td id="precio-libro">{$libro->precio}</td>
+                            <td><a class="btn btn-success" href="editLibro/{$libro->id}" id="btn-libro-edit"><i class="far fa-edit"></i></a></td>
+                            {else}
                                 <td id="precio-libro">{$libro->precio}</td>
                                 <td><a class="btn btn-danger" href="deleteLibro/{$libro->id}" id="btn-libro-delete"><i class="fas fa-trash-alt"></i></a></td>
                                 <td><a class="btn btn-success" href="editLibro/{$libro->id}" id="btn-libro-edit"><i class="far fa-edit"></i></a></td>

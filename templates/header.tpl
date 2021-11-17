@@ -29,28 +29,33 @@
                 <li class="nav-item">
                     <a class="nav-link" href="libros">Listado de Libros</a>
                 </li>
-                {if isset($email)}
-                <li class="nav-item">
-                    <a class="nav-link" href="generos">Generos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="libros/agregarlibro">Cargar libro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="generos/agregarCategoria">Cargar genero</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="usuarios">Administrar Usuarios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="logout">Cerrar sesion</a>
-
-                {if !isset($email)}
-                </li>
+                {if isset($email) && ($rol == "4")}
                     <li class="nav-item">
-                    <a class="nav-link" href="login">Login</a>
-                </li>
-                {/if}
+                        <a class="nav-link" href="login">Login</a>
+                    </li>
+                {elseif $rol =="3"} 
+                    <li class="nav-item">
+                        <a class="nav-link" href="generos">Generos</a>
+                    </li>
+                {else}
+                    <li class="nav-item">
+                        <a class="nav-link" href="generos">Generos</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="libros/agregarlibro">Cargar libro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="generos/agregarCategoria">Cargar genero</a>
+                    </li>
+                    <li class="nav-item">
+                        
+                        <a class="nav-link" href="usuarios">Administrar Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout">Cerrar sesion</a>
+                    </li>
+                    
             {/if}
 
             </ul>
@@ -70,12 +75,12 @@
             <h1>Libreria ChoLarz</h1>
         </div>
         <div class="login">
-            {if isset($email)}
-            <span class="margin-right-10px">Hola {$email}</span>
-            
-            <a class="btn btn-outline-secondary btn-sm" href="logout">Logout </a>
-            {else}
+
+            {if isset($email) && ($rol == "4")}
             <a class="btn btn-outline-primary btn-sm" href="login">Login </a>
+            {else}
+            <span class="margin-right-10px">Hola {$email}</span>
+            <a class="btn btn-outline-secondary btn-sm" href="logout">Logout </a>
             {/if}
         </div>   
     </header>

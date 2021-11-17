@@ -4,6 +4,11 @@
   {* titulo y parte superior del contenedor *}
   <div class="content-top-page">
     <div class="content-title">
+     {if isset($email) && ($rol == "4") || ($rol=="3")}
+          <h1>No tienes permisos de administrador</h1>
+          <br>
+          </div>
+              {else}
       <h1>Editar libro</h1>
     </div>
     <div class="btn-libro">
@@ -75,6 +80,7 @@
 </div>
 {include file='templates/anuncio.tpl'}
 </div>
+{/if}
 </div>
 {include file='templates/footer.tpl'}
 

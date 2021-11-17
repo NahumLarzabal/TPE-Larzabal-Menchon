@@ -3,20 +3,18 @@ require_once './libs/smarty-3.1.39/libs/Smarty.class.php';
 class LibroView{
     private $smarty;
 
-    function __construct($email) {
+    function __construct($email,$rol) {
         $this->smarty = new Smarty();
         $this->smarty->assign('email',$email);
+        $this->smarty->assign('rol',$rol);
+
     }
 
-    function showLibros($libros,$categorias,$rol){
+    function showLibros($libros,$categorias){
         $this->smarty->assign('titulo','Titulo de Libro');
         $this->smarty->assign('libros', $libros);
         $this->smarty->assign('categorias', $categorias);
-        $this->smarty->assign('rol',$rol);
         $this->smarty->display('templates/form_table.tpl');
-    }
-    function showHomeLocation(){
-        header("Location: ".BASE_URL."libros");
     }
 
     function home(){

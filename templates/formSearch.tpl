@@ -19,7 +19,8 @@
         <button type="submit"class="btn btn-secondary" id="btn-list-libro" ><i class="fas fa-search"></i></button>
     </form>  
 
-            {if isset($email)}
+           {if isset($email) && ($rol == "4") || ($rol=="3")}
+           {else}
         <a  href="libros/agregarlibro">
             <button class="btn btn-primary" id="btn-list-libro">Nuevo Libro</button> 
         </a>

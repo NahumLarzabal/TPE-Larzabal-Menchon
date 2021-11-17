@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-11-2021 a las 23:09:32
+-- Tiempo de generación: 17-11-2021 a las 16:01:36
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -49,7 +49,11 @@ INSERT INTO `categorias` (`id_categoria`, `categoria`) VALUES
 (10, 'Leyenda'),
 (11, 'Fabula'),
 (12, 'Fantasmal'),
-(31, 'Heroico');
+(31, 'Heroico'),
+(32, 'Suspenso, Terror'),
+(33, 'Arturito'),
+(34, 'asda'),
+(35, 'dasda');
 
 -- --------------------------------------------------------
 
@@ -77,7 +81,8 @@ INSERT INTO `comentarios` (`id`, `comentarios`, `puntuacion`, `id_libro`, `id_us
 (34, 'dasdasdasd', 2, 35, 1),
 (38, 'dasdasdasd', 2, 35, 2),
 (59, 'asdasda', 2, 1, 1),
-(75, 'asdasd', 2, 1, 2);
+(75, 'asdasd', 2, 1, 2),
+(76, 'aaaa', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -107,7 +112,8 @@ INSERT INTO `libros` (`id`, `autor`, `nombre_libro`, `descripcion`, `precio`, `i
 (33, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1),
 (34, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1),
 (35, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1),
-(39, '123d1231', 'asdas213sa', 'lal3llala', 34567, 5);
+(39, '123d1231', 'asdas213sa', 'lal3llala', 34567, 5),
+(40, 'asdasd1231', 'asdasd1', '          asdasd', 1312, 3);
 
 -- --------------------------------------------------------
 
@@ -133,7 +139,7 @@ INSERT INTO `users` (`id`, `email`, `nombre_apellido`, `password`, `tipoUser`) V
 (5, 'asdas@sadas', 'asda1231', '$2y$10$2ncXrnd3/Ctw5CN/NonDPOJ1dstSrjzsNJNapucvCcOtJLPVcLxmK', 3),
 (6, 'admin2@gmail.com', 'Admin2', '$2y$10$fBIuGQI3SGZRLfic8soCuu3U1ne8YXLaGdY2ZSG/ovgre4je9sJm6', 3),
 (7, 'alberto2@gmail.com', 'pepe', '$2y$10$HqIU9ozvYUqulzWVNqbMR.OZCmOw7N.76jaBeH5vvlyrn3wT5i1gW', 3),
-(9, 'invitado@gmail.com', 'Invitado', '$2y$10$S2Hu6UbEt0vHeo4/t2YH.O6Jk516fnosUg6mjft2besxSnFofn6/a', 3);
+(9, 'invitado@gmail.com', 'Invitado', '$2y$10$S2Hu6UbEt0vHeo4/t2YH.O6Jk516fnosUg6mjft2besxSnFofn6/a', 4);
 
 --
 -- Índices para tablas volcadas
@@ -174,19 +180,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

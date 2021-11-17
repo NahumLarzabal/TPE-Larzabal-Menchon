@@ -39,9 +39,12 @@ class LibroController{
  
     function createLibro(){
         $this->helper->checkLogin();
-        $this->model->insertLibro($_POST['autor'], $_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'], $_POST['id_categoria']);
-        //$categorias = $this->modelCategoria->getGeneros();
-        // $this->view->agregar($categorias);
+        if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png" ){
+            $this->model->insertLibro($_POST['autor'], $_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'], $_POST['id_categoria'], $_FILES['input_name']['tmp_name']);
+        }
+        else {
+            $this->model->insertLibro($_POST['autor'], $_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'], $_POST['id_categoria']);
+        }
         $this->view->showLibroLocation();
     }
 

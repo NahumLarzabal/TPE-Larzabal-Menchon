@@ -33,7 +33,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="generos">Generos</a>
                 </li>
-                {else if $rolUser == "4"}
                 <li class="nav-item">
                     <a class="nav-link" href="libros/agregarlibro">Cargar libro</a>
                 </li>
@@ -45,11 +44,13 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout">Cerrar sesion</a>
+
+                {if !isset($email)}
                 </li>
-                {else}
                     <li class="nav-item">
                     <a class="nav-link" href="login">Login</a>
                 </li>
+                {/if}
             {/if}
 
             </ul>

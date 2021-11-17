@@ -36,9 +36,7 @@ const idApi = document.querySelector("#idApi").value;
 const url = "api/libros";
 //  `api/libros/${idApi}/comentarios`
 
-
-
-Comments();
+// Comments();
 
 async function Comments(){
     try {

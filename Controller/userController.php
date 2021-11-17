@@ -4,6 +4,11 @@ require_once "./Model/userModel.php";
 require_once "./View/userView.php";
 require_once "./helpers/authHelper.php";
 
+// usuario Root == 1
+// usuario administrador == 2
+// usuario normal registrado == 3
+// usuario invitado = 4
+
 class UserController{
     private $model;
     private $view;

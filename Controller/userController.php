@@ -78,7 +78,8 @@ class UserController{
     function mostrarUsuarios(){
         $this->helper->checkLogin();
         $listaUsuarios = $this->model->getUsers();
-        $this->view->showUsersList($listaUsuarios);
+        $rol = $this->helper->getRol();
+        $this->view->showUsersList($listaUsuarios, $rol);
     }
 
     function mostrarUsuario($email){

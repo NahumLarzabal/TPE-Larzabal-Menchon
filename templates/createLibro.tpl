@@ -59,11 +59,18 @@
             <div id="emailHelp" class="form-text">Precio en $.</div>
           </div>
         </div>
-    
-        <div class="form-group row margin-15px">
-          <div class="col-sm-10  btn-sub-center">
-            <button type="submit" class="btn btn-primary"  id="submit-create-libro">Crear libro</button>
-          </div>
+      </div>
+
+      <div class="form-group row margin-15px">
+        <label for="portada" class="col-sm-2 col-form-label">Portada:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="form-label" placeholder="portada" name="portada" id="portada" required>
+        </div>
+      </div>
+  
+      <div class="form-group row margin-15px">
+        <div class="col-sm-10  btn-sub-center">
+          <button type="submit" class="btn btn-primary"  id="submit-create-libro">Crear libro</button>
         </div>
       </form>
       {include file='templates/anuncio.tpl'}

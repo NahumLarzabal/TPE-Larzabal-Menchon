@@ -12,26 +12,39 @@
 
 
     <div class="container">
-    <input id="idApi" type="hidden" value="{$libro->id}">
-        <div class="title">
-            <h2 class="mb-4">Titulo:<span>{$libro->nombre_libro}</span></h2>
-        </div>
-        <div class="autor">
-            <h2>Autor: <span>{$libro->autor}</span></h2>
-        </div>
+    <input id="idApi" class="id_libro" type="hidden" value="{$libro->id}">
+      <div class="title">
+          <h2 class="mb-4">Titulo:<span>{$libro->nombre_libro}</span></h2>
+      </div>
+      <div class="autor">
+          <h2>Autor: <span>{$libro->autor}</span></h2>
+      </div>
 
-        <div class="genero">
-            <h2>Genero: <span>{$libro->categoria}</span></h2>
-        </div>
-        <div class="precio">
-            <h2>Precio: <span>${$libro->precio}</span></h2>
-        </div>
-        <div class="descripcion">
-            <h2>Descripcion: {$libro->descripcion}</h2>
-        </div>
-        <div class="btn-volver">
-            <a href="libros">Volver</a>
-        </div>
+      {if !empty($libro->imagen)}
+      <div class="portada">
+          <h2>Portada: 
+              <span>
+                  <img src="{$libro->imagen}"/>
+              </span>
+          </h2>
+      </div>
+      {/if}
+
+      <div class="genero">
+        <h2>Genero: <span>{$libro->categoria}</span></h2>
+      </div>
+
+      <div class="precio">
+        <h2>Precio: <span>${$libro->precio}</span></h2>
+      </div>
+
+      <div class="descripcion">
+        <h2>Descripcion: {$libro->descripcion}</h2>
+      </div>
+
+      <div class="btn-volver">
+        <a href="libros">Volver</a>
+      </div>
     </div>
 <h1>Comentarios</h1>
 

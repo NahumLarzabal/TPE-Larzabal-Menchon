@@ -13,8 +13,8 @@
         </div>
       </div>
 
-      {* formulario creacion de libro *}
-      <form action="createLibro" method="post">
+    {* formulario creacion de libro *}
+    <form action="createLibro" method="post" enctype="multipart/form-data">
 
         <div class="form-group row margin-15px">
           <label for="nombre_libro" class="col-sm-2 col-form-label">Titulo del libro</label>
@@ -64,7 +64,7 @@
       <div class="form-group row margin-15px">
         <label for="portada" class="col-sm-2 col-form-label">Portada:</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="form-label" placeholder="portada" name="portada" id="portada" required>
+          <input type="file" name="input_name" id="imageToUpload">
         </div>
       </div>
   

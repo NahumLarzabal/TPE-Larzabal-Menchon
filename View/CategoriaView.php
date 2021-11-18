@@ -26,4 +26,11 @@ class CategoriaView{
     function showCategoriasLocation(){
         header("Location: ".BASE_URL."generos");
     }
+
+    function showHome(){
+        header("Location: ".BASE_URL."home");
+
+    }
+
+
 }

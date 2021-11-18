@@ -14,12 +14,16 @@
   </div>
 
     {* formulario editor de libro *}
-  <form class="form-alta" action="edit" method="post">  
+  <form class="form-alta" action="edit" method="post" enctype="multipart/form-data">  
     <input name="id" type="hidden" value="{$libro->id}">
     <div class="form-group row margin-15px">
       <label for="nombre_libro" class="col-sm-2 col-form-label">Titulo del libro</label>
       <div class="col-sm-10">
+<<<<<<< HEAD
         <input type="text" class="form-control" name="nombre_libro" value="{$libro->nombre_libro}" id="nombre_libro">          
+=======
+        <input type="text" class="form-control" name="nombre_libro" value="{$libro->nombre_libro}" id="nombre_libro">
+>>>>>>> 90ed267e016320ddb023751d73424f4d2fe55ae8
         <div id="emailHelp" class="form-text">Maximo 180 caracteres.</div>
       </div>
     </div>
@@ -63,6 +67,13 @@
       <div class="col-sm-10">
         <input type="number" class="form-control" id="precio" value="{$libro->precio}" name="precio">
         <div id="emailHelp" class="form-text">Precio en $.</div>
+      </div>
+    </div>
+
+    <div class="form-group row margin-15px">
+      <label for="portada" class="col-sm-2 col-form-label">Portada:</label>
+      <div class="col-sm-10">
+        <input type="file" name="input_name" id="imageToUpload">
       </div>
     </div>
   

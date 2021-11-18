@@ -3,8 +3,10 @@ require_once './libs/smarty-3.1.39/libs/Smarty.class.php';
 class userView{
     private $smarty;
 
-    function __construct() {
+    function __construct($email, $rol) {
         $this->smarty = new Smarty();
+        $this->smarty->assign('email',$email);
+        $this->smarty->assign('rol',$rol);
     }
     
     function showLogin($error=""){
@@ -20,7 +22,6 @@ class userView{
     function showUserCreate($error=""){
         $this->smarty->assign('error',$error);
         $this->smarty->display('templates/createUser.tpl');
-
     }
     function showCreateLogin($error=""){
         $this->smarty->assign('titulo','CREAR USUARIO');
@@ -44,10 +45,9 @@ class userView{
         $this->smarty->display('templates/usuario.tpl');
     }
 
-    function showUsersList($listaUsuarios, $rol){
-        $this->smarty->assign('rol',$rol);
+    function showUsersList($listaUsuarios){
         $this->smarty->assign('users', $listaUsuarios);
         $this->smarty->display('templates/usuarios.tpl');
     }
-    
+
 }

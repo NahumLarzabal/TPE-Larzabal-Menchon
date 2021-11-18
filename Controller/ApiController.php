@@ -73,6 +73,22 @@ function insertComment($params = null) {
         $this->view->response("El comentario no se pudo insertar", 500);
     }
 }
+
+function searchPuntuacion($params=null){
+    $idComment = $params[':ID'];
+    $idComment2 = $params[':comentarioID'];
+    $idPuntuacion = $params[':puntuacion'];
+    $comment = $this->CommentModel->getComentarioLibro($idComment);
+    $comment2 = $this->CommentModel->getComentario($idComment2);
+    $comment3 = $this->CommentModel->getPuntuacion($idPuntuacion);
+    if(!empty($comment) && !empty($comment2)&&!empty($comment3)){
+        $this->CommentModel->getSearchPuntuacion($idComment,$idPuntuacion);
+        return $this->view->response("El comentario de ID=$idComment2 con LibroId = $idComment y de Puntuacion = $idPuntuacion",204);
+    }else{
+        return $this->view->response("El parametro de busqueda no existe",404);
+
+    }
+}
 ///************************            Libros         *************************************/
 
 //     function getLibros(){

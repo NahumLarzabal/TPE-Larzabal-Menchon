@@ -25,6 +25,12 @@ class ComentariosModel{
         $commets = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $commets;
     }
+    function getPuntuacion($puntuacion){
+        $sentencia = $this->db->prepare( "select * from comentarios WHERE puntuacion=?");
+        $sentencia->execute(array($puntuacion));
+        $commets = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $commets;
+    }
 
     function deleteComment($id){
         $sentencia = $this->db->prepare("DELETE FROM comentarios WHERE comentarios.id= ?");
@@ -36,5 +42,11 @@ class ComentariosModel{
         //INSERT INTO comentarios (comentarios,id_libro,id_user,puntuacion) select comentarios,id_libro,id_user, puntuacion from users INNER JOIN comentarios c on c.id = users.id
         $sentencia->execute(array($comentarios,$id_libro,$id_user,$puntuacion));
         return $this->db->lastInsertId();
+    }
+    function getSearchPuntuacion($id,$puntuacion){
+        $sentencia = $this->db->prepare( "SELECT comentarios.id,comentarios.puntuacion,comentarios.comentarios,comentarios.id_libro, users.nombre_apellido, users.tipoUser FROM comentarios JOIN users ON comentarios.id_user = users.id WHERE id_libro=? ORDER BY comentarios.puntuacion = ?;");
+        $sentencia->execute(array($id,$puntuacion));
+        $commet = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $commet;
     }
 }

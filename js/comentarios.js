@@ -1,7 +1,6 @@
 "use strict"
 const idApi = document.querySelector("#idApi").value;
 const url = "api/libros";
-comments();
 
 let api = new Vue({
     el: "#apiComentarios",
@@ -35,6 +34,7 @@ let api = new Vue({
 
 //  `api/libros/${idApi}/comentarios`
 
+comments();
 
 async function comments(){
     try {

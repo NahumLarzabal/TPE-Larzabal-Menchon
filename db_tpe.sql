@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2021 a las 16:01:36
+-- Tiempo de generación: 18-11-2021 a las 01:40:54
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -48,12 +48,7 @@ INSERT INTO `categorias` (`id_categoria`, `categoria`) VALUES
 (9, 'Cuento'),
 (10, 'Leyenda'),
 (11, 'Fabula'),
-(12, 'Fantasmal'),
-(31, 'Heroico'),
-(32, 'Suspenso, Terror'),
-(33, 'Arturito'),
-(34, 'asda'),
-(35, 'dasda');
+(12, 'Fantasmal');
 
 -- --------------------------------------------------------
 
@@ -75,14 +70,23 @@ CREATE TABLE `comentarios` (
 
 INSERT INTO `comentarios` (`id`, `comentarios`, `puntuacion`, `id_libro`, `id_user`) VALUES
 (1, 'me pareció un libro alucinante', 5, 1, 1),
-(2, 'dasdasdasd', 2, 35, 1),
-(4, 'asdas', 5, 31, 2),
-(19, 'asdaad', 5, 1, 1),
-(34, 'dasdasdasd', 2, 35, 1),
-(38, 'dasdasdasd', 2, 35, 2),
-(59, 'asdasda', 2, 1, 1),
-(75, 'asdasd', 2, 1, 2),
-(76, 'aaaa', 1, 1, 1);
+(2, 'adwadwadad', 3, 1, 1),
+(3, 'jejeje', 2, 33, 1),
+(4, '23qwe', 1, 41, 1),
+(5, 'asdawdwadaw', 2, 39, 1),
+(6, 'adwad', 2, 31, 1),
+(7, '213123', 2, 41, 1),
+(8, 'awdad', 2, 1, 1),
+(9, 'wdada', 2, 1, 1),
+(10, '2', 0, 1, 1),
+(11, 'wdwada', 2, 1, 1),
+(13, 'l;lk;lk', 1, 44, 1),
+(14, 'sadfdsf', 2, 44, 1),
+(15, 'asdas', 0, 44, 1),
+(16, 'asd', 1, 40, 1),
+(17, 'asd', 4323, 2, 1),
+(18, 'gfhjgh', 3, 45, 1),
+(19, 'awdad', 1, 46, 1);
 
 -- --------------------------------------------------------
 
@@ -96,24 +100,31 @@ CREATE TABLE `libros` (
   `nombre_libro` varchar(100) NOT NULL,
   `descripcion` varchar(5000) NOT NULL,
   `precio` double DEFAULT NULL,
-  `id_categoria` int(11) NOT NULL
+  `id_categoria` int(11) NOT NULL,
+  `imagen` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `libros`
 --
 
-INSERT INTO `libros` (`id`, `autor`, `nombre_libro`, `descripcion`, `precio`, `id_categoria`) VALUES
-(1, 'C.S. Lewis1', 'Las Crónicas de Narnia: El león, la bruja y el ropero1', ' Las Crónicas de Narnia (título original en inglés: The Chronicles of Narnia) es una heptalogía de libros juveniles escrita por el escritor y profesor anglo-irlandés C. S. Lewis entre 1950 y 1956, e ilustrado, en su versión original, por Pauline Baynes. Re1', 35562, 3),
-(2, 'C.S. Lewis', '\r\nLas crónicas de Narnia: el príncipe Caspian ', 'Las Crónicas de Narnia: El príncipe Caspian (título original en inglés: The Chronicles of Narnia: Prince Caspian) es una película de acción y fantasía dirigida por Andrew Adamson y basada en la novela homónima de C. S. Lewis. Producida por Walden Media y distribuida por Walt Disney Pictures, se estrenó el 16 de mayo de 2008 en Estados Unidos. Es la segunda entrega de la saga Las Crónicas de Narnia.', 4566, 7),
-(4, 'José Mauro de Vasconcelo', 'Mi planta de naranja lima', 'Mi planta de naranja lima (en portugués O Meu Pé de Laranja Lima) es una novela de José Mauro de Vasconcelos, una de las más leídas de la nueva literatura brasileña. El autor continúa la historia en Vamos a calentar el sol. Está narrada en primera persona y posee un altísimo nivel autobiográfico.\r\nEncabezó la lista de superventas en 1968, año de su primera edición. Posteriormente, la novela fue traducida a 32 idiomas y publicada en 19 países. Ha sido adoptado como texto lectura a nivel de enseñanza primaria.1​\r\nTres telenovelas se han realizado sobre la base de esta obra: en 1970 para la Rede Tupi, y en 1980 y 1998 para la Rede Bandeirantes. También se han realizado varias adaptaciones al cine, televisión y teatro, siendo dirigida por Aurelio Teixeira la primera para el cine en 1970.2​ En el 2011 se ha presentado su segunda versión cinematográfica.3​   ', 11781, 5),
-(31, 'garcia', 'asdasd11', '363edfgdfg', 222, 6),
-(32, 'garcia', 'sadda', '1', 2, 3),
-(33, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1),
-(34, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1),
-(35, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1),
-(39, '123d1231', 'asdas213sa', 'lal3llala', 34567, 5),
-(40, 'asdasd1231', 'asdasd1', '          asdasd', 1312, 3);
+INSERT INTO `libros` (`id`, `autor`, `nombre_libro`, `descripcion`, `precio`, `id_categoria`, `imagen`) VALUES
+(1, 'C.S. Lewis1', 'Las Crónicas de Narnia: El león, la bruja y el ropero1', ' Las Crónicas de Narnia (título original en inglés: The Chronicles of Narnia) es una heptalogía de libros juveniles escrita por el escritor y profesor anglo-irlandés C. S. Lewis entre 1950 y 1956, e ilustrado, en su versión original, por Pauline Baynes. Re1', 35562, 3, ''),
+(2, 'C.S. Lewis', '\r\nLas crónicas de Narnia: el príncipe Caspian ', 'Las Crónicas de Narnia: El príncipe Caspian (título original en inglés: The Chronicles of Narnia: Prince Caspian) es una película de acción y fantasía dirigida por Andrew Adamson y basada en la novela homónima de C. S. Lewis. Producida por Walden Media y distribuida por Walt Disney Pictures, se estrenó el 16 de mayo de 2008 en Estados Unidos. Es la segunda entrega de la saga Las Crónicas de Narnia.', 4566, 7, ''),
+(4, 'José Mauro de Vasconcelo', 'Mi planta de naranja lima', 'Mi planta de naranja lima (en portugués O Meu Pé de Laranja Lima) es una novela de José Mauro de Vasconcelos, una de las más leídas de la nueva literatura brasileña. El autor continúa la historia en Vamos a calentar el sol. Está narrada en primera persona y posee un altísimo nivel autobiográfico.\r\nEncabezó la lista de superventas en 1968, año de su primera edición. Posteriormente, la novela fue traducida a 32 idiomas y publicada en 19 países. Ha sido adoptado como texto lectura a nivel de enseñanza primaria.1​\r\nTres telenovelas se han realizado sobre la base de esta obra: en 1970 para la Rede Tupi, y en 1980 y 1998 para la Rede Bandeirantes. También se han realizado varias adaptaciones al cine, televisión y teatro, siendo dirigida por Aurelio Teixeira la primera para el cine en 1970.2​ En el 2011 se ha presentado su segunda versión cinematográfica.3​   ', 11781, 5, ''),
+(31, 'garcia', 'asdasd11', '363edfgdfg', 222, 6, ''),
+(32, 'garcia', 'sadda', '1', 2, 3, ''),
+(33, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1, ''),
+(34, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1, ''),
+(35, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1, ''),
+(39, '123d1231', 'asdas213sa', 'lal3llala', 34567, 5, ''),
+(40, 'asdas', 'asd', '          asdasd', 34, 5, ''),
+(41, 'autor', 'asdasd', 'descrrp', 123456, 2, ''),
+(42, 'autor', 'libros', 'descrip', 12, 2, ''),
+(43, '1dsfgdsfg', 'Titulo nuevo', '                                           sdfgsdfg              1     \r\n        \r\n        \r\n        \r\n        \r\n        ', 123, 3, 'img/portadas/6195991ad89a8.jpg'),
+(44, 'Peron', 'PEron', '          Peron            \r\n        ', 100, 2, 'img/portadas/61959bddc71ce.jpg'),
+(45, 'cPEron Juena', 'PEron Juena', 'PEron Juena            `', 1100, 3, NULL),
+(46, 'awsdwad', 'asdadw', 'sadfwadwad', 1231, 10, NULL);
 
 -- --------------------------------------------------------
 
@@ -135,11 +146,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `nombre_apellido`, `password`, `tipoUser`) VALUES
 (1, 'admin@gmail.com', 'Admin', '$2y$10$ATqPXdv4tFHONS3xg9hQbOSWjExfYE2Q6VDQDUR3x93m7zwqO/DGa', 1),
-(2, 'alberto@gmail.com', 'pepe', '$2y$10$ATqPXdv4tFHONS3xg9hQbOSWjExfYE2Q6VDQDUR3x93m7zwqO/DGa', 3),
-(5, 'asdas@sadas', 'asda1231', '$2y$10$2ncXrnd3/Ctw5CN/NonDPOJ1dstSrjzsNJNapucvCcOtJLPVcLxmK', 3),
-(6, 'admin2@gmail.com', 'Admin2', '$2y$10$fBIuGQI3SGZRLfic8soCuu3U1ne8YXLaGdY2ZSG/ovgre4je9sJm6', 3),
-(7, 'alberto2@gmail.com', 'pepe', '$2y$10$HqIU9ozvYUqulzWVNqbMR.OZCmOw7N.76jaBeH5vvlyrn3wT5i1gW', 3),
-(9, 'invitado@gmail.com', 'Invitado', '$2y$10$S2Hu6UbEt0vHeo4/t2YH.O6Jk516fnosUg6mjft2besxSnFofn6/a', 4);
+(2, 'admin2@gmail.com', 'asdad', '$2y$10$j4pY0kLHrxhL.q2Dtb0...TuocE.L4KNKHS0ujAZLtTZDVmnr9iuW', 3),
+(3, 'prueba@gmail.com', 'hola', '$2y$10$jsx2ZNt7XD79BtGXu8Q.BuRG67qsmmPGCDxFEt6f3H0toZNTtNmAq', 2),
+(4, 'usuario@usuario.com', 'usuario normal', '$2y$10$JjVQpBRZMz2ISPgsMC6LM.GNq8McnhrW4iBA65I23N/WiCNKQeLpG', 2),
+(5, 'invitado@gmail.com', 'INVITADO', '$2y$10$6ci8LBfOoojsdKCu/Vz3beUqG./iyYwruf271sdafUa8binOTlD/S', 4);
 
 --
 -- Índices para tablas volcadas
@@ -180,25 +190,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas

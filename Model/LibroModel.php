@@ -30,8 +30,8 @@ class LibroModel{
         $pathImg = null;
         if ($imagen){
             $pathImg = $this->uploadImage($imagen);
-            $sentencia = $this->db->prepare("INSERT INTO libros (autor, nombre_libro, descripcion, precio, id_categoria, imagen) VALUES (?, ?, ?, ?, ?, ?)");
         }
+        $sentencia = $this->db->prepare("INSERT INTO libros (autor, nombre_libro, descripcion, precio, id_categoria, imagen) VALUES (?, ?, ?, ?, ?, ?)");
         $sentencia->execute(array($autor,$nombre_libro, $descripcion, $precio, $genero, $pathImg));
         return $this->db->lastInsertId();
     }

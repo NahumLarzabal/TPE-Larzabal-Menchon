@@ -1,4 +1,8 @@
 "use strict"
+const idApi = document.querySelector("#idApi").value;
+const url = "api/libros";
+comments();
+
 let api = new Vue({
     el: "#apiComentarios",
     data: {
@@ -10,7 +14,7 @@ let api = new Vue({
             let id_libro = document.querySelector(".id_libro").value;
             let rol = document.querySelector('.rol').value;
               console.log( "entre"+ id_comment, id_libro);
-              if(rol != 4 || rol !=3){
+              if(rol == 4 || rol ==3){
                 console.log("No sos Administrador");
               }else{
 
@@ -19,7 +23,7 @@ let api = new Vue({
                 method: "DELETE",
             });
              if( res.status == 204){
-                 Comments();
+                 comments();
                console.log("Borrardo");
              }
             
@@ -34,18 +38,16 @@ let api = new Vue({
 });
 
 
-const idApi = document.querySelector("#idApi").value;
-const url = "api/libros";
 //  `api/libros/${idApi}/comentarios`
 
-Comments();
 
-async function Comments(){
+async function comments(){
     try {
         let res = await fetch(`${url}/${idApi}/comentarios`);
-        let json = await res.json();
-        api.comments = json;
-        console.log(json);
+        if(res.status == 200){
+          let json = await res.json();
+          api.comments = json;
+        }
     } catch (e) {
         console.log(e);
     }
@@ -59,44 +61,43 @@ function campForm(){
     return { comentarios: comentario.value,
        id_libro: id_libro.value,
        id_user: nombre_apellido.value,
-       puntuacion: puntuacion.value}
-   }
-   let btn = document.querySelector("#btn-insertComment");
-   if(btn){
+       puntuacion: puntuacion.value
+    }
+}
 
-       btn.addEventListener("click",insertComment);
-   }
-   function limpiarCampos(){
+let btn = document.querySelector("#btn-insertComment");
+if(btn){
+  btn.addEventListener("click",insertComment);
+}
+function limpiarCampos(){
     let comentario = document.querySelector(".comentario");
     let puntuacion = document.querySelector(".puntuacion");
 
     comentario.value = "";
     puntuacion.value = "";
 
-   }
+}
  
 
-   async function insertComment(event){
+async function insertComment(event){
     event.preventDefault();
-       let comment = campForm();
+    let comment = campForm();
 
-       console.log(comment);
-       try {
-        let res = await fetch(`${url}/${idApi}/comentarios`, {
-               method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(comment),
-             });
-             if (res.status == 201) {
-                 Comments();
-                 limpiarCampos();
-               console.log("Subido");
-             }
-       } catch (e) {
-           console.log(e)
-       }
+    console.log(comment);
+    try {
+    let res = await fetch(`${url}/${idApi}/comentarios`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(comment),
+          });
+          if (res.status == 201) {
+              comments();
+              limpiarCampos();
+            console.log("Subido");
+          }
+    } catch (e) {
+        console.log(e)
+    }
 
-   }
+}
   
-
-

@@ -84,12 +84,23 @@ class LibroController{
     function editLibroAction(){
         $this->helper->checkLogin();
         if($this->helper->getRol()!="3"){
-            if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png"){
-                $this->model->updateLibroFromDB($_POST['id'], $_POST['autor'],$_POST['nombre_libro'],$_POST['descripcion'],$_POST['precio'],$_POST['id_categoria'],$_FILES['input_name']['tmp_name']);
-                $this->view->showLibroLocation();
-            }else{
-                $this->model->updateLibroFromDB($_POST['id'], $_POST['autor'],$_POST['nombre_libro'],$_POST['descripcion'],$_POST['precio'],$_POST['id_categoria']);
-            }
+            //Operador Ternario
+            // a = cond ? b : c;
+            /*
+             if (cond) {
+                 a = b;
+             } else {
+                 a = c;
+             }
+             */
+            $file = ($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") ? $_FILES['input_name']['tmp_name'] : null;
+            
+            // if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png"){
+            // }else{
+            //     // $this->model->updateLibroFromDB($_POST['id'], $_POST['autor'],$_POST['nombre_libro'],$_POST['descripcion'],$_POST['precio'],$_POST['id_categoria']);
+            //     $file = null;
+            // }
+            $this->model->updateLibroFromDB($_POST['id'], $_POST['autor'],$_POST['nombre_libro'],$_POST['descripcion'],$_POST['precio'],$_POST['id_categoria'],$file);
         }
         $this->view->showLibroLocation();
     }

@@ -63,7 +63,6 @@ class LibroModel{
         //     die();
         // }
     }
-
     function insertEditLibro($id,$precio){
         $sentencia = $this->db->prepare("INSERT INTO libros (id,precio ) VALUES (?,?)");
         $sentencia->execute(array($id, $precio ));

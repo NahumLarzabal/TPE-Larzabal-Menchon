@@ -19,6 +19,7 @@
                     <th scope="col">Borrar</th>
                     <th scope="col">Editar</th>
                     {/if}
+                        
                 </tr>
                 </thead>
                 <tbody>

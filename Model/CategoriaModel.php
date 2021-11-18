@@ -10,14 +10,14 @@ class CategoriaModel{
     function getGeneros(){
         $sentencia = $this->db->prepare( "select * from categorias");
         $sentencia->execute();
-        $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $tareas;
+        $categorias = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $categorias;
     }
     function getGenero($id){
         $sentencia = $this->db->prepare( "select * from categorias WHERE id_categoria=?");
         $sentencia->execute(array($id));
-        $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $tareas;
+        $categoria = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $categoria;
     }
     function updateCategoriaFromDB($id,$categoria){
         $sentencia = $this->db->prepare("UPDATE  categorias SET categoria=? WHERE categorias.id_categoria =?");

@@ -13,11 +13,9 @@ let api = new Vue({
         commentDelete:async function (id_comment){
             let id_libro = document.querySelector(".id_libro").value;
             let rol = document.querySelector('.rol').value;
-              console.log( "entre"+ id_comment, id_libro);
               if(rol == 4 || rol ==3){
                 console.log("No sos Administrador");
               }else{
-
               try {
                 let res = await fetch(`api/libros/${id_libro}/comentarios/${id_comment}`,{
                 method: "DELETE",
@@ -26,14 +24,11 @@ let api = new Vue({
                  comments();
               //  console.log("Borrado");
              }
-            
           } catch (error) {
             console.log(error);
           }
         }
-
           }
-        
           }
 });
 
@@ -74,16 +69,11 @@ if(btn){
 }
 function limpiarCampos(){
     let comentario = document.querySelector(".comentario");
-    let puntuacion = document.querySelector(".puntuacion");
-
     comentario.value = "";
-    puntuacion.value = "";
-
 }
  
 
-async function insertComment(event){
-    event.preventDefault();
+async function insertComment(){
     let comment = campForm();
 
     console.log(comment);

@@ -7,23 +7,23 @@ class ComentariosModel{
     }
 
     function getComentarios(){
-        $sentencia = $this->db->prepare( "select * from comentarios join users on comentarios.id_user = users.id");
+        $sentencia = $this->db->prepare("select * from comentarios join users on comentarios.id_user = users.id order by comentarios.id desc");
         $sentencia->execute();
-        $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $tareas;
+        $commets = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $commets;
     }
 
     function getComentarioLibro($id){
         $sentencia = $this->db->prepare( "SELECT comentarios.id,comentarios.puntuacion,comentarios.comentarios,comentarios.id_libro, users.nombre_apellido, users.tipoUser FROM comentarios JOIN users ON comentarios.id_user = users.id WHERE id_libro=?;");
         $sentencia->execute(array($id));
-        $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $tareas;
+        $commet = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $commet;
     }
     function getComentario($id){
         $sentencia = $this->db->prepare( "select * from comentarios WHERE id=?");
         $sentencia->execute(array($id));
-        $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $tareas;
+        $commets = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $commets;
     }
 
     function deleteComment($id){

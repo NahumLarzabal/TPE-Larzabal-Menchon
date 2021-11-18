@@ -5,14 +5,14 @@
 </div>
  {literal} 
     <div>
-    <form action="">
-    <label for="">Comentario</label>
-    <textarea id="wmd-input" name="post-text" class=" comentario wmd-input s-input bar0 js-post-body-field" data-post-type-id="2" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
-    <label for="">Puntuacion</label>
-    <input class="puntuacion" type="number" maxlength="5">
-    <button id="btn-insertComment" type="click">Enviar</button>
-
-    </form>
+      <form action="">
+         <label for="">Comentario</label>
+         <textarea id="wmd-input" name="post-text" class="textComent comentario wmd-input s-input bar0 js-post-body-field" ></textarea>
+         <label for="">Calificacion</label>
+         <input class="puntuacion" type="hidden" disabled>
+         <span id="Estrellas"></span>
+         <button id="btn-insertComment" type="click">Enviar</button>
+      </form>
     </div>
-    
+
  {/literal} 

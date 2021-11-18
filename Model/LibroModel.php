@@ -10,14 +10,14 @@ class LibroModel{
     function getLibros(){
         $sentencia = $this->db->prepare( "select libros.id, libros.autor, libros.nombre_libro, libros.precio, categorias.categoria, libros.id_categoria, libros.imagen from libros join categorias on libros.id_categoria = categorias.id_categoria");
         $sentencia->execute();
-        $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $tareas;
+        $libros = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $libros;
     }  
     function getLibro($id){
         $sentencia = $this->db->prepare( "SELECT libros.id, libros.autor, libros.nombre_libro, libros.descripcion, libros.precio, libros.imagen, libros.id_categoria,categorias.categoria FROM libros JOIN categorias ON libros.id_categoria = categorias.id_categoria WHERE id=?;");
         $sentencia->execute(array($id));
-        $tarea = $sentencia->fetch(PDO::FETCH_OBJ);
-        return $tarea;
+        $libro = $sentencia->fetch(PDO::FETCH_OBJ);
+        return $libro;
     }
 
     function uploadImage($image){
@@ -71,20 +71,20 @@ class LibroModel{
     function searchModelAutor($autor){
         $sentencia = $this->db->prepare("SELECT * FROM libros WHERE autor LIKE ?");
         $sentencia->execute(["%${autor}%"]);
-        $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $tareas;
+        $autores = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $autores;
     }
     function searchModelTitulo($titulo){
         $sentencia = $this->db->prepare("SELECT * FROM libros WHERE nombre_libro LIKE ?");
         $sentencia->execute(["%${titulo}%"]);
-        $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $tareas;
+        $titulos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $titulos;
     }
     function searchModelGenero($genero){
         $sentencia = $this->db->prepare("select libros.id, libros.autor, libros.nombre_libro, libros.descripcion, libros.precio, libros.id_categoria,categorias.categoria FROM libros JOIN categorias ON libros.id_categoria = categorias.id_categoria WHERE categorias.categoria LIKE ?");
         $sentencia->execute(["%${genero}%"]);
-        $tareas = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $tareas;
+        $generos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $generos;
     }
 
 }

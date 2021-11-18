@@ -384,3 +384,18 @@ footer div h5{
     color: #c7c7c7;
 }
 
+
+.starrr {
+    display: inline-block; 
+}
+    .starrr a {
+      font-size: 16px;
+      padding: 0 1px;
+      cursor: pointer;
+      color: #FFD119;
+      text-decoration: none;
+     }
+
+.textComent{
+    color:red;
+}

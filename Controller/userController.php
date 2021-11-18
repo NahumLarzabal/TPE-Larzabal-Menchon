@@ -106,5 +106,16 @@ class UserController{
         $this->model->editUser($_POST['nombre_apellido'],$_POST['tipoUser'],$_POST['email']);
         $this->mostrarUsuarios();
     }
+
+    function deleteUsuario($id){
+        $this->helper->checkLogin();
+        $rol=$this->helper->getRol();
+        if ($rol == "1" || $rol == "2") {
+            $this->model->deleteUsuario($id);
+            $this->view->showHomeUsuarios();
+        } else {
+            $this->view->showHome();
+        }
+    }
 }
 ?>

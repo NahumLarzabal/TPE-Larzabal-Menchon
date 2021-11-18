@@ -113,6 +113,9 @@ $categoriaController = new CategoriaController();
    case 'editarUsuario':
       $userController->editarUsuario();
       break;
+   case 'eliminarUsuario':
+      $userController->deleteUsuario($params[1]);
+      break;
    default: 
       echo('404 Page not found'); 
       break;

@@ -24,7 +24,7 @@ let api = new Vue({
             });
              if( res.status == 204){
                  comments();
-               console.log("Borrardo");
+              //  console.log("Borrado");
              }
             
           } catch (error) {
@@ -47,6 +47,9 @@ async function comments(){
         if(res.status == 200){
           let json = await res.json();
           api.comments = json;
+        } else if (res.status == 404){
+          document.querySelector(".idcomment").innerHTML = "";
+          // console.log("no hay comentarios");
         }
     } catch (e) {
         console.log(e);
@@ -93,7 +96,7 @@ async function insertComment(event){
           if (res.status == 201) {
               comments();
               limpiarCampos();
-            console.log("Subido");
+            // console.log("Subido");
           }
     } catch (e) {
         console.log(e)

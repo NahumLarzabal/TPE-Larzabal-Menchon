@@ -35,21 +35,48 @@ let api = new Vue({
 //  `api/libros/${idApi}/comentarios`
 
 comments();
+let btnOrder = document.querySelector(".orderby");
+btnOrder.addEventListener('click',comments);
+
+// async function comments(){
+//   let order = document.querySelector("#ordenamiento").value;
+//     try {
+//         let res = await fetch(`${url}/${idApi}/comentarios/orderby/${order}`);
+//         if(res.status == 200){
+//           let json = await res.json();
+//           api.comments = json;
+//         } else if (res.status == 404){
+//           document.querySelector(".idcomment").innerHTML = "";
+//           // console.log("no hay comentarios");
+//         }
+//     } catch (e) {
+//         console.log(e);
+//     }
+// }
 
 async function comments(){
+  let order = document.querySelector("#ordenamiento").value;
+  let puntaje = document.querySelector("#puntajeInput").value;
+  let res;
     try {
-        let res = await fetch(`${url}/${idApi}/comentarios`);
+      if(puntaje =="0"){
+        res = await fetch(`${url}/${idApi}/comentarios/orderby/${order}`);
+      }else{
+        res = await fetch(`${url}/${idApi}/comentarios/orderby/${order}/puntaje/${puntaje}`);
+      }
         if(res.status == 200){
-          let json = await res.json();
-          api.comments = json;
-        } else if (res.status == 404){
-          document.querySelector(".idcomment").innerHTML = "";
+            let json = await res.json();
+            api.comments = json;
+          }else if (res.status == 404){
+            document.querySelector(".idcomment").innerHTML = "";
           // console.log("no hay comentarios");
         }
     } catch (e) {
         console.log(e);
     }
 }
+
+
 
 function campForm(){
     let comentario = document.querySelector(".comentario");
@@ -93,4 +120,6 @@ async function insertComment(){
     }
 
 }
+
+
   

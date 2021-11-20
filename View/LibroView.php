@@ -3,7 +3,7 @@ require_once './libs/smarty-3.1.39/libs/Smarty.class.php';
 class LibroView{
     private $smarty;
 
-    function __construct($email,$rol) {
+    function __construct($email=null,$rol=null) {
         $this->smarty = new Smarty();
         $this->smarty->assign('email',$email);
         $this->smarty->assign('rol',$rol);
@@ -25,9 +25,10 @@ class LibroView{
         header("Location: ".BASE_URL."libros");
     }
     
-    function showLibro($libro,$user){
+    function showLibro($libro=null,$user=null,$order=null){
         $this->smarty->assign('libro', $libro);
         $this->smarty->assign('user', $user);
+        $this->smarty->assign('order',$order);
         $this->smarty->display('templates/detalle.tpl');
     }
 
@@ -59,4 +60,5 @@ class LibroView{
         $this->smarty->assign('Error','error');
         $this->smarty->display('templates/errorLibro.tpl');
     }
+
 }

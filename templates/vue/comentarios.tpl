@@ -31,12 +31,15 @@
       </p>
     </li>
     <li>
+      <input type="" :value="comment.puntuacion" class="puntajeInputStar">
       <span>
-      calificacion :{{comment.puntuacion}}
-      <span id="Estrellas"></span>
+      calificacion :
+    {/literal}
+      
+      <div class="starComment"></div>
+    
       </span>    
     </li>
-    {/literal}
 {if $rol == "1" || $rol == "2"}
    <li>    
        <button class="idcomment btn btn-outline-danger btn-sm" :value="comment.id" v-on:click="commentDelete(comment.id)">

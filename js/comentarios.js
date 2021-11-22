@@ -8,33 +8,42 @@ let api = new Vue({
         titulo: "este es el titulo",
         comments: [],
     },
+    mounted: function(){
+
+      this.starInput()
+
+    },
     methods: {
         commentDelete:async function (id_comment){
-            let id_libro = document.querySelector(".id_libro").value;
-            let rol = document.querySelector('.rol').value;
-              if(rol == 4 || rol ==3){
-                console.log("No sos Administrador");
-              }else{
-              try {
-                let res = await fetch(`api/libros/${id_libro}/comentarios/${id_comment}`,{
-                method: "DELETE",
-            });
-             if( res.status == 204){
-                 comments();
-              //  console.log("Borrado");
-             }
-          } catch (error) {
-            console.log(error);
+              let id_libro = document.querySelector(".id_libro").value;
+              let rol = document.querySelector('.rol').value;
+                if(rol == 4 || rol ==3){
+                  console.log("No sos Administrador");
+                }else{
+                try {
+                  let res = await fetch(`api/libros/${id_libro}/comentarios/${id_comment}`,{
+                  method: "DELETE",
+              });
+              if( res.status == 204){
+                  comments();
+                //  console.log("Borrado");
+              }
+            } catch (error) {
+              console.log(error);
+            }
           }
+        },
+        starInput: function(){
+            comments();
+            let inputStar = document.querySelector(".puntajeInputStar");
         }
           }
-          }
+          
 });
 
 
 //  `api/libros/${idApi}/comentarios`
 
-comments();
 let btnOrder = document.querySelector(".orderby");
 btnOrder.addEventListener('click',comments);
 
@@ -121,5 +130,8 @@ async function insertComment(){
 
 }
 
-
-  
+/* <span class = "fa fa-star checked"></span>
+<span class = "fa fa-star checked"></span>
+<span class = "fa fa-star checked"></span>
+<span class = "fa fa-star checked"></span>
+<span class = "fa fa-star unchecked"></span> */

@@ -7,7 +7,6 @@ class LibroView{
         $this->smarty = new Smarty();
         $this->smarty->assign('email',$email);
         $this->smarty->assign('rol',$rol);
-
     }
 
     function showLibros($libros,$categorias){

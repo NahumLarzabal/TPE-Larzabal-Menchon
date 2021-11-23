@@ -17,7 +17,7 @@ let api = new Vue({
         commentDelete:async function (id_comment){
               let id_libro = document.querySelector(".id_libro").value;
               let rol = document.querySelector('.rol').value;
-                if(rol == 4 || rol ==3){
+                if(rol == 4 || rol == 3){
                   console.log("No sos Administrador");
                 }else{
                 try {

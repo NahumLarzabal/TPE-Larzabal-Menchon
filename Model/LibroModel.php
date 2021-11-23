@@ -7,8 +7,20 @@ class LibroModel{
          $this->db = new PDO('mysql:host=localhost;'.'dbname=db_tpe;charset=utf8', 'root', '');
     }
 
-    function getLibros(){
-        $sentencia = $this->db->prepare( "select libros.id, libros.autor, libros.nombre_libro, libros.precio, categorias.categoria, libros.id_categoria, libros.imagen from libros join categorias on libros.id_categoria = categorias.id_categoria");
+    function paginacion(){
+        $sentencia = $this->db->prepare( "SELECT libros.id, libros.autor, libros.nombre_libro, libros.precio, categorias.categoria, libros.id_categoria, libros.imagen FROM libros JOIN categorias ON libros.id_categoria = categorias.id_categoria");
+        $sentencia->execute();
+        // contar cuantos libros hay en la bd
+        $total_libros = $sentencia->rowCount();
+        $paginas = $total_libros/libros_x_pagina;
+        $paginas = ceil($paginas);
+        return $paginas;
+    }
+
+    function getLibros($iniciar){
+        // var_dump($iniciar);
+        $sentencia = $this->db->prepare( "SELECT libros.id, libros.autor, libros.nombre_libro, libros.precio, categorias.categoria, libros.id_categoria, libros.imagen FROM libros JOIN categorias ON libros.id_categoria = categorias.id_categoria LIMIT " . $iniciar . "," . libros_x_pagina);
+        // $sentencia = $this->db->prepare( "SELECT libros.id, libros.autor, libros.nombre_libro, libros.precio, categorias.categoria, libros.id_categoria, libros.imagen FROM libros JOIN categorias ON libros.id_categoria = categorias.id_categoria");
         $sentencia->execute();
         $libros = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $libros;
@@ -74,12 +86,14 @@ class LibroModel{
         $autores = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $autores;
     }
+
     function searchModelTitulo($titulo){
         $sentencia = $this->db->prepare("SELECT * FROM libros WHERE nombre_libro LIKE ?");
         $sentencia->execute(["%${titulo}%"]);
         $titulos = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $titulos;
     }
+
     function searchModelGenero($genero){
         $sentencia = $this->db->prepare("select libros.id, libros.autor, libros.nombre_libro, libros.descripcion, libros.precio, libros.id_categoria,categorias.categoria FROM libros JOIN categorias ON libros.id_categoria = categorias.id_categoria WHERE categorias.categoria LIKE ?");
         $sentencia->execute(["%${genero}%"]);

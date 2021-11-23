@@ -24,11 +24,19 @@ class LibroController{
 
     function listadoLibros(){
         // no se pasa el checklogin para poder entrar como invitado
+        define("libros_x_pagina", 10);
         $this->helper->checkLogin();
-        $libros = $this->model->getLibros();
+        $paginaActual = $_GET['pagina'];
+        $paginas = $this->model->paginacion();
+        if(!$_GET['pagina'] || $_GET['pagina']>$paginas){
+            header("Location: ".BASE_URL."libros?pagina=1");
+        }
+        $iniciar = ($_GET['pagina']-1)*libros_x_pagina;
+        $libros = $this->model->getLibros($iniciar);
         $categorias = $this->modelCategoria->getGeneros();
-        $this->view->showLibros($libros,$categorias);
+        $this->view->showLibros($libros, $categorias, $paginas, $paginaActual);
     }
+
     function viewLibro($id){
         $this->helper->checkLogin();
         $user=$this->helper->getID();

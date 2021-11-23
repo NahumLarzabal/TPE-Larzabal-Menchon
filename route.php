@@ -45,10 +45,8 @@ $categoriaController = new CategoriaController();
       //si params 1 no esta vacio y params 1 es igual a agregarlibro ->agregarLibro()
       if( !empty($params[1]) && $params[1]=="agregarlibro"){
          $libroController->agregarlibro();
-      } else if(empty($params[1])){ //si params 1 esta vacio, ir al listado de libros
+      } elseif (empty($params[1])){
          $libroController->listadoLibros();
-      } else { //si no esta vacio, pero es distinto de agregar libro, ir al inicio.
-         $libroController->inicio();
       }
       break;
    case 'createLibro':
@@ -75,7 +73,7 @@ $categoriaController = new CategoriaController();
       // insertado de la categoria en la bbdd (llama al modelo)
       $categoriaController->agregarCategoria();
       break;
-   case 'showCategoriaEdit':
+   case 'editarCategoria':
       // formulario para editar la categoria
       $categoriaController->editarCategoria($params[1]); 
       break;

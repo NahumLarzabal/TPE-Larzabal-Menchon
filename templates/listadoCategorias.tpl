@@ -35,7 +35,7 @@
                     {if isset($email) && ($rol == "4") || ($rol=="3")}
                     {elseif $rol ==  "2"}                       
                         <td>
-                            <a class="alerta btn btn-success" href="showCategoriaEdit/{$categoria->id_categoria}" id="btn-categoria-edit">
+                            <a class="alerta btn btn-success" href="editarCategoria/{$categoria->id_categoria}" id="btn-categoria-edit">
                                 <i class="far fa-edit"></i>
                             </a>     
                         </td>
@@ -47,7 +47,7 @@
 
                         </td>
                         <td>
-                            <a class="alerta btn btn-success" href="showCategoriaEdit/{$categoria->id_categoria}" id="btn-categoria-edit">
+                            <a class="alerta btn btn-success" href="editarCategoria/{$categoria->id_categoria}" id="btn-categoria-edit">
                                 <i class="far fa-edit"></i>
                             </a>     
                         </td>

@@ -50,4 +50,8 @@ class userView{
         $this->smarty->display('templates/usuarios.tpl');
     }
 
+    function showHomeUsuarios(){
+        header("Location: ".BASE_URL."usuarios");
+    }
+
 }

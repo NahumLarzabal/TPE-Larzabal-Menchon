@@ -1,7 +1,6 @@
 "use strict"
 const idApi = document.querySelector("#idApi").value;
 const url = "api/libros";
-comments();
 
 let api = new Vue({
     el: "#apiComentarios",
@@ -9,49 +8,84 @@ let api = new Vue({
         titulo: "este es el titulo",
         comments: [],
     },
+    mounted: function(){
+
+      this.starInput()
+
+    },
     methods: {
         commentDelete:async function (id_comment){
-            let id_libro = document.querySelector(".id_libro").value;
-            let rol = document.querySelector('.rol').value;
-              console.log( "entre"+ id_comment, id_libro);
-              if(rol == 4 || rol ==3){
-                console.log("No sos Administrador");
-              }else{
-
-              try {
-                let res = await fetch(`api/libros/${id_libro}/comentarios/${id_comment}`,{
-                method: "DELETE",
-            });
-             if( res.status == 204){
-                 comments();
-               console.log("Borrardo");
-             }
-            
-          } catch (error) {
-            console.log(error);
+              let id_libro = document.querySelector(".id_libro").value;
+              let rol = document.querySelector('.rol').value;
+                if(rol == 4 || rol == 3){
+                  console.log("No sos Administrador");
+                }else{
+                try {
+                  let res = await fetch(`api/libros/${id_libro}/comentarios/${id_comment}`,{
+                  method: "DELETE",
+              });
+              if( res.status == 204){
+                  comments();
+                //  console.log("Borrado");
+              }
+            } catch (error) {
+              console.log(error);
+            }
           }
+        },
+        starInput: function(){
+            comments();
+            let inputStar = document.querySelector(".puntajeInputStar");
         }
-
           }
-        
-          }
+          
 });
 
 
 //  `api/libros/${idApi}/comentarios`
 
+let btnOrder = document.querySelector(".orderby");
+btnOrder.addEventListener('click',comments);
+
+// async function comments(){
+//   let order = document.querySelector("#ordenamiento").value;
+//     try {
+//         let res = await fetch(`${url}/${idApi}/comentarios/orderby/${order}`);
+//         if(res.status == 200){
+//           let json = await res.json();
+//           api.comments = json;
+//         } else if (res.status == 404){
+//           document.querySelector(".idcomment").innerHTML = "";
+//           // console.log("no hay comentarios");
+//         }
+//     } catch (e) {
+//         console.log(e);
+//     }
+// }
 
 async function comments(){
+  let order = document.querySelector("#ordenamiento").value;
+  let puntaje = document.querySelector("#puntajeInput").value;
+  let res;
     try {
-        let res = await fetch(`${url}/${idApi}/comentarios`);
+      if(puntaje =="0"){
+        res = await fetch(`${url}/${idApi}/comentarios/orderby/${order}`);
+      }else{
+        res = await fetch(`${url}/${idApi}/comentarios/orderby/${order}/puntaje/${puntaje}`);
+      }
         if(res.status == 200){
-          let json = await res.json();
-          api.comments = json;
+            let json = await res.json();
+            api.comments = json;
+          }else if (res.status == 404){
+            document.querySelector(".idcomment").innerHTML = "";
+          // console.log("no hay comentarios");
         }
     } catch (e) {
         console.log(e);
     }
 }
+
+
 
 function campForm(){
     let comentario = document.querySelector(".comentario");
@@ -71,16 +105,11 @@ if(btn){
 }
 function limpiarCampos(){
     let comentario = document.querySelector(".comentario");
-    let puntuacion = document.querySelector(".puntuacion");
-
     comentario.value = "";
-    puntuacion.value = "";
-
 }
  
 
-async function insertComment(event){
-    event.preventDefault();
+async function insertComment(){
     let comment = campForm();
 
     console.log(comment);
@@ -93,11 +122,16 @@ async function insertComment(event){
           if (res.status == 201) {
               comments();
               limpiarCampos();
-            console.log("Subido");
+            // console.log("Subido");
           }
     } catch (e) {
         console.log(e)
     }
 
 }
-  
+
+/* <span class = "fa fa-star checked"></span>
+<span class = "fa fa-star checked"></span>
+<span class = "fa fa-star checked"></span>
+<span class = "fa fa-star checked"></span>
+<span class = "fa fa-star unchecked"></span> */

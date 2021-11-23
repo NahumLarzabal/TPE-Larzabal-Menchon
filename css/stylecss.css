@@ -384,3 +384,67 @@ footer div h5{
     color: #c7c7c7;
 }
 
+/*      --------------------------------       insert  Comentarios  y Comentarios tlp      ---------------------------------     */
+.starrr {
+    display: inline-block; 
+}
+    .starrr a {
+      font-size: 25px;
+      padding: 0 1px;
+      cursor: pointer;
+      color: #FFD119;
+      text-decoration: none;
+     }
+
+.comentario{
+    height: 100px !important;
+    width: 75% !important;
+    margin-left: 8% !important;
+    margin-bottom: 20px !important;
+}
+
+.form-floating>label {
+    left: 110px;
+}
+.insertCommentForm{
+    display: flex;
+    flex-direction: column;
+}
+.insertCommentForm2{
+    display: flex;
+    margin-left: 659px;
+    margin-top: -48px;
+}
+
+.fa.fa-star-o:before {
+    font-size: 20px;
+}
+.w-13{
+    width: 13%;
+    height: 35px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.w-7{
+    width: 7%;
+    height: 35px;
+    margin-left: 2%;
+}
+.orderby{
+    height: 35px;
+    margin-bottom: 20px;
+    margin-left: 2%;
+}
+.estrellaDelete {
+    display: flex;
+}
+.idcomment{
+    margin-left: 15px;
+}
+
+.formComentarios{
+    margin: 5%;
+}
+.h5Color{
+    background-color: #1c1c1c60;
+}

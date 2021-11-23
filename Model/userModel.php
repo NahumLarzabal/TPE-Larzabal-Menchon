@@ -23,11 +23,10 @@ class userModel{
     function insertUser($userEmail,$userPassword,$userNombre){
         $query = $this->db->prepare('INSERT INTO users (email, password,nombre_apellido) VALUES (?,?,?)');
         $query->execute([$userEmail,$userPassword,$userNombre]);
-        return $this->db->lastInsertId(); 
-
+        return $this->db->lastInsertId();
     }
 
-    function deleteUser($userEmail){
+    function deleteUsuario($userEmail){
         $query = $this->db->prepare('DELETE FROM users WHERE users.email = ?');
         $query->execute(array($userEmail));
     }

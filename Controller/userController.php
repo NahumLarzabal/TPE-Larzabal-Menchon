@@ -38,7 +38,6 @@ class UserController{
      
             // Obtengo el usuario de la base de datos
             $user = $this->model->getUser($email);
-            var_dump($user);
      
             // Si el usuario existe y las contraseñas coinciden
             if ($user  && password_verify($password, $user->password)) {
@@ -105,6 +104,17 @@ class UserController{
         $this->helper->checkLogin();
         $this->model->editUser($_POST['nombre_apellido'],$_POST['tipoUser'],$_POST['email']);
         $this->mostrarUsuarios();
+    }
+
+    function deleteUsuario($id){
+        $this->helper->checkLogin();
+        $rol=$this->helper->getRol();
+        if ($rol == "1" || $rol == "2") {
+            $this->model->deleteUsuario($id);
+            $this->view->showHomeUsuarios();
+        } else {
+            $this->view->showHome();
+        }
     }
 }
 ?>

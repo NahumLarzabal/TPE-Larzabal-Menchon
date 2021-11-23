@@ -21,8 +21,12 @@ $router->addRoute('usuarios/:ID','DELETE','ApiController','getDeleteUser');
 $router->addRoute('usuarios','POST','ApiController','insertUser');
 $router->addRoute('comentarios','GET','ApiController','getComments');
 $router->addRoute('libros/:ID/comentarios','GET','ApiController','getComment');
+$router->addRoute('libros/:ID/comentarios/orderby/:order','GET','ApiController','getComment');
+$router->addRoute('libros/:ID/comentarios/orderby/:order/puntaje/:puntaje','GET','ApiController','getCommentPuntaje');
 $router->addRoute('libros/:ID/comentarios','POST','ApiController','insertComment');
 $router->addRoute('libros/:ID/comentarios/:comentarioID','DELETE','ApiController','deleteComment');
+$router->addRoute('libros/:ID/comentarios/puntuacion/:puntuacion','GET','ApiController','searchPuntuacion');
+
 
 // $router->addRoute('user/token','GET','ApiUserController','getToken');
 // $router->addRoute('user/:ID','GET','ApiUserController','obetnerUsuario');

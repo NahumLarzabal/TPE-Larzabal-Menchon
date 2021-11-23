@@ -57,5 +57,7 @@
 {/if}
 </div>
 <script src="./js/comentarios.js"></script>
+<script src="./js/starrr.js"></script>
+
 {include file='templates/anuncio.tpl'}
 {include file='templates/footer.tpl'}

@@ -20,7 +20,7 @@ class CategoriaController{
         $this->helper->checkLogin();
         if($this->helper->getRol()!="3"){
             $this->model->updateCategoriaFromDB($_POST['categoria'],$_POST['id_categoria']);
-            // $this->view->showCategoriasLocation();
+            $this->view->showCategoriasLocation();
         }
         $this->view->showCategoriasLocation();
     }
@@ -51,8 +51,9 @@ class CategoriaController{
         if ($rol != "3" || $rol !="4") {
             $categoria = $this->model->getGenero($id);   
             $this->view->viewCategoriaEdit($categoria);
+        } else {
+            $this->view->showCategoriasLocation();
         }
-        $this->view->showCategoriasLocation();
     }
 
     function agregarCategoria(){

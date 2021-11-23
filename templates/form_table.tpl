@@ -30,13 +30,48 @@
                             <td id="autor-libro">{$libro->autor}</td>
                             <td id="precio-libro">${$libro->precio}</td>
                             {if isset($email) && ($rol == "1") || ($rol=="2")}
-                                <td><a class="btn btn-danger" href="deleteLibro/{$libro->id}" id="btn-libro-delete"><i class="fas fa-trash-alt"></i></a></td>
-                                <td><a class="btn btn-success" href="editarLibro/{$libro->id}" id="btn-libro-edit"><i class="far fa-edit"></i></a></td>
+                                <td>
+                                    <a class="btn btn-danger" href="deleteLibro/{$libro->id}" id="btn-libro-delete">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-success" href="editarLibro/{$libro->id}" id="btn-libro-edit">
+                                        <i class="far fa-edit"></i>
+                                    </a>
+                                </td>
                             {/if}
                         </tr>
                     {/foreach}
                 </tbody>
             </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    {if $paginaActual!=1}
+                        <a class="page-link" href="libros?pagina={$paginaActual-1}">Anterior</a>
+                        {else}
+                        <a class="page-link desactivado">Anterior</a>
+                        {/if}
+
+                    {for $i=1 to $paginas}
+                    <li class="page-item
+                    {if $i==$paginaActual} active
+                    {/if}">
+                        <a class="page-link" href="libros?pagina={$i}">
+                            {$i}
+                        </a>
+                    </li>
+                    {/for}
+
+                    <li class="page-item">
+                        {if $paginaActual<$paginas}
+                        <a class="page-link" href="libros?pagina={$paginaActual+1}">Siguiente</a>
+                        {else}
+                        <a class="page-link desactivado">Siguiente</a>
+                        {/if}
+                    </li>
+                </ul>
+            </nav>
         </div>
         {include file='templates/anuncio.tpl'}
     </div>

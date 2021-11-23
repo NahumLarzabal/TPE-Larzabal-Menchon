@@ -448,3 +448,10 @@ footer div h5{
 .h5Color{
     background-color: #1c1c1c60;
 }
+
+.desactivado{
+    cursor: default!important;
+    pointer-events: none!important;        
+    text-decoration: none!important;
+    color: grey!important;
+  }

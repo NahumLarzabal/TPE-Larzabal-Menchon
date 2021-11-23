@@ -9,9 +9,11 @@ class LibroView{
         $this->smarty->assign('rol',$rol);
     }
 
-    function showLibros($libros,$categorias){
+    function showLibros($libros, $categorias, $paginas, $paginaActual){
         $this->smarty->assign('titulo','Titulo de Libro');
         $this->smarty->assign('libros', $libros);
+        $this->smarty->assign('paginas', $paginas);
+        $this->smarty->assign('paginaActual', $paginaActual);
         $this->smarty->assign('categorias', $categorias);
         $this->smarty->display('templates/form_table.tpl');
     }

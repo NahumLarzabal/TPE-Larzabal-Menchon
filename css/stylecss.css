@@ -11,9 +11,9 @@ div.pagina {
     display: none !important;
 }
 
-/* .contenedor-general{
-    margin-bottom: 10%;
-} */
+.contenedor-general{
+    min-height: 900px;
+}
 /*                               NAV LIST                        */
 
 #img-logo{
@@ -137,6 +137,28 @@ div.container-login{
     width: 50%;
     height: 50%;
 }
+
+.container-table{
+    min-height: 900px;
+}
+
+div.container-table > h1{
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+}
+
+.form-edit-categoria{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.input-edit{
+    margin-right: 2%;
+}
+
 /*                  LOG IN                          */
 
 
@@ -298,7 +320,8 @@ div.title-table{
     margin-bottom: 20px;
 }
 div.main-table, div.title-table{
-    margin: 0px 50px 0px 50px;
+    margin: 4% 50px 0px 50px;
+    min-height: 900px;
 }
 
 div.main-table ul li.list-group-item, div.title-table ul li.list-group-item{
@@ -388,13 +411,14 @@ footer div h5{
 .starrr {
     display: inline-block; 
 }
-    .starrr a {
-      font-size: 25px;
-      padding: 0 1px;
-      cursor: pointer;
-      color: #FFD119;
-      text-decoration: none;
-     }
+
+.starrr a {
+    font-size: 25px;
+    padding: 0 1px;
+    cursor: pointer;
+    color: #FFD119;
+    text-decoration: none;
+    }
 
 .comentario{
     height: 100px !important;
@@ -410,10 +434,12 @@ footer div h5{
     display: flex;
     flex-direction: column;
 }
-.insertCommentForm2{
+
+.filtro{
     display: flex;
-    margin-left: 659px;
-    margin-top: -48px;
+    justify-content: right;
+    margin-right: 5%;
+    align-items: center;
 }
 
 .fa.fa-star-o:before {
@@ -432,7 +458,6 @@ footer div h5{
 }
 .orderby{
     height: 35px;
-    margin-bottom: 20px;
     margin-left: 2%;
 }
 .estrellaDelete {
@@ -443,7 +468,7 @@ footer div h5{
 }
 
 .formComentarios{
-    margin: 5%;
+    margin: 3%;
 }
 .h5Color{
     background-color: #1c1c1c60;

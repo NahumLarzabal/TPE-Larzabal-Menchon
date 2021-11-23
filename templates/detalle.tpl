@@ -10,7 +10,6 @@
       </div>
     </div>
 
-
     <div class="container">
     <input id="idApi" class="id_libro" type="hidden" value="{$libro->id}">
       <div class="title">
@@ -26,6 +25,7 @@
               <span>
                   <img src="{$libro->imagen}"/>
               </span>
+              <a class="btn btn-danger" id="eliminar-portada" href="eliminarPortada/{$libro->id}"><i class="fas fa-trash-alt"></i></a>
           </h2>
       </div>
       {/if}
@@ -58,6 +58,7 @@
 </div>
 <script src="./js/comentarios.js"></script>
 <script src="./js/starrr.js"></script>
+<script src="./js/portada.js"></script>
 
 {include file='templates/anuncio.tpl'}
 {include file='templates/footer.tpl'}

@@ -71,6 +71,11 @@
       <div class="col-sm-10">
         <input type="file" name="input_name" id="imageToUpload">
       </div>
+      {if !empty($libro->imagen)}
+      <div class="portada">
+              <a class="btn btn-danger" id="eliminar-portada" href="eliminarPortada/{$libro->id}">Eliminar portada</a>
+      </div>
+      {/if}
     </div>
   
     <div class="form-group row margin-15px">

@@ -114,6 +114,9 @@ $categoriaController = new CategoriaController();
    case 'eliminarUsuario':
       $userController->deleteUsuario($params[1]);
       break;
+   case 'eliminarPortada':
+      $libroController->eliminarPortada($params[1]);
+      break;
    default: 
       echo('404 Page not found'); 
       break;

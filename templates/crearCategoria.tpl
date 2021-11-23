@@ -32,7 +32,6 @@
                 </div>
             </form>
         </div> 
-        {include file='templates/anuncio.tpl'}
       
 
     </div>

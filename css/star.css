@@ -4,5 +4,6 @@
     font-size : 20px;
 }
 .unchecked {
+    color: grey;
     font-size : 20px;
 }

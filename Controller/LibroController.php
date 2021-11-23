@@ -133,5 +133,10 @@ class LibroController{
     function inicio(){
         $this->view->home();
     }
+
+    function eliminarPortada($id){
+        $this->model->eliminarPortada($id);
+        $this->view->editPortada($id);
+    }
       
 }

@@ -68,7 +68,7 @@ async function comments(){
   let puntaje = document.querySelector("#puntajeInput").value;
   let res;
     try {
-      if(puntaje =="0"){
+      if(puntaje =="NULL"){
         res = await fetch(`${url}/${idApi}/comentarios/orderby/${order}`);
       }else{
         res = await fetch(`${url}/${idApi}/comentarios/orderby/${order}/puntaje/${puntaje}`);

@@ -62,4 +62,8 @@ class LibroView{
         $this->smarty->display('templates/errorLibro.tpl');
     }
 
+    function editPortada($id){
+        header("Location: ".BASE_URL."viewLibro/{$id}");
+    }
+
 }

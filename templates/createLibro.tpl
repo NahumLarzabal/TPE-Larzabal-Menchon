@@ -59,7 +59,6 @@
             <div id="emailHelp" class="form-text">Precio en $.</div>
           </div>
         </div>
-      </div>
 
       <div class="form-group row margin-15px">
         <label for="portada" class="col-sm-2 col-form-label">Portada:</label>
@@ -72,8 +71,8 @@
         <div class="col-sm-10  btn-sub-center">
           <button type="submit" class="btn btn-primary"  id="submit-create-libro">Crear libro</button>
         </div>
-      </form>
-      {include file='templates/anuncio.tpl'}
-    </div>
+      </div>
+      </div>
+    </form>
 
 {include file='templates/footer.tpl'}

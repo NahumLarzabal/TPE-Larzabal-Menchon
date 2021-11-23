@@ -18,24 +18,8 @@
       </div>
          <input class="puntuacion" type="hidden" disabled>
       </form>
-      <div class="insertCommentForm2">
-      Filtrar
-         <select class="w-13" name="" id="ordenamiento">
-            <option  value="DESC">Ultimo</option>
-            <option  value="ASC">Mas viejo</option>
-         </select>
-         <label for="">Puntaje</label>
-         <select class="w-7" name="" id="puntajeInput">
-            <option value="0">#</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-         </select>
-         <a type="click"  class="orderby btn btn-secondary"><i class="fas fa-search"></i></a>
-      </div>
- </div> 
+      
+      </div> 
     </div>
 
  {/literal} 

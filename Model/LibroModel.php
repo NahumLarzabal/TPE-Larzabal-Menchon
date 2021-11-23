@@ -100,5 +100,9 @@ class LibroModel{
         $generos = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $generos;
     }
-
+    
+    function eliminarPortada($id){
+        $sentencia = $this->db->prepare("UPDATE libros SET imagen=NULL WHERE libros.id =?");
+        $sentencia->execute(array($id));
+    }
 }

@@ -9,9 +9,7 @@ let api = new Vue({
         comments: [],
     },
     mounted: function(){
-
       this.starInput()
-
     },
     methods: {
         commentDelete:async function (id_comment){
@@ -40,7 +38,6 @@ let api = new Vue({
           }
           
 });
-
 
 //  `api/libros/${idApi}/comentarios`
 
@@ -85,8 +82,6 @@ async function comments(){
     }
 }
 
-
-
 function campForm(){
     let comentario = document.querySelector(".comentario");
     let id_libro = document.querySelector(".id_libro");
@@ -108,7 +103,6 @@ function limpiarCampos(){
     comentario.value = "";
 }
  
-
 async function insertComment(){
     let comment = campForm();
 
@@ -129,9 +123,3 @@ async function insertComment(){
     }
 
 }
-
-/* <span class = "fa fa-star checked"></span>
-<span class = "fa fa-star checked"></span>
-<span class = "fa fa-star checked"></span>
-<span class = "fa fa-star checked"></span>
-<span class = "fa fa-star unchecked"></span> */

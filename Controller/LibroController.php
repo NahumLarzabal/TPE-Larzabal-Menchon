@@ -17,7 +17,9 @@ class LibroController{
     function __construct(){
         $this->helper = new AuthHelpers();
         $this->model = new LibroModel();
-        $this->view = new LibroView($this->helper->getNombre(),$this->helper->getRol());
+        // aca le pido que de helper me traiga nombre usuario y el rol (para no pedirlo a cada rato se lo mando como parametro 
+        //fijo para usarlo en todas las paginas y no tener que estar pidiendo a cada rato que rol tiene o su nombre)
+        $this->view = new LibroView($this->helper->getNombre(),$this->helper->getRol()); 
         $this->modelCategoria= new CategoriaModel();
         $this->viewCategoria= new CategoriaView($this->helper->getNombre(),$this->helper->getRol());
     }

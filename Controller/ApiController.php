@@ -40,9 +40,10 @@ function getComments(){
     $comment = $this->CommentModel->getComentarios();
     return $this->view->response($comment,200);
 }
+
 function getComment($params=null){
-    $idComment = $params[':ID'];
-    $idOrderby = $params[':order'];
+    $idComment = $params[':ID']; //pido el parametro :id de la URL que esta en el router
+    $idOrderby = $params[':order']; //pido el parametro :order de la URL que esta en el router
     if($idOrderby == "DESC"){
         $comment = $this->CommentModel->getComentarioLibroDesc($idComment);
     }else{
@@ -59,7 +60,8 @@ function getComment($params=null){
 function getCommentPuntaje($params=null){
     $idComment = $params[':ID'];
     $idOrderby = $params[':order'];
-    $idPuntuacion = $params[':puntaje'];
+    $idPuntuacion = $params[':puntaje']; 
+    //pido los parametros que viene desde la url de router-api que son GET
 
     if($idOrderby=="DESC"){
         $comment = $this->CommentModel->getComentarioLibroDescPunt($idComment,$idPuntuacion);
@@ -92,7 +94,7 @@ function insertComment($params = null) {
     $body = $this->getBody();
 
     // TODO: VALIDACIONES -> 400 (Bad Request)
-
+    // busco los request de body que inserta en la db
     $id = $this->CommentModel->insertComment($body->comentarios,$body->puntuacion,$body->id_libro,$body->id_user);
     
     if ($id != 0) {
@@ -106,9 +108,10 @@ function searchPuntuacion($params=null){
     $idComment = $params[':ID'];
     $idComment2 = $params[':comentarioID'];
     $idPuntuacion = $params[':puntuacion'];
-    $comment = $this->CommentModel->getComentarioLibroDesc($idComment);
-    $comment2 = $this->CommentModel->getComentario($idComment2);
-    $comment3 = $this->CommentModel->getPuntuacion($idPuntuacion);
+    //busco parametro de router-api
+    $comment = $this->CommentModel->getComentarioLibroDesc($idComment); // busca en orde desc lo que encuentre por el id del libro
+    $comment2 = $this->CommentModel->getComentario($idComment2); //  traigo los comentarios de este libro en particular
+    $comment3 = $this->CommentModel->getPuntuacion($idPuntuacion); // busco el puntaje igual al get de parametro url
     if(!empty($comment) && !empty($comment2)&&!empty($comment3)){
         $this->CommentModel->getSearchPuntuacion($idComment,$idPuntuacion);
         return $this->view->response("El comentario de ID=$idComment2 con LibroId = $idComment y de Puntuacion = $idPuntuacion",204);

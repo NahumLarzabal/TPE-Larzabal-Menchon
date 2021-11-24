@@ -4,7 +4,7 @@ require_once "./Model/userModel.php";
 require_once "./View/userView.php";
 require_once "./helpers/authHelper.php";
 
-// usuario Root == 1
+// usuario SuperAdmin == 1
 // usuario administrador == 2
 // usuario normal registrado == 3
 // usuario invitado = 4
@@ -41,7 +41,7 @@ class UserController{
      
             // Si el usuario existe y las contraseñas coinciden
             if ($user  && password_verify($password, $user->password)) {
-
+                //inicion session  y le pido datos de la session para poder usarlos en el helper
                 session_start();
                 $_SESSION["email"] = $email;
                 $_SESSION["nombre_apellido"]=$user->nombre_apellido;

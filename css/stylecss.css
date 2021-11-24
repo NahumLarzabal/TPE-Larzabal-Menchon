@@ -306,6 +306,10 @@ select.form-select{
     align-items: center;
 }
 
+.form-create-libro{
+    min-height: 900px;
+}
+
 /*      --------------------------------         FORM FILTRO E INPUTS PARA TEXTO        --------------------------------         */
 form#select-titulo, form#select-autor, form#select-genero{
     display: flex;
@@ -480,3 +484,7 @@ footer div h5{
     text-decoration: none!important;
     color: grey!important;
   }
+
+.imgHome{
+    min-height: 900px;
+}

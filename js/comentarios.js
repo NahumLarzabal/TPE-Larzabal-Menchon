@@ -9,11 +9,9 @@ let api = new Vue({
         comments: [],
     },
     mounted: function(){
-
-      this.starInput()
-
+      this.starInput() //cargo el la funcion para que me la tome al iniciar vue
     },
-    methods: {
+    methods: { // con methods hago instaciar el boton para poder usarlo con vue
         commentDelete:async function (id_comment){
               let id_libro = document.querySelector(".id_libro").value;
               let rol = document.querySelector('.rol').value;
@@ -41,27 +39,8 @@ let api = new Vue({
           
 });
 
-
-//  `api/libros/${idApi}/comentarios`
-
 let btnOrder = document.querySelector(".orderby");
 btnOrder.addEventListener('click',comments);
-
-// async function comments(){
-//   let order = document.querySelector("#ordenamiento").value;
-//     try {
-//         let res = await fetch(`${url}/${idApi}/comentarios/orderby/${order}`);
-//         if(res.status == 200){
-//           let json = await res.json();
-//           api.comments = json;
-//         } else if (res.status == 404){
-//           document.querySelector(".idcomment").innerHTML = "";
-//           // console.log("no hay comentarios");
-//         }
-//     } catch (e) {
-//         console.log(e);
-//     }
-// }
 
 async function comments(){
   let order = document.querySelector("#ordenamiento").value;
@@ -84,8 +63,6 @@ async function comments(){
         console.log(e);
     }
 }
-
-
 
 function campForm(){
     let comentario = document.querySelector(".comentario");
@@ -129,9 +106,3 @@ async function insertComment(){
     }
 
 }
-
-/* <span class = "fa fa-star checked"></span>
-<span class = "fa fa-star checked"></span>
-<span class = "fa fa-star checked"></span>
-<span class = "fa fa-star checked"></span>
-<span class = "fa fa-star unchecked"></span> */

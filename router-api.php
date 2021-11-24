@@ -1,7 +1,6 @@
 <?php
 require_once 'libs/Router.php';
 require_once 'Controller/ApiController.php';
-require_once 'Controller/ApiUserController.php';
 
 $router = new Router();
 

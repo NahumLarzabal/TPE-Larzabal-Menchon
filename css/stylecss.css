@@ -389,8 +389,7 @@ div.content{
 .form-genero{
     display: flex;
     justify-content: space-around;
-
-    
+    align-items: baseline;
 }
 /*           --------------------------------        DETALLE DEL LIBRO      ---------------------------------                          */
 div>h2>span{

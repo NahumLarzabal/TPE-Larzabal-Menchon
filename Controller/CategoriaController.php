@@ -28,6 +28,7 @@ class CategoriaController{
             $this->view->showCategoriasLocation();
         }
     }
+
     function viewCategorias(){
         $this->helper->checkLogin();
         $rol=$this->helper->getRol();
@@ -83,5 +84,4 @@ class CategoriaController{
         }
         $this->view->showCategoriasLocation();
     }
-    
 }

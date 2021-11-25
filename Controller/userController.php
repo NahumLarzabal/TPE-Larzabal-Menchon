@@ -7,7 +7,7 @@ require_once "./helpers/authHelper.php";
 // usuario SuperAdmin == 1
 // usuario administrador == 2
 // usuario normal registrado == 3
-// usuario invitado = 4
+// usuario invitado = 4 (hardcodeado)
 
 class UserController{
     private $model;
@@ -75,6 +75,7 @@ class UserController{
         }
     }
 
+    // funcion para mostrar registro de user
     function createLogin(){
         $this->view->showCreateLogin();  
     }
@@ -104,7 +105,6 @@ class UserController{
         if (isset($_POST['nombre_apellido'],$_POST['tipoUser'],$_POST['email']) && !empty($_POST['nombre_apellido'] && !empty($_POST['tipoUser']) && !empty($_POST['email']))) {
             $this->helper->checkLogin();
             $this->model->editUser($_POST['nombre_apellido'],$_POST['tipoUser'],$_POST['email']);
-            // die();
             $this->mostrarUsuarios();
         } else{
             $this->mostrarUsuarios();

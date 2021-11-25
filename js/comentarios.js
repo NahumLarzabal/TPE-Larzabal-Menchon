@@ -104,5 +104,4 @@ async function insertComment(){
     } catch (e) {
         console.log(e)
     }
-
 }

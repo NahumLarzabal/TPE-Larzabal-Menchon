@@ -2,9 +2,9 @@
 
 let invitado = document.querySelector(".invitado");
 
-
 invitado.addEventListener('click', loginInvitado);
 
+// funcion para hardcodear el usuario invitado en los inputs para logearse.
 function loginInvitado(){
     console.log("entre")
     let email = document.querySelector(".email");

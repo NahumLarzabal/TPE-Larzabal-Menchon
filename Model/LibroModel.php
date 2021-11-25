@@ -18,13 +18,12 @@ class LibroModel{
     }
 
     function getLibros($iniciar){
-        // var_dump($iniciar);
         $sentencia = $this->db->prepare( "SELECT libros.id, libros.autor, libros.nombre_libro, libros.precio, categorias.categoria, libros.id_categoria, libros.imagen FROM libros JOIN categorias ON libros.id_categoria = categorias.id_categoria LIMIT " . $iniciar . "," . libros_x_pagina);
-        // $sentencia = $this->db->prepare( "SELECT libros.id, libros.autor, libros.nombre_libro, libros.precio, categorias.categoria, libros.id_categoria, libros.imagen FROM libros JOIN categorias ON libros.id_categoria = categorias.id_categoria");
         $sentencia->execute();
         $libros = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $libros;
     }  
+    
     function getLibro($id){
         $sentencia = $this->db->prepare( "SELECT libros.id, libros.autor, libros.nombre_libro, libros.descripcion, libros.precio, libros.imagen, libros.id_categoria,categorias.categoria FROM libros JOIN categorias ON libros.id_categoria = categorias.id_categoria WHERE id=?;");
         $sentencia->execute(array($id));
@@ -53,14 +52,8 @@ class LibroModel{
         $sentencia->execute(array($id));
     }
 
-    // function updateLibroFromDB($id,$autor,$nombre_libro, $descripcion, $precio, $genero){
-    //     $sentencia = $this->db->prepare("UPDATE  libros SET autor=?,nombre_libro=?,descripcion=?,precio=?,id_categoria=? WHERE libros.id =?");
-    //     $sentencia->execute(array($autor,$nombre_libro, $descripcion, $precio, $genero,$id));
-    // }
-
     function updateLibroFromDB($id,$autor,$nombre_libro, $descripcion, $precio, $genero, $imagen=null){
         $pathImg = null;
-        // var_dump($id,$autor,$nombre_libro, $descripcion, $precio, $genero, $imagen);
         // try{
             // if ($imagen){
                 $pathImg = $this->uploadImage($imagen);

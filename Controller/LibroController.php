@@ -141,6 +141,7 @@ class LibroController{
             $this->view->showLibroLocation();
         }     
     }
+    
     function searchGenero(){
         if (!empty($_POST['generoIn']) && isset($_POST['generoIn'])){
         $categorias = $this->modelCategoria->getGeneros();

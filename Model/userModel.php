@@ -31,12 +31,12 @@ class userModel{
         $query->execute(array($userEmail));
     }
 
-        // funcion administrador para editar usuario 
-
+    // funcion administrador para editar usuario 
     function editarTipoUser($tipoUser){
         $sentencia = $this->db->prepare("UPDATE users SET tipoUser=?");
         $sentencia->execute($tipoUser);
     }
+    
     function editUser($nombre_apellido,$tipoUser,$email){
         $sentencia = $this->db->prepare("UPDATE users SET nombre_apellido=?,tipoUser=? WHERE email = ?");
         $sentencia->execute(array($nombre_apellido,$tipoUser,$email));

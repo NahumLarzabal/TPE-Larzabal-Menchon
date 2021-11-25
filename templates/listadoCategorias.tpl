@@ -5,7 +5,7 @@
             <h1>Listado de Generos</h1>
         </div>
         <div class="btn-libro">
-            <a  href="generos/agregarCategoria">
+            <a  href="generos/agregar">
                {if isset($email) && ($rol == "4") || ($rol =="3")}
                {else}
                     <button class="btn btn-primary" id="btn-list-libro">Nuevo Genero</button> 

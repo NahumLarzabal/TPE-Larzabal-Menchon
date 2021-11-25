@@ -43,9 +43,9 @@ $categoriaController = new CategoriaController();
       break;
    case 'libros': 
       //si params 1 no esta vacio y params 1 es igual a agregarlibro ->agregarLibro()
-      if( !empty($params[1]) && $params[1]=="agregarlibro"){
+      if(!empty($params[1]) && $params[1]=="agregar" && empty($params[2])){
          $libroController->agregarlibro();
-      } elseif (empty($params[1])){
+      } else {
          $libroController->listadoLibros();
       }
       break;
@@ -86,7 +86,7 @@ $categoriaController = new CategoriaController();
       $categoriaController->deleteCategoria($params[1]); 
       break; 
    case 'generos':
-      if( !empty($params[1]) && $params[1]=="agregarCategoria"){
+      if(!empty($params[1]) && $params[1]=="agregar"){
          $categoriaController->showCategoria();
       } else if(empty($params[1]) || empty($params[2])){
          $categoriaController->viewCategorias();

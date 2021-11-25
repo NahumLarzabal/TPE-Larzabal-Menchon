@@ -50,10 +50,10 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="libros/agregarlibro">Cargar libro</a>
+                        <a class="nav-link" href="libros/agregar">Cargar libro</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="generos/agregarCategoria">Cargar genero</a>
+                        <a class="nav-link" href="generos/agregar">Cargar genero</a>
                     </li>
                     <li class="nav-item">
                         

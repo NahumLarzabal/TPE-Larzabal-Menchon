@@ -20,7 +20,7 @@
     </form>  
 
            {if isset($email) && ($rol == "1") || ($rol=="2")}
-            <a  href="libros/agregarlibro">
+            <a  href="libros/agregar">
             <button class="btn btn-primary" id="btn-list-libro">Nuevo Libro</button> 
         </a>
     {/if}

@@ -195,15 +195,17 @@ div.inputs-form{
 }
 .title-login{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.btns-login{
-   margin-left: 100%;
-}
+/* .btns-login{
+   margin-left: 3%;
+} */
 .tituloLogin{
-    margin-left: 20%;
+    display: flex;
+    justify-content: center;
 }
 .ml-5{
     margin-left: 5%;
@@ -252,6 +254,7 @@ div.inputs-form{
 .btn-create-user{
     display: flex;
     align-items: center;
+    margin-left: 3%;
 }
 
 button.btn-create-user>a{

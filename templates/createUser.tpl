@@ -22,7 +22,7 @@
                 <img class="w-50" src="./img/logo.png" alt="logo">
             </div>
             <div class="title-login">
-                <h2>{$titulo}</h2>
+                <h2 class="tituloLogin">{$titulo}</h2>
             </div>
 
             <div class="form-createLogin">

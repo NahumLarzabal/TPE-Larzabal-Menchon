@@ -22,13 +22,13 @@
             <div class="title-login">
                 <h2 class="tituloLogin">{$titulo}</h2>
                
-             <div class=" w-25 h-25">
-                        <input type="submit" class="invitado btns-login btn btn-secondary" value="Invitado">
-                    </div>
-            </div>
 
             <div class="form-login">
                 <form class="form-alta" action="verify" method="post">
+                    {* <div class=" w-25 h-25">
+                                <input type="submit" class="invitado btns-login btn btn-secondary" value="Invitado">
+                            </div>
+                    </div> *}
                    
                     <div class="inputs-form">
                         <div class="input-login">
@@ -41,9 +41,9 @@
                         </div>
                     </div>
                     <div class="btn-form-login mtt-2">
-                        <a class="btn btn-secondary btn-sm btn-create-user" href="createLogin">Registrarse</a>
-
+                        <input type="submit" class="invitado btns-login btn btn-secondary" value="Invitado">
                         <input type="submit" class="btn mll-3 btn-primary" value="Login">
+                        <a class="btn btn-secondary btn-sm btn-create-user" href="createLogin">Registrarse</a>
                     </div>
                     <h4><span class="red-alert">{$error}</span></h4>
                 </form>

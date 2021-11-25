@@ -36,7 +36,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-success" href="editarLibro/{$libro->id}" id="btn-libro-edit">
+                                    <a class="btn btn-success" href="libro/editar/{$libro->id}" id="btn-libro-edit">
                                         <i class="far fa-edit"></i>
                                     </a>
                                 </td>

@@ -57,10 +57,10 @@ $categoriaController = new CategoriaController();
       // elimina el libro del ID que va en params1 (ej localhost/tpe/deletelibro/3)
       $libroController->deleteLibro($params[1]); 
       break;
-   case 'editarLibro': 
-      // editarlibro lleva al tpl para modificar el item en la bbdd
-      $libroController->editarLibro($params[1]); 
-      break;
+   // case 'editarLibro': 
+   //    // editarlibro lleva al tpl para modificar el item en la bbdd
+   //    $libroController->editarLibro($params[1]); 
+   //    break;
    case 'edit': 
          // action del form que edita el libro de la bbdd
       $libroController->editLibroAction(); 
@@ -95,7 +95,13 @@ $categoriaController = new CategoriaController();
       }
       break;
    case 'libro': 
-      $libroController->viewLibro($params[1]); 
+      if (($params[1]=="editar") && (!empty($params[2]))){
+         $libroController->editarLibro($params[2]);
+      } else if (isset($params[1])) {
+         $libroController->viewLibro($params[1]); 
+      } else {
+         $libroController->listadoLibros();
+      }
       break;
    case 'search': 
       if($params[1]=="titulo"){

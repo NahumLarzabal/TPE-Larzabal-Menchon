@@ -54,11 +54,10 @@ class CategoriaController{
         $rol=$this->helper->getRol();
         if ($rol != "3" || $rol !="4") {
             $categoria = $this->model->getGenero($id);
-            $totalCategorias = $this->model->getFilasGeneros();
-            if ($id<=$totalCategorias) {
+            if ($categoria!=NULL) {
                 $this->view->viewCategoriaEdit($categoria);
             } else {
-                $this->view->showCategoriasLocation();
+                $this->view->error();
             }
         } else {
             $this->view->showCategoriasLocation();

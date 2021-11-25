@@ -32,5 +32,10 @@ class CategoriaView{
 
     }
 
+    function error(){
+        $this->smarty->assign('Error','error');
+        $this->smarty->display('templates/errorLibro.tpl');
+    }
+
 
 }

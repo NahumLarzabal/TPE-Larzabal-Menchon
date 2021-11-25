@@ -1,7 +1,8 @@
 {include file='templates/header.tpl'}
 
-<div>
-    <h1>Error! El libro seleccionado no existe</h1>
+<div class="not-found">
+    <h1 >Error! El libro o categoria seleccionado no existe</h1>
+    <a href="libros">Volver al inicio</a>
 </div>
 
 {include file='templates/footer.tpl'}

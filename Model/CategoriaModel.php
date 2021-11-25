@@ -7,14 +7,6 @@ class CategoriaModel{
          $this->db = new PDO('mysql:host=localhost;'.'dbname=db_tpe;charset=utf8', 'root', '');
     }
 
-    function getFilasGeneros(){
-        $sentencia = $this->db->prepare( "select * from categorias");
-        $sentencia->execute();
-        $Totalcategorias = $sentencia->rowCount();
-        // $Totalcategorias = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $Totalcategorias;
-    }
-
     function getGeneros(){
         $sentencia = $this->db->prepare( "select * from categorias");
         $sentencia->execute();

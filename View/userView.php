@@ -21,7 +21,7 @@ class userView{
 
     function showUserCreate($error=""){
         $this->smarty->assign('error',$error);
-        $this->smarty->display('templates/createUser.tpl');
+        $this->smarty->display('templates/registroUsuario.tpl');
     }
     function showCreateLogin($error=""){
         $this->smarty->assign('titulo','CREAR USUARIO');
@@ -42,7 +42,7 @@ class userView{
 
     function showUsuario($user){
         $this->smarty->assign('user', $user);
-        $this->smarty->display('templates/usuario.tpl');
+        $this->smarty->display('templates/editarUsuario.tpl');
     }
 
     function showUsersList($listaUsuarios){

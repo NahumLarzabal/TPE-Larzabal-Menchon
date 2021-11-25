@@ -6,9 +6,9 @@
          <option  value="DESC">Ultimo</option>
          <option  value="ASC">Mas viejo</option>
       </select>
-      <label for="">Puntaje</label>
+      <label>Filtrar por puntaje:</label>
          <select class="w-7" name="" id="puntajeInput">
-            <option value="NULL">#</option>
+            <option value="NULL">Sin filtro</option>
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>

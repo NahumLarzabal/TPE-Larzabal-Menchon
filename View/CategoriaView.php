@@ -20,9 +20,9 @@ class CategoriaView{
     function viewCategoriaEdit($categoria){
         $this->smarty->assign('titulo','Editar Categoria');
         $this->smarty->assign('categorias', $categoria);
-        $this->smarty->display('templates/form_editCategoria.tpl');
-  
+        $this->smarty->display('templates/editCategoria.tpl');
     }
+    
     function showCategoriasLocation(){
         header("Location: ".BASE_URL."generos");
     }

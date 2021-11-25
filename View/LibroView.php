@@ -15,7 +15,7 @@ class LibroView{
         $this->smarty->assign('paginas', $paginas);
         $this->smarty->assign('paginaActual', $paginaActual);
         $this->smarty->assign('categorias', $categorias);
-        $this->smarty->display('templates/form_table.tpl');
+        $this->smarty->display('templates/libros.tpl');
     }
 
     function home(){
@@ -30,7 +30,7 @@ class LibroView{
         $this->smarty->assign('libro', $libro);
         $this->smarty->assign('user', $user);
         $this->smarty->assign('order',$order);
-        $this->smarty->display('templates/detalle.tpl');
+        $this->smarty->display('templates/detalleLibro.tpl');
     }
 
     function showGenero($categorias){
@@ -42,12 +42,12 @@ class LibroView{
         $this->smarty->assign('titulo','Editar Libro');
         $this->smarty->assign('libro', $libro);
         $this->smarty->assign('categorias', $categorias);
-        $this->smarty->display('templates/form_edit.tpl');
+        $this->smarty->display('templates/editarLibro.tpl');
     }
 
     function agregar($categorias){
         $this->smarty->assign('categorias', $categorias);
-        $this->smarty->display('templates/createLibro.tpl');
+        $this->smarty->display('templates/crearLibro.tpl');
      }
      
     function searchView($libros,$categorias){
@@ -63,7 +63,7 @@ class LibroView{
     }
 
     function editPortada($id){
-        header("Location: ".BASE_URL."viewLibro/{$id}");
+        header("Location: ".BASE_URL."libro/{$id}");
     }
 
 }

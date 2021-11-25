@@ -29,7 +29,11 @@ class LibroController{
         define("libros_x_pagina", 10);
         $this->helper->checkLogin();
         $paginaActual = $_GET['pagina'];
+
+        //cuento cuantas libros hay en total para colocar el numero de botones para cada pagina
         $paginas = $this->model->paginacion();
+
+        //fuerzo a que si no hay un GET se genere con ?pagina=1
         if(!$_GET['pagina'] || $_GET['pagina']>$paginas){
             header("Location: ".BASE_URL."libros?pagina=1");
         }

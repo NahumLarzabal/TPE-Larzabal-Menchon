@@ -6,7 +6,7 @@
  {literal}
  <div class="insertCommentForm">
     <div>
-      <form class="row g-3"  action="">
+      <form class="row g-3 form-insert-comentario"  action="">
       <div class="col-md-6 form-floating">
       <textarea required class="form-control comentario"  placeholder="Comentario" id="floatingTextarea2" name="post-text"></textarea>
       <label for="floatingTextarea2">Comentario</label>

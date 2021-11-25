@@ -49,8 +49,13 @@ class CategoriaController{
         $this->helper->checkLogin();
         $rol=$this->helper->getRol();
         if ($rol != "3" || $rol !="4") {
-            $categoria = $this->model->getGenero($id);   
-            $this->view->viewCategoriaEdit($categoria);
+            $categoria = $this->model->getGenero($id);
+            $totalCategorias = $this->model->getFilasGeneros();
+            if ($id<=$totalCategorias) {
+                $this->view->viewCategoriaEdit($categoria);
+            } else {
+                $this->view->showCategoriasLocation();
+            }
         } else {
             $this->view->showCategoriasLocation();
         }

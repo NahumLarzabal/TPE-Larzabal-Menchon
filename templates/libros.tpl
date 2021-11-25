@@ -25,7 +25,7 @@
                 <tbody>
                     {foreach from=$libros item=$libro}
                         <tr>
-                            <td scope="row"><a href="viewLibro/{$libro->id}" id="titulo-libro">{$libro->nombre_libro}</a></td>
+                            <td scope="row"><a href="libro/{$libro->id}" id="titulo-libro">{$libro->nombre_libro}</a></td>
                             <td id="genero-libro">{$libro->categoria|truncate:500}</td>
                             <td id="autor-libro">{$libro->autor}</td>
                             <td id="precio-libro">${$libro->precio}</td>

@@ -73,9 +73,13 @@ $categoriaController = new CategoriaController();
       // insertado de la categoria en la bbdd (llama al modelo)
       $categoriaController->agregarCategoria();
       break;
-   case 'editarCategoria':
-      // formulario para editar la categoria
-      $categoriaController->editarCategoria($params[1]); 
+   case 'genero':
+      if (($params[1]=="editar") && !empty($params[2])){
+         // formulario para editar la categoria
+         $categoriaController->editarCategoria($params[2]); 
+      } else {
+         $categoriaController->viewCategorias();
+      }
       break;
    case 'deleteCategoria':
       // eliminar categoria con el id pasado por params1 
@@ -84,13 +88,13 @@ $categoriaController = new CategoriaController();
    case 'generos':
       if( !empty($params[1]) && $params[1]=="agregarCategoria"){
          $categoriaController->showCategoria();
-      } else if(empty($params[1])){
+      } else if(empty($params[1]) || empty($params[2])){
          $categoriaController->viewCategorias();
       } else {
          $libroController->inicio();
       }
       break;
-   case 'viewLibro': 
+   case 'libro': 
       $libroController->viewLibro($params[1]); 
       break;
    case 'search': 

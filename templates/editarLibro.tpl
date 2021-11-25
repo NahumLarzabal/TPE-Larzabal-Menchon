@@ -71,12 +71,16 @@
       <div class="col-sm-10">
         <input type="file" name="input_name" id="imageToUpload">
       </div>
-      {if !empty($libro->imagen)}
-      <div class="portada">
-              <a class="btn btn-danger" id="eliminar-portada" href="eliminarPortada/{$libro->id}">Eliminar portada</a>
-      </div>
-      {/if}
     </div>
+
+    {if !empty($libro->imagen)}
+      <div class="form-group row margin-15px">
+      <label for="portada" class="col-sm-2 col-form-label">Eliminar Portada:</label>
+        <div class="col-sm-10">
+                <a class="btn btn-danger" id="" href="eliminarPortada/{$libro->id}"><i class="fas fa-trash-alt"></i></a>
+        </div>
+      </div>
+    {/if}
   
     <div class="form-group row margin-15px">
       <div class="col-sm-10  btn-sub-center">

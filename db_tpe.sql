@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-11-2021 a las 01:40:54
+-- Tiempo de generación: 25-11-2021 a las 02:58:10
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -37,7 +37,7 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id_categoria`, `categoria`) VALUES
-(1, 'Novela'),
+(1, ' Novela'),
 (2, 'Terror'),
 (3, 'Ciencia Ficcion'),
 (4, 'Aventura'),
@@ -47,8 +47,7 @@ INSERT INTO `categorias` (`id_categoria`, `categoria`) VALUES
 (8, 'Magia'),
 (9, 'Cuento'),
 (10, 'Leyenda'),
-(11, 'Fabula'),
-(12, 'Fantasmal');
+(11, 'Fabula');
 
 -- --------------------------------------------------------
 
@@ -69,24 +68,35 @@ CREATE TABLE `comentarios` (
 --
 
 INSERT INTO `comentarios` (`id`, `comentarios`, `puntuacion`, `id_libro`, `id_user`) VALUES
-(1, 'me pareció un libro alucinante', 5, 1, 1),
-(2, 'adwadwadad', 3, 1, 1),
-(3, 'jejeje', 2, 33, 1),
-(4, '23qwe', 1, 41, 1),
-(5, 'asdawdwadaw', 2, 39, 1),
-(6, 'adwad', 2, 31, 1),
-(7, '213123', 2, 41, 1),
-(8, 'awdad', 2, 1, 1),
-(9, 'wdada', 2, 1, 1),
-(10, '2', 0, 1, 1),
-(11, 'wdwada', 2, 1, 1),
 (13, 'l;lk;lk', 1, 44, 1),
 (14, 'sadfdsf', 2, 44, 1),
 (15, 'asdas', 0, 44, 1),
 (16, 'asd', 1, 40, 1),
-(17, 'asd', 4323, 2, 1),
-(18, 'gfhjgh', 3, 45, 1),
-(19, 'awdad', 1, 46, 1);
+(26, 'asdasda', 123123, 46, 1),
+(30, 'Hola', 1, 45, 1),
+(31, 'Que tal', 2, 45, 1),
+(32, 'Todo bien', 3, 45, 1),
+(33, 'Como va?', 4, 45, 1),
+(34, 'jeje', 5, 45, 1),
+(35, 'hola que tal', 4, 1, 1),
+(36, 'Hola que tal', 5, 41, 1),
+(37, 'aaaaaaa', 0, 41, 1),
+(38, 'a', 3, 41, 1),
+(39, 'a', 2, 41, 1),
+(40, 'aaaaaaa', 1, 41, 1),
+(41, 'a', 4, 41, 1),
+(42, 'a', 2, 41, 1),
+(43, 'a', 0, 41, 1),
+(44, 'b', 0, 41, 1),
+(45, 'ultimo', 2, 41, 1),
+(46, 'aaaaaa', 3, 41, 1),
+(47, 'a', 2, 1, 1),
+(48, 'sdasdd', 5, 1, 1),
+(55, 'asdasd', 2, 4, 1),
+(56, 'aaaaa', 3, 4, 1),
+(57, 'a', 4, 4, 1),
+(58, 'aa', 2, 33, 1),
+(59, 'aaaaa', 3, 33, 1);
 
 -- --------------------------------------------------------
 
@@ -109,22 +119,28 @@ CREATE TABLE `libros` (
 --
 
 INSERT INTO `libros` (`id`, `autor`, `nombre_libro`, `descripcion`, `precio`, `id_categoria`, `imagen`) VALUES
-(1, 'C.S. Lewis1', 'Las Crónicas de Narnia: El león, la bruja y el ropero1', ' Las Crónicas de Narnia (título original en inglés: The Chronicles of Narnia) es una heptalogía de libros juveniles escrita por el escritor y profesor anglo-irlandés C. S. Lewis entre 1950 y 1956, e ilustrado, en su versión original, por Pauline Baynes. Re1', 35562, 3, ''),
+(1, 'C.S. Lewis1', 'Las Crónicas de Narnia: El león, la bruja y el ropero1', '                                                                                 Las Crónicas de Narnia (título original en inglés: The Chronicles of Narnia) es una heptalogía de libros juveniles escrita por el escritor y profesor anglo-irlandés C. S. Lewis entre 1950 y 1956, e ilustrado, en su versión original, por Pauline Baynes. Re1\r\n        \r\n        \r\n        \r\n        \r\n        \r\n        \r\n        \r\n        ', 35562, 3, 'img/portadas/619ec7da7f4a9.jpg'),
 (2, 'C.S. Lewis', '\r\nLas crónicas de Narnia: el príncipe Caspian ', 'Las Crónicas de Narnia: El príncipe Caspian (título original en inglés: The Chronicles of Narnia: Prince Caspian) es una película de acción y fantasía dirigida por Andrew Adamson y basada en la novela homónima de C. S. Lewis. Producida por Walden Media y distribuida por Walt Disney Pictures, se estrenó el 16 de mayo de 2008 en Estados Unidos. Es la segunda entrega de la saga Las Crónicas de Narnia.', 4566, 7, ''),
-(4, 'José Mauro de Vasconcelo', 'Mi planta de naranja lima', 'Mi planta de naranja lima (en portugués O Meu Pé de Laranja Lima) es una novela de José Mauro de Vasconcelos, una de las más leídas de la nueva literatura brasileña. El autor continúa la historia en Vamos a calentar el sol. Está narrada en primera persona y posee un altísimo nivel autobiográfico.\r\nEncabezó la lista de superventas en 1968, año de su primera edición. Posteriormente, la novela fue traducida a 32 idiomas y publicada en 19 países. Ha sido adoptado como texto lectura a nivel de enseñanza primaria.1​\r\nTres telenovelas se han realizado sobre la base de esta obra: en 1970 para la Rede Tupi, y en 1980 y 1998 para la Rede Bandeirantes. También se han realizado varias adaptaciones al cine, televisión y teatro, siendo dirigida por Aurelio Teixeira la primera para el cine en 1970.2​ En el 2011 se ha presentado su segunda versión cinematográfica.3​   ', 11781, 5, ''),
+(4, 'José Mauro de Vasconcelo', 'Mi planta de naranja lima', '          Mi planta de naranja lima (en portugués O Meu Pé de Laranja Lima) es una novela de José Mauro de Vasconcelos, una de las más leídas de la nueva literatura brasileña. El autor continúa la historia en Vamos a calentar el sol. Está narrada en primera persona y posee un altísimo nivel autobiográfico.\r\nEncabezó la lista de superventas en 1968, año de su primera edición. Posteriormente, la novela fue traducida a 32 idiomas y publicada en 19 países. Ha sido adoptado como texto lectura a nivel de enseñanza primaria.1​\r\nTres telenovelas se han realizado sobre la base de esta obra: en 1970 para la Rede Tupi, y en 1980 y 1998 para la Rede Bandeirantes. También se han realizado varias adaptaciones al cine, televisión y teatro, siendo dirigida por Aurelio Teixeira la primera para el cine en 1970.2​ En el 2011 se ha presentado su segunda versión cinematográfica.3​   \r\n        ', 11781, 5, NULL),
 (31, 'garcia', 'asdasd11', '363edfgdfg', 222, 6, ''),
 (32, 'garcia', 'sadda', '1', 2, 3, ''),
-(33, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1, ''),
+(33, 'asdasd1231', 'asdasdasdsa', '          657641\r\n        ', 11, 1, NULL),
 (34, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1, ''),
 (35, 'asdasd1231', 'asdasdasdsa', '657641', 11, 1, ''),
 (39, '123d1231', 'asdas213sa', 'lal3llala', 34567, 5, ''),
 (40, 'asdas', 'asd', '          asdasd', 34, 5, ''),
 (41, 'autor', 'asdasd', 'descrrp', 123456, 2, ''),
 (42, 'autor', 'libros', 'descrip', 12, 2, ''),
-(43, '1dsfgdsfg', 'Titulo nuevo', '                                           sdfgsdfg              1     \r\n        \r\n        \r\n        \r\n        \r\n        ', 123, 3, 'img/portadas/6195991ad89a8.jpg'),
-(44, 'Peron', 'PEron', '          Peron            \r\n        ', 100, 2, 'img/portadas/61959bddc71ce.jpg'),
+(43, '1dsfgdsfg', 'Titulo nuevo', '                                           sdfgsdfg              1     \r\n        \r\n        \r\n        \r\n        \r\n        ', 123, 3, NULL),
+(44, 'Peron', 'PEron', '                    Peron            \r\n        \r\n        ', 100, 2, NULL),
 (45, 'cPEron Juena', 'PEron Juena', 'PEron Juena            `', 1100, 3, NULL),
-(46, 'awsdwad', 'asdadw', 'sadfwadwad', 1231, 10, NULL);
+(46, 'awsdwadaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'asdadw', '          sadfwadwad\r\n        ', 1231, 10, NULL),
+(47, 'autor', 'Nuevo', 'asdasd            ', 111111, 3, NULL),
+(48, 'AUTOR 18', 'LIBRO 18', '            LIASDSAD', 18, 6, NULL),
+(49, 'A', 'A', '         A  ', 2, 6, NULL),
+(50, 'A', 'A', '                   23   \r\n        ', 2, 5, NULL),
+(52, 'a', 'a', '            aaa', 2, 6, NULL),
+(53, 'asd', 'Ropero', '            ', 1, 6, NULL);
 
 -- --------------------------------------------------------
 
@@ -146,10 +162,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `nombre_apellido`, `password`, `tipoUser`) VALUES
 (1, 'admin@gmail.com', 'Admin', '$2y$10$ATqPXdv4tFHONS3xg9hQbOSWjExfYE2Q6VDQDUR3x93m7zwqO/DGa', 1),
-(2, 'admin2@gmail.com', 'asdad', '$2y$10$j4pY0kLHrxhL.q2Dtb0...TuocE.L4KNKHS0ujAZLtTZDVmnr9iuW', 3),
-(3, 'prueba@gmail.com', 'hola', '$2y$10$jsx2ZNt7XD79BtGXu8Q.BuRG67qsmmPGCDxFEt6f3H0toZNTtNmAq', 2),
-(4, 'usuario@usuario.com', 'usuario normal', '$2y$10$JjVQpBRZMz2ISPgsMC6LM.GNq8McnhrW4iBA65I23N/WiCNKQeLpG', 2),
-(5, 'invitado@gmail.com', 'INVITADO', '$2y$10$6ci8LBfOoojsdKCu/Vz3beUqG./iyYwruf271sdafUa8binOTlD/S', 4);
+(5, 'invitado@gmail.com', 'INVITADO', '$2y$10$6ci8LBfOoojsdKCu/Vz3beUqG./iyYwruf271sdafUa8binOTlD/S', 4),
+(8, 'admin2@gmail.com', 'Agustin', '$2y$10$8rOU8grAE4JRzA5qquwcbemp4Ac95wdCpTjVKEGsPkxdbMWkhGgGi', 2),
+(9, 'agustin@email.com', 'Agustin', '$2y$10$C4DBbL3lbPA0gSQeCXhwEOUlS/OnsOzOtnPKO4SxD7XP/TpVL41JO', 3);
 
 --
 -- Índices para tablas volcadas
@@ -190,25 +205,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas

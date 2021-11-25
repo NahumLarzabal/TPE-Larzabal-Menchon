@@ -17,17 +17,10 @@
 
   <form class="form-alta" action="editarUsuario" method="post">
 
-    {* <input name="id" type="hidden" value="{$user->$email}">
-    <div class="form-group row margin-15px">
-      <label for="nombre_apellido" class="col-sm-2 col-form-label">Nombre</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" name="nombre_apellido" value="{$user->nombre_apellido}" id="nombre_apellido">
-      </div>
-    </div> *}
     <div class="form-group row margin-15px">
       <label for="email" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" name="email" value="{$user->email}" id="email">
+        <input type="text" class="form-control desactivado" name="email" value="{$user->email}" id="email">
       </div>
     </div>
 
@@ -69,7 +62,7 @@
 
     <div class="form-group row margin-15px">
       <div class="col-sm-10  btn-sub-center">
-        <button type="submit" class="btn btn-primary"  id="submit-create-libro">Editar Usuario</button>
+        <button type="submit" class="btn btn-primary" id="submit-create-libro">Editar Usuario</button>
       </div>
     </div>
   </form>

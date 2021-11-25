@@ -28,7 +28,7 @@
             <div class="form-createLogin">
                 <form class="form-alta" action="createUser" method="post">
                     <div class="input-login">
-                        <input class="loginInput" placeholder="email@email.com" type="text" name="email" id="email"
+                        <input class="loginInput" placeholder="email@email.com" type="email" name="email" id="email"
                             required>
                     </div>
                     <div class="input-login">

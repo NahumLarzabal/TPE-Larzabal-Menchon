@@ -92,18 +92,23 @@ class UserController{
         }
     }
 
-    // modificar usuario
+    // MOSTRAR usuario
     function mostrarUsuario($email){
         $this->helper->checkLogin();
-        
         $user = $this->model->getUser($email);
         $this->view->showUsuario($user);
     }
 
+    // modificar usuario
     function editarUsuario(){
-        $this->helper->checkLogin();
-        $this->model->editUser($_POST['nombre_apellido'],$_POST['tipoUser'],$_POST['email']);
-        $this->mostrarUsuarios();
+        if (isset($_POST['nombre_apellido'],$_POST['tipoUser'],$_POST['email']) && !empty($_POST['nombre_apellido'] && !empty($_POST['tipoUser']) && !empty($_POST['email']))) {
+            $this->helper->checkLogin();
+            $this->model->editUser($_POST['nombre_apellido'],$_POST['tipoUser'],$_POST['email']);
+            // die();
+            $this->mostrarUsuarios();
+        } else{
+            $this->mostrarUsuarios();
+        } 
     }
 
     function deleteUsuario($id){

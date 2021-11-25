@@ -16,8 +16,7 @@
     <form class="form-edit-categoria" action="editCategoria" method="post">
     {foreach from=$categorias item=$genero}
         <input name="id_categoria" type="hidden" value="{$genero->id_categoria}">
-   
-        <input placeholder="nombre nuevo" class="input-edit" type="text" name="categoria" value="{$genero->categoria}">  
+        <input placeholder="nombre nuevo" class="input-edit" type="text" name="categoria" value="{$genero->categoria}" required>  
     {/foreach}
         <input type="submit" class="btn btn-primary" value="Editar"> 
     </form>

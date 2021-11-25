@@ -20,7 +20,7 @@
                 <div class="form-group margin-15px form-genero">
                     <label class="categoria">Nombre de Genero:</label>
                     <div class="col-sm-10">
-                        <input type="text" name="categoria" id="categoria" class="form-control">
+                        <input type="text" name="categoria" id="categoria" class="form-control" required>
                         <div id="emailHelp" class="form-text">Maximo 50 caracteres.</div>
                     </div>
                 </div>

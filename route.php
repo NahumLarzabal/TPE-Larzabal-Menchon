@@ -38,7 +38,7 @@ $categoriaController = new CategoriaController();
    case 'createLogin':
       $userController->createLogin();
       break;
-   case 'home': 
+   case 'home':
       $libroController->inicio();
       break;
    case 'libros': 

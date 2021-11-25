@@ -52,13 +52,17 @@ class LibroController{
  
     function createLibro(){
         $this->helper->checkLogin();
-        if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png" ){
-            $this->model->insertLibro($_POST['autor'], $_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'], $_POST['id_categoria'], $_FILES['input_name']['tmp_name']);
+        if (isset($_POST['autor'], $_POST['nombre_libro'],$_POST['descripcion'], $_POST['precio'], $_POST['id_categoria'], $_FILES['input_name']['tmp_name'])){
+            if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png" ){
+                $this->model->insertLibro($_POST['autor'], $_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'], $_POST['id_categoria'], $_FILES['input_name']['tmp_name']);
+            }
+            else {
+                $this->model->insertLibro($_POST['autor'], $_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'], $_POST['id_categoria']);
+            }
+            $this->view->showLibroLocation();
+        } else {
+            $this->view->showLibroLocation();
         }
-        else {
-            $this->model->insertLibro($_POST['autor'], $_POST['nombre_libro'], $_POST['descripcion'], $_POST['precio'], $_POST['id_categoria']);
-        }
-        $this->view->showLibroLocation();
     }
 
     function agregarlibro(){
@@ -108,35 +112,43 @@ class LibroController{
              }
              */
             $file = ($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") ? $_FILES['input_name']['tmp_name'] : null;
-            
-            // if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png"){
-            // }else{
-            //     // $this->model->updateLibroFromDB($_POST['id'], $_POST['autor'],$_POST['nombre_libro'],$_POST['descripcion'],$_POST['precio'],$_POST['id_categoria']);
-            //     $file = null;
-            // }
+
             $this->model->updateLibroFromDB($_POST['id'], $_POST['autor'],$_POST['nombre_libro'],$_POST['descripcion'],$_POST['precio'],$_POST['id_categoria'],$file);
         }
         $this->view->showLibroLocation();
     }
 
     function searchAutor(){
-        $categorias = $this->modelCategoria->getGeneros();
-        $libros = $this->model->searchModelAutor($_POST['autorIn']);
-        $this->view->searchView($libros,$categorias);
+        if (!empty($_POST['autorIn']) && isset($_POST['autorIn'])){
+            $categorias = $this->modelCategoria->getGeneros();
+            $libros = $this->model->searchModelAutor($_POST['autorIn']);
+            $this->view->searchView($libros,$categorias);
+        } else {
+            $this->view->showLibroLocation();
+        }
     }
 
     function searchTitulo(){
-        $categorias = $this->modelCategoria->getGeneros();       
-        $libros = $this->model->searchModelTitulo($_POST['tituloIn']);
-        $this->view->searchView($libros,$categorias);
+        if (!empty($_POST['tituloIn']) && isset($_POST['tituloIn'])){
+            $categorias = $this->modelCategoria->getGeneros();
+            $libros = $this->model->searchModelTitulo($_POST['tituloIn']);
+            $this->view->searchView($libros,$categorias);
+        } else {
+            $this->view->showLibroLocation();
+        }     
     }
     function searchGenero(){
+        if (!empty($_POST['generoIn']) && isset($_POST['generoIn'])){
         $categorias = $this->modelCategoria->getGeneros();
         $libros = $this->model->searchModelGenero($_POST['generoIn']);
         $this->view->searchView($libros,$categorias);
+        } else {
+            $this->view->showLibroLocation();
+        }     
     }
 
     function inicio(){
+        $this->helper->checkLogin();
         $this->view->home();
     }
 

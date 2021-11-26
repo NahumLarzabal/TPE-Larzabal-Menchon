@@ -86,7 +86,8 @@ function limpiarCampos(){
 }
  
 
-async function insertComment(){
+async function insertComment(event){
+  event.preventDefault()
     let comment = campForm();
 
     console.log(comment);

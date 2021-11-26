@@ -41,9 +41,9 @@
                         </div>
                     </div>
                     <div class="btn-form-login mtt-2">
-                        <input type="submit" class="invitado btns-login btn btn-secondary" value="Invitado">
+                        <input type="submit" class="invitado btns-login btn btn-light" value="Invitado">
                         <input type="submit" class="btn mll-3 btn-primary" value="Login">
-                        <a class="btn btn-secondary btn-sm btn-create-user" href="createLogin">Registrarse</a>
+                        <a class="btn btn-success btn-sm btn-create-user" href="createLogin">Registrarse</a>
                     </div>
                     <h4><span class="red-alert">{$error}</span></h4>
                 </form>

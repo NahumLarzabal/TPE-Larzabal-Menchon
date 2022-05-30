@@ -2,16 +2,19 @@
 require_once "./Model/CategoriaModel.php";
 require_once "./View/CategoriaView.php";
 require_once "./helpers/authHelper.php";
+require_once "./Model/LibroModel.php";
 
 class CategoriaController{
 
     private $model;
     private $view;
     private $helper;
+    private $modelLibro;
 
 
     function __construct(){
         $this->helper = new AuthHelpers();
+        $this->modelLibro = new LibroModel();
         $this->model = new CategoriaModel();
         $this->view = new CategoriaView($this->helper->getNombre(),$this->helper->getRol());
     }
@@ -79,8 +82,13 @@ class CategoriaController{
     function deleteCategoria($id){
         $this->helper->checkLogin();
         if($this->helper->getRol()!="3"){
-            $this->model->deleteCategoriaFromDB($id);
-            $this->view->showCategoriasLocation();
+            $contador = $this->model->contadorCategoria($id);
+            if ($contador == NULL){
+                $this->model->deleteCategoriaFromDB($id);
+                $this->view->showCategoriasLocation();
+            } else {
+                $this->view->showCategoriasLocation();
+            } 
         }
         $this->view->showCategoriasLocation();
     }

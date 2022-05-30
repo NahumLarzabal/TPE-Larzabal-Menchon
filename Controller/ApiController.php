@@ -28,6 +28,7 @@ class ApiController{
         $bodyString = file_get_contents("php://input");
         return json_decode($bodyString);
     }
+    
     private function getBodySelect() {
         $bodyString = file_get_contents("php://option");
         return json_decode($bodyString);

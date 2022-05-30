@@ -54,19 +54,9 @@ class LibroModel{
 
     function updateLibroFromDB($id,$autor,$nombre_libro, $descripcion, $precio, $genero, $imagen=null){
         $pathImg = null;
-        // try{
-            // if ($imagen){
                 $pathImg = $this->uploadImage($imagen);
-                // var_dump($pathImg);
                 $sentencia = $this->db->prepare("UPDATE libros SET autor=?,nombre_libro=?,descripcion=?,precio=?,id_categoria=?,imagen=? WHERE libros.id =?");
-                // die();
                 $sentencia->execute(array($autor,$nombre_libro,$descripcion,$precio,$genero,$pathImg,$id));
-                // var_dump($sentencia);
-            // }
-        // } catch (Exception $e){
-        //     var_dump($e);
-        //     die();
-        // }
     }
     function insertEditLibro($id,$precio){
         $sentencia = $this->db->prepare("INSERT INTO libros (id,precio ) VALUES (?,?)");

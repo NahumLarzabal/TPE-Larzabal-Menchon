@@ -14,7 +14,6 @@ class CategoriaModel{
         return $categorias;
     }
 
-    
     function getGenero($id){
         $sentencia = $this->db->prepare("select * from categorias WHERE id_categoria=?");
         $sentencia->execute(array($id));
